@@ -156,6 +156,7 @@
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
           </ownedParameter>
         </ownedOperation>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="gelAll" methodType="//@compose.0/Entity%20Package/Movie"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="DIrectorDAOJPA">
         <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/Director">
@@ -216,6 +217,102 @@
       <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/DIrectorDAOJPA" supplier="//@compose.1/Persistence%20Package/DirectorDAO"/>
       <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/ActorDAOJPA" supplier="//@compose.1/Persistence%20Package/ActorDAO"/>
       <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/ReviewDAOJPA" supplier="//@compose.1/Persistence%20Package/ReviewDAO"/>
+    </packagedElement>
+  </compose>
+  <compose xsi:type="frameweb:NavigationModel" name="Navigation Model">
+    <packagedElement xsi:type="frameweb:ViewPackage" name="/static">
+      <packagedElement xsi:type="frameweb:Page" name="index">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.title">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic/movieFilter" association="//@compose.2/%2Fstatic/@packagedElement.3"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.rate">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic/registration"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic/registration" association="//@compose.2/%2Fstatic/@packagedElement.7"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="errorPage"/>
+      <packagedElement xsi:type="frameweb:UIComponent" name="movieFilter">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.title">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.actor.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.genre.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.director.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic/@packagedElement.3/@ownedEnd.0 //@compose.2/%2Fstatic/index/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic/index" association="//@compose.2/%2Fstatic/@packagedElement.3"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="registration">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic/registrationForm" association="//@compose.2/%2Fstatic/@packagedElement.6"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="user.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="registrationForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="user.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="user.email">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="user.password">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="repeatPassword">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic/@packagedElement.6/@ownedEnd.0 //@compose.2/%2Fstatic/registration/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic/registration" association="//@compose.2/%2Fstatic/@packagedElement.6"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic/@packagedElement.7/@ownedEnd.0 //@compose.2/%2Fstatic/index/@ownedAttribute.4">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic/index" association="//@compose.2/%2Fstatic/@packagedElement.7"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="com.ufes.inf.dwws.umdb.controller">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieController">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="movie" type="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="getAllMovies" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="filterMovies" methodType="//@compose.0/Entity%20Package/Movie"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="registrationController">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="user" type="//@compose.0/Entity%20Package/User"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="repeatPassword">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="register">
+          <methodType xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/index" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getAllMovies"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic/index" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getAllMovies" httpStatus="200">
+      <resultDependencyConstraint result="index.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic/errorPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getAllMovies">
+      <resultDependencyConstraint result="errorPage.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/movieFilter" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/filterMovies"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic/errorPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/filterMovies" httpStatus="">
+      <resultDependencyConstraint result="errorPage.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic/index" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/filterMovies">
+      <resultDependencyConstraint result="index.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/registrationForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/registrationController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/registrationController/register"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/registrationController" supplier="//@compose.2/%2Fstatic/errorPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/registrationController/register">
+      <resultDependencyConstraint result="errorPage.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/registrationController" supplier="//@compose.2/%2Fstatic/registration" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/registrationController/register">
+      <resultDependencyConstraint result="registration.xhtml"/>
     </packagedElement>
   </compose>
 </frameweb:FramewebProject>
