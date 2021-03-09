@@ -9,6 +9,9 @@
         <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="year" visibility="private" owlEquivalentProperty="" dateTimePrecision="date">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Date"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="averageRating" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/float"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Director">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="name" visibility="private" size="100">
@@ -156,7 +159,29 @@
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="gelAll" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAll" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="filter" methodType="//@compose.0/Entity%20Package/Movie">
+          <ownedParameter name="genre">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+          <ownedParameter name="director">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+          <ownedParameter name="actor">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+            <defaultValue xsi:type="uml:LiteralString" value=""/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/Entity%20Package/Movie">
+          <ownedParameter name="id">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/Entity%20Package/Movie">
+          <ownedParameter name="id">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
+          </ownedParameter>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="DIrectorDAOJPA">
         <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/Director">
@@ -267,7 +292,7 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="createReview">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic/reviewForm" association="//@compose.2/%2Fstatic/@packagedElement.5"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="reviewForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="rating">
@@ -277,8 +302,8 @@
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic/@packagedElement.5/@ownedEnd.0 //@compose.2/%2Fstatic/createReview/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic/createReview" association="//@compose.2/%2Fstatic/@packagedElement.5"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="com.ufes.inf.dwws.umdb.controller">
@@ -288,18 +313,18 @@
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/Entity%20Package/Movie"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/home" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" supplier="//@compose.2/%2Fstatic/home" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector">
       <resultDependencyConstraint result="home.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" supplier="//@compose.2/%2Fstatic/errorPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector">
       <resultDependencyConstraint result="error.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/home" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirectorAndReviews"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" supplier="//@compose.2/%2Fstatic/movie" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirectorAndReviews">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirectorAndReviews"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirectorAndReviews">
       <resultDependencyConstraint result="movie.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic/movie" supplier="//@compose.2/%2Fstatic/createReview">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
   </compose>
