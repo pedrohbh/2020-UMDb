@@ -219,4 +219,88 @@
       <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/ReviewDAOJPA" supplier="//@compose.1/Persistence%20Package/ReviewDAO"/>
     </packagedElement>
   </compose>
+  <compose xsi:type="frameweb:NavigationModel" name="Navigation Model">
+    <packagedElement xsi:type="frameweb:ViewPackage" name="/static">
+      <packagedElement xsi:type="frameweb:Page" name="home">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.title">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.averageRate">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.director.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.actors.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.genre.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="errorPage">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="errorMessage">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="movie">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.title">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.actors.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.genre.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.averageRate">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.director.name">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.reviews.rating">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.reviews.commentary">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Page" name="createReview">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic/reviewForm" association="//@compose.2/%2Fstatic/@packagedElement.5"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="reviewForm">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="rating">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="commentary">
+          <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic/@packagedElement.5/@ownedEnd.0 //@compose.2/%2Fstatic/createReview/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic/createReview" association="//@compose.2/%2Fstatic/@packagedElement.5"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="com.ufes.inf.dwws.umdb.controller">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="movieController">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="movie" type="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/Entity%20Package/Movie"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/home" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" supplier="//@compose.2/%2Fstatic/home" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector">
+      <resultDependencyConstraint result="home.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" supplier="//@compose.2/%2Fstatic/errorPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirector">
+      <resultDependencyConstraint result="error.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic/home" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirectorAndReviews"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController" supplier="//@compose.2/%2Fstatic/movie" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/movieController/getWithActorsAndGenresAndDirectorAndReviews">
+      <resultDependencyConstraint result="movie.xhtml"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic/movie" supplier="//@compose.2/%2Fstatic/createReview">
+      <pageDependencyConstraint/>
+    </packagedElement>
+  </compose>
 </frameweb:FramewebProject>
