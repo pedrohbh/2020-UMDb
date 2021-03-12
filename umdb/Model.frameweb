@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <frameweb:FramewebProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:frameweb="http://nemo.inf.ufes.br/projects/frameweb/FW-2015" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <compose xsi:type="frameweb:EntityModel" name="Entity Model">
-    <packagedElement xsi:type="frameweb:DomainPackage" name="Entity Package">
+    <packagedElement xsi:type="frameweb:DomainPackage" name="com.ufes.inf.dwws.umdb.domain">
       <packagedElement xsi:type="frameweb:DomainClass" name="Movie">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="title" visibility="private" size="100">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
@@ -28,41 +28,41 @@
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/Entity%20Package/has/Source //@compose.0/Entity%20Package/has/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/has/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/has/Target"/>
-        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/has"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Movie" association="//@compose.0/Entity%20Package/has">
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Genre" association="//@compose.0/Entity%20Package/has">
-          <lowerValue xsi:type="uml:LiteralInteger"/>
-          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
-        </ownedEnd>
-      </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/Entity%20Package/has.1/Source //@compose.0/Entity%20Package/has.1/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/has.1/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/has.1/Target"/>
-        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/has.1"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Movie" association="//@compose.0/Entity%20Package/has.1">
-          <lowerValue xsi:type="uml:LiteralInteger"/>
-          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
-        </ownedEnd>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Actor" association="//@compose.0/Entity%20Package/has.1">
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/Entity%20Package/has.2/Source //@compose.0/Entity%20Package/has.2/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/has.2/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/has.2/Target"/>
-        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/has.2"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Movie" association="//@compose.0/Entity%20Package/has.2">
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.1/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has.1/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.1/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.1/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.1"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.1">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Director" association="//@compose.0/Entity%20Package/has.2">
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.1">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.2/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has.2/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.2/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.2/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.2"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.2">
+          <lowerValue xsi:type="uml:LiteralInteger"/>
+          <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.2">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
@@ -90,24 +90,24 @@
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="post" memberEnd="//@compose.0/Entity%20Package/post/Source //@compose.0/Entity%20Package/post/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/post/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/post/Target"/>
-        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/post"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/User" association="//@compose.0/Entity%20Package/post"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Review" association="//@compose.0/Entity%20Package/post">
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="post" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/post/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/post/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/post/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/post/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/post"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/post"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Review" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/post">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/Entity%20Package/has.3/Source //@compose.0/Entity%20Package/has.3/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/has.3/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/has.3/Target"/>
-        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/has.3"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/Movie" association="//@compose.0/Entity%20Package/has.3">
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.3/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has.3/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.3/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.3/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.3"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.3">
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
         </ownedEnd>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Review" association="//@compose.0/Entity%20Package/has.3">
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Review" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.3">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
@@ -117,15 +117,15 @@
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/Entity%20Package/has.4/Source //@compose.0/Entity%20Package/has.4/Target">
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/Entity%20Package/has.4/Source"/>
-        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/Entity%20Package/has.4/Target"/>
-        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/Entity%20Package/has.4"/>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/Entity%20Package/User" association="//@compose.0/Entity%20Package/has.4">
+      <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has.4/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4/Target"/>
+        <ownedRule xsi:type="frameweb:VocabularyConstraints" name="Vocabulary Constraint" constrainedElement="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4"/>
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Source" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4">
           <lowerValue xsi:type="uml:LiteralInteger"/>
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
         </ownedEnd>
-        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/Entity%20Package/Role" association="//@compose.0/Entity%20Package/has.4">
+        <ownedEnd xsi:type="frameweb:DomainProperty" name="Target" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Role" association="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4">
           <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
         </ownedEnd>
       </packagedElement>
@@ -134,33 +134,33 @@
   <compose xsi:type="frameweb:PersistenceModel" name="Persistence Model">
     <packagedElement xsi:type="frameweb:PersistencePackage" name="com.ufes.inf.dwws.umdb.persistence">
       <packagedElement xsi:type="frameweb:DAOClass" name="MovieDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByID" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByID" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="id">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
             <defaultValue xsi:type="uml:LiteralString" value=""/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByGenre" methodType="//@compose.0/Entity%20Package/Movie" query="">
-          <ownedParameter name="genre" type="//@compose.0/Entity%20Package/Genre"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByGenre" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie" query="">
+          <ownedParameter name="genre" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre"/>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByActor" methodType="//@compose.0/Entity%20Package/Movie">
-          <ownedParameter name="actor" type="//@compose.0/Entity%20Package/Actor"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByActor" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
+          <ownedParameter name="actor" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor"/>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByDirector" methodType="//@compose.0/Entity%20Package/Movie">
-          <ownedParameter name="director" type="//@compose.0/Entity%20Package/Director"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByDirector" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
+          <ownedParameter name="director" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director"/>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="name">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithReviews" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithReviews" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="id">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAll" methodType="//@compose.0/Entity%20Package/Movie"/>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="filter" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAll" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="filter" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="genre">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
@@ -172,53 +172,53 @@
             <defaultValue xsi:type="uml:LiteralString" value=""/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="id">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="id">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="DIrectorDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/Director">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director">
           <ownedParameter name="name">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="GenreDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/Genre">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre">
           <ownedParameter name="name">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="ActorDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/Actor">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor">
           <ownedParameter name="name">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="UserDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/Entity%20Package/User">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByName" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/User">
           <ownedParameter name="name">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByEmail" methodType="//@compose.0/Entity%20Package/User">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getByEmail" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/User">
           <ownedParameter name="email">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="ReviewDAOJPA">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByUser" methodType="//@compose.0/Entity%20Package/Review">
-          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User"/>
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="getAllByUser" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Review">
+          <ownedParameter name="user" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DAOClass" name="RoleDAOJPA">
@@ -306,29 +306,29 @@
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="com.ufes.inf.dwws.umdb.controller">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="ActorController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="actor" type="//@compose.0/Entity%20Package/Actor"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="actor" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="create"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="get" methodType="//@compose.0/Entity%20Package/Actor"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="get" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="update"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="delete"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="GenreController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="genre" type="//@compose.0/Entity%20Package/Genre"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="genre" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="create"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="get" methodType="//@compose.0/Entity%20Package/Genre"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="get" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="update"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="delete"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="DirectorController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="director" type="//@compose.0/Entity%20Package/Director"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="director" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="create"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="get" methodType="//@compose.0/Entity%20Package/Director"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="get" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="update"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="delete"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="movie" type="//@compose.0/Entity%20Package/Movie"/>
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="review" type="//@compose.0/Entity%20Package/Review"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="movie" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="review" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Review"/>
         <ownedAttribute xsi:type="frameweb:IOParameter" name="titleToSearch">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
@@ -351,12 +351,12 @@
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="search"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="UserController">
-        <ownedAttribute xsi:type="frameweb:IOParameter" name="user" type="//@compose.0/Entity%20Package/User"/>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="user" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User"/>
         <ownedAttribute xsi:type="frameweb:IOParameter" name="repeatPassword">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="register" methodType="//@compose.0/Entity%20Package/User"/>
-        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="login" methodType="//@compose.0/Entity%20Package/User"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="register" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/User"/>
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="login" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/User"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Source //@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Target">
         <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Source"/>
@@ -618,8 +618,8 @@
     <packagedElement xsi:type="frameweb:ApplicationPackage" name="com.ufes.inf.dwws.umdb.application">
       <packagedElement xsi:type="frameweb:ServiceInterface" name="ActorService"/>
       <packagedElement xsi:type="frameweb:ServiceClass" name="ActorServiceBean">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Actor">
-          <ownedParameter name="autor" type="//@compose.0/Entity%20Package/Actor"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor">
+          <ownedParameter name="autor" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Actor"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/ActorServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/ActorService"/>
@@ -630,8 +630,8 @@
         <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ActorDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceClass" name="GenreServiceBean">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Genre">
-          <ownedParameter name="genre" type="//@compose.0/Entity%20Package/Genre"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre">
+          <ownedParameter name="genre" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Genre"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceInterface" name="GenreService"/>
@@ -643,20 +643,20 @@
         <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/GenreDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceClass" name="DirectorServiceBean">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Director">
-          <ownedParameter name="director" type="//@compose.0/Entity%20Package/Director"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director">
+          <ownedParameter name="director" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Director"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceInterface" name="DirectorService"/>
       <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/DirectorServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/DirectorService"/>
       <packagedElement xsi:type="frameweb:ServiceInterface" name="UserService"/>
       <packagedElement xsi:type="frameweb:ServiceClass" name="UserServiceBean">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="login" methodType="//@compose.0/Entity%20Package/User">
-          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="login" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/User">
+          <ownedParameter name="user" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User"/>
         </ownedOperation>
         <ownedOperation xsi:type="frameweb:ServiceMethod" name="updateUserRole">
-          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User" direction="return"/>
-          <ownedParameter name="role" type="//@compose.0/Entity%20Package/Role"/>
+          <ownedParameter name="user" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User" direction="return"/>
+          <ownedParameter name="role" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Role"/>
         </ownedOperation>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/UserServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/UserService"/>
@@ -673,17 +673,17 @@
         <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/DirectorDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:ServiceClass" name="MovieServiceBean">
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Movie">
-          <ownedParameter name="movie" type="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
+          <ownedParameter name="movie" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/Entity%20Package/Movie"/>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
         <ownedOperation xsi:type="frameweb:ServiceMethod" name="createReview">
-          <ownedParameter name="review" type="//@compose.0/Entity%20Package/Review"/>
-          <ownedParameter name="movie" type="//@compose.0/Entity%20Package/Movie"/>
-          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User"/>
+          <ownedParameter name="review" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Review"/>
+          <ownedParameter name="movie" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
+          <ownedParameter name="user" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/User"/>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="filter" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="filter" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="diretor">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
@@ -694,7 +694,7 @@
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="search" methodType="//@compose.0/Entity%20Package/Movie">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="search" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="termo">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
