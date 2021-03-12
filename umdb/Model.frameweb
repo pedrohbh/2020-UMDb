@@ -132,7 +132,7 @@
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:PersistenceModel" name="Persistence Model">
-    <packagedElement xsi:type="frameweb:PersistencePackage" name="Persistence Package">
+    <packagedElement xsi:type="frameweb:PersistencePackage" name="com.ufes.inf.dwws.umdb.persistence">
       <packagedElement xsi:type="frameweb:DAOClass" name="MovieDAOJPA">
         <ownedOperation xsi:type="frameweb:DAOMethod" name="getByID" methodType="//@compose.0/Entity%20Package/Movie">
           <ownedParameter name="id">
@@ -235,29 +235,29 @@
       <packagedElement xsi:type="frameweb:DAOInterface" name="UserDAO"/>
       <packagedElement xsi:type="frameweb:DAOInterface" name="ReviewDAO"/>
       <packagedElement xsi:type="frameweb:DAOInterface" name="RoleDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/MovieDAOJPA" supplier="//@compose.1/Persistence%20Package/MovieDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/GenreDAOJPA" supplier="//@compose.1/Persistence%20Package/GenreDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/UserDAOJPA" supplier="//@compose.1/Persistence%20Package/UserDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/RoleDAOJPA" supplier="//@compose.1/Persistence%20Package/RoleDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/DIrectorDAOJPA" supplier="//@compose.1/Persistence%20Package/DirectorDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/ActorDAOJPA" supplier="//@compose.1/Persistence%20Package/ActorDAO"/>
-      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/Persistence%20Package/ReviewDAOJPA" supplier="//@compose.1/Persistence%20Package/ReviewDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/MovieDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/MovieDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/GenreDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/GenreDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/UserDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/UserDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/RoleDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/RoleDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/DIrectorDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/DirectorDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ActorDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ActorDAO"/>
+      <packagedElement xsi:type="frameweb:DAORealization" client="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ReviewDAOJPA" supplier="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ReviewDAO"/>
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Navigation Model">
     <packagedElement xsi:type="frameweb:ViewPackage" name="/static/admin">
       <packagedElement xsi:type="frameweb:Page" name="createActor">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fadmin/actorForm" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.9"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="createGenre">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fadmin/genreForm" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.10"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="createDirector">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fadmin/directorForm" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.11"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="adminPage"/>
       <packagedElement xsi:type="frameweb:Page" name="createMovie">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fadmin/movieForm" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.12"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="actorForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="actor.name">
@@ -291,17 +291,17 @@
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFcore/metadata"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.9/@ownedEnd.0 //@compose.2/%2Fstatic%2Fadmin/createActor/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fadmin/createActor" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.9"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.10/@ownedEnd.0 //@compose.2/%2Fstatic%2Fadmin/createGenre/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fadmin/createGenre" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.10"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.11/@ownedEnd.0 //@compose.2/%2Fstatic%2Fadmin/createDirector/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fadmin/createDirector" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.11"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.12/@ownedEnd.0 //@compose.2/%2Fstatic%2Fadmin/createMovie/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fadmin/createMovie" association="//@compose.2/%2Fstatic%2Fadmin/@packagedElement.12"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="com.ufes.inf.dwws.umdb.controller">
@@ -358,44 +358,74 @@
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="register" methodType="//@compose.0/Entity%20Package/User"/>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="login" methodType="//@compose.0/Entity%20Package/User"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Source //@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5"/>
+        <ownedEnd name="Target" type="//@compose.3/com.ufes.inf.dwws.umdb.application/ActorService" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.5"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.6/Source //@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.6/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.6/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.6/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.6"/>
+        <ownedEnd name="Target" type="//@compose.3/com.ufes.inf.dwws.umdb.application/GenreService" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.6"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.7/Source //@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.7/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.7/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.7/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.7"/>
+        <ownedEnd name="Target" type="//@compose.3/com.ufes.inf.dwws.umdb.application/DirectorService" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.7"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.8/Source //@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.8/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.8/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.8/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.8"/>
+        <ownedEnd name="Target" type="//@compose.3/com.ufes.inf.dwws.umdb.application/UserService" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.8"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceControllerAssociation" memberEnd="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.9/Source //@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.9/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.9/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.9/Target"/>
+        <ownedEnd name="Source" type="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.9"/>
+        <ownedEnd name="Target" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieService" association="//@compose.2/com.ufes.inf.dwws.umdb.controller/@packagedElement.9"/>
+      </packagedElement>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fadmin/adminPage" supplier="//@compose.2/%2Fstatic%2Fadmin/createActor">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fadmin/adminPage" supplier="//@compose.2/%2Fstatic%2Fadmin/createGenre">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fadmin/adminPage" supplier="//@compose.2/%2Fstatic%2Fadmin/createDirector">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fadmin/adminPage" supplier="//@compose.2/%2Fstatic%2Fadmin/createMovie">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.2/%2Fstatic%2Fadmin/actorForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/create"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.2/%2Fstatic%2Fadmin/genreForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/create"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.2/%2Fstatic%2Fadmin/directorForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/create"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" supplier="//@compose.2/%2Fstatic%2Fadmin/adminPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/create">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/create"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/create"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/create"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/create">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" supplier="//@compose.2/%2Fstatic%2Fadmin/adminPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/create">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/create">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" supplier="//@compose.2/%2Fstatic%2Fadmin/adminPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/create" httpStatus="">
+    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/create" httpStatus="">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/actorForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/update"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createActor" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/delete"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/genreForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/update"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createGenre" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/delete"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/directorForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/update"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createDirector" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/delete"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/update"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/delete"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/update"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/delete"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/update"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/delete"/>
     <packagedElement xsi:type="frameweb:ViewPackage" name="/static/public">
       <packagedElement xsi:type="frameweb:Page" name="signup">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/signupForm"/>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/signupForm" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.10"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="login">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/loginForm" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.11"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="movieDetails">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.title">
@@ -419,7 +449,7 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="movie.reviews.commentary">
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/searchForm"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="home">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="movies.title">
@@ -437,15 +467,15 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="movies.genres.name">
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/filterForm"/>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/searchForm" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.13"/>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/filterForm" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.14"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Page" name="createReview">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="errorMessage">
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/outputText"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/reviewForm" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.12"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="signupForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="name">
@@ -460,7 +490,7 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="repeatPassword">
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputSecret"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.2/%2Fstatic%2Fpublic/signup"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="loginForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="password">
@@ -494,95 +524,226 @@
           <type xsi:type="frameweb:Tag" href="frameweb/spring_boot/Jsf.frameweb#//@configures.0/JSFhtml/inputText"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.10/@ownedEnd.0 //@compose.2/%2Fstatic%2Fpublic/signup/@ownedAttribute.1">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fpublic/signup" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.10"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.11/@ownedEnd.0 //@compose.2/%2Fstatic%2Fpublic/login/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fpublic/login" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.11"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.12/@ownedEnd.0 //@compose.2/%2Fstatic%2Fpublic/createReview/@ownedAttribute.1">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fpublic/createReview" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.12"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.13/@ownedEnd.0 //@compose.2/%2Fstatic%2Fpublic/home/@ownedAttribute.6">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fpublic/home" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.13"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.14/@ownedEnd.0 //@compose.2/%2Fstatic%2Fpublic/home/@ownedAttribute.7">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.2/%2Fstatic%2Fpublic/home" association="//@compose.2/%2Fstatic%2Fpublic/@packagedElement.14"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/movieForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/create"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/movieForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/update"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createMovie" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/delete"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fadmin/adminPage" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/create">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/create"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/update"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/delete"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/create">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fpublic/movieDetails" supplier="//@compose.2/%2Fstatic%2Fpublic/createReview">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fpublic/home" supplier="//@compose.2/%2Fstatic%2Fpublic/login">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fpublic/home" supplier="//@compose.2/%2Fstatic%2Fpublic/signup">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fpublic/home" supplier="//@compose.2/%2Fstatic%2Fadmin/adminPage">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fpublic/loginForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/login"/>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fpublic/signup" supplier="//@compose.2/%2Fstatic%2Fpublic/login">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/login"/>
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:PageDependency" client="//@compose.2/%2Fstatic%2Fpublic/login" supplier="//@compose.2/%2Fstatic%2Fpublic/signup">
+    <packagedElement xsi:type="frameweb:PageDependency">
       <pageDependencyConstraint/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" supplier="//@compose.2/%2Fstatic%2Fpublic/login" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/login">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/login">
       <resultDependencyConstraint result="login.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" supplier="//@compose.2/%2Fstatic%2Fpublic/signup" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/register">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/register">
       <resultDependencyConstraint result="signup.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" supplier="//@compose.2/%2Fstatic%2Fpublic/home" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/login">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/login">
       <resultDependencyConstraint result="home.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" supplier="//@compose.2/%2Fstatic%2Fpublic/home" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/register">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/register">
       <resultDependencyConstraint result="home.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fpublic/home" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirector"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fpublic/home" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirectorAndReviews"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.2/%2Fstatic%2Fpublic/filterForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/filter"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.2/%2Fstatic%2Fpublic/reviewForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/createReview"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fpublic/searchForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/search"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fpublic/home" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirector">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirector"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirectorAndReviews"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/filter"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/createReview"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/search"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirector">
       <resultDependencyConstraint result="home.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fpublic/home" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/search">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/search">
       <resultDependencyConstraint result="home.xthml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fpublic/home">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController">
       <resultDependencyConstraint result="home.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fpublic/movieDetails" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirectorAndReviews">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/getWithActorsAndGenresAndDirectorAndReviews">
       <resultDependencyConstraint result="movie.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fpublic/createReview" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/createReview">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/createReview">
       <resultDependencyConstraint result="createReview.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" supplier="//@compose.2/%2Fstatic%2Fpublic/movieDetails" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/createReview">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/MovieController/createReview">
       <resultDependencyConstraint result="movie.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fpublic/signupForm" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/register"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createMovie" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/get"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createMovie" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/get"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.2/%2Fstatic%2Fadmin/createMovie" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/get"/>
-    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" supplier="//@compose.2/%2Fstatic%2Fadmin/createMovie" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/get">
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/UserController/register"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/get"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/get"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" method="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/get"/>
+    <packagedElement xsi:type="frameweb:ResultDependency" name="" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController/get">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" supplier="//@compose.2/%2Fstatic%2Fadmin/createMovie" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/get">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/GenreController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/DirectorController/get">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
-    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" supplier="//@compose.2/%2Fstatic%2Fadmin/createMovie" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/get">
+    <packagedElement xsi:type="frameweb:ResultDependency" client="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController" resultMethod="//@compose.2/com.ufes.inf.dwws.umdb.controller/ActorController/get">
       <resultDependencyConstraint result="adminPage.xhtml"/>
     </packagedElement>
   </compose>
-  <compose xsi:type="frameweb:ApplicationModel" name="Application Model"/>
+  <compose xsi:type="frameweb:ApplicationModel" name="Application Model">
+    <packagedElement xsi:type="frameweb:ApplicationPackage" name="com.ufes.inf.dwws.umdb.application">
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="ActorService"/>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="ActorServiceBean">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Actor">
+          <ownedParameter name="autor" type="//@compose.0/Entity%20Package/Actor"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/ActorServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/ActorService"/>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/ActorServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ActorDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.3"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="GenreServiceBean">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Genre">
+          <ownedParameter name="genre" type="//@compose.0/Entity%20Package/Genre"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="GenreService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/GenreServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/GenreService"/>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/GenreServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/GenreDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.7"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="DirectorServiceBean">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Director">
+          <ownedParameter name="director" type="//@compose.0/Entity%20Package/Director"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="DirectorService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/DirectorServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/DirectorService"/>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="UserService"/>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="UserServiceBean">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="login" methodType="//@compose.0/Entity%20Package/User">
+          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User"/>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="updateUserRole">
+          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User" direction="return"/>
+          <ownedParameter name="role" type="//@compose.0/Entity%20Package/Role"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/UserServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/UserService"/>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.14/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.14/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.14/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.14/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/UserServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.14"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/UserDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.14"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/DirectorServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/DirectorDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.15"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceClass" name="MovieServiceBean">
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/Entity%20Package/Movie">
+          <ownedParameter name="movie" type="//@compose.0/Entity%20Package/Movie"/>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/Entity%20Package/Movie"/>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="createReview">
+          <ownedParameter name="review" type="//@compose.0/Entity%20Package/Review"/>
+          <ownedParameter name="movie" type="//@compose.0/Entity%20Package/Movie"/>
+          <ownedParameter name="user" type="//@compose.0/Entity%20Package/User"/>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="filter" methodType="//@compose.0/Entity%20Package/Movie">
+          <ownedParameter name="diretor">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+          <ownedParameter name="ator">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+          <ownedParameter name="genero">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xsi:type="frameweb:ServiceMethod" name="search" methodType="//@compose.0/Entity%20Package/Movie">
+          <ownedParameter name="termo">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:ServiceInterface" name="MovieService"/>
+      <packagedElement xsi:type="frameweb:ServiceRealization" client="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" supplier="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieService"/>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.19/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.19/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.19/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.19/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.19"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/MovieDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.19"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.20/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.20/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.20/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.20/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.20"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ReviewDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.20"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.21/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.21/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.21/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.21/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/UserServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.21"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/RoleDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.21"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.22/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.22/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.22/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.22/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.22"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/GenreDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.22"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.23/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.23/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.23/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.23/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.23"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/DirectorDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.23"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.24/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.24/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.24/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.24/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.24"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/UserDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.24"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:DAOServiceAssociation" memberEnd="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.25/Source //@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.25/Target">
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Source Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.25/Source"/>
+        <ownedRule xsi:type="frameweb:DomainConstraints" name="Target Constraint" constrainedElement="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.25/Target"/>
+        <ownedEnd name="Source" type="//@compose.3/com.ufes.inf.dwws.umdb.application/MovieServiceBean" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.25"/>
+        <ownedEnd name="Target" type="//@compose.1/com.ufes.inf.dwws.umdb.persistence/ActorDAO" association="//@compose.3/com.ufes.inf.dwws.umdb.application/@packagedElement.25"/>
+      </packagedElement>
+    </packagedElement>
+  </compose>
 </frameweb:FramewebProject>
