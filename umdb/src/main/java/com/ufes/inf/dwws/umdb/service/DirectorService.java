@@ -19,7 +19,7 @@ public class DirectorService {
     }
 
     public Director saveDirector(String name){
-        List<Director> d = this.directorRepository.findByNameContaining(name);
+        List<Director> d = this.directorRepository.findByName(name);
 
         if (!d.isEmpty()) {
             return null;
