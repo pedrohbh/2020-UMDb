@@ -12,5 +12,6 @@ import java.util.List;
 public interface DirectorRepository extends PagingAndSortingRepository<Director, Long>, JpaRepository<Director, Long> {
     List<Director> findByNameContaining(@Param("name") String name);
 
+
 }
 

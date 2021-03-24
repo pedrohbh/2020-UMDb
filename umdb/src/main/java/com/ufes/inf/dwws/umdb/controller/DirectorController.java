@@ -23,7 +23,12 @@ public class DirectorController {
     @ResponseBody
     public ResponseEntity<Object> saveDirector (@RequestBody Director director) {
         Director d = this.directorService.saveDirector(director.getName());
-        return new ResponseEntity<>(d, HttpStatus.OK);
+
+        if (d != null) {
+            return new ResponseEntity<>(d, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Já existe um diretor cadastrado com esse nome!", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/api/director")
@@ -31,4 +36,42 @@ public class DirectorController {
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.directorService.findAll(),HttpStatus.OK);
     }
+
+    @GetMapping("/api/director/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> findDirector(@PathVariable Long id) {
+        Director d = this.directorService.findDirectorById(id);
+
+        if (d != null) {
+            return new ResponseEntity<>(d, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/api/director/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> deleteDirector (@PathVariable Long id) {
+        Director d = this.directorService.deleteDirectorById(id);
+
+        if (d != null) {
+            return new ResponseEntity<>(d, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/api/director/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> updateDirector (@RequestBody Director director, @PathVariable Long id) {
+        Director d = this.directorService.updateDirectorById(id, director.getName());
+
+        if (d != null) {
+            return new ResponseEntity<>(d, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 }
