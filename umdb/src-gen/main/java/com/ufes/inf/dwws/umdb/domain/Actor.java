@@ -34,7 +34,7 @@ public class Actor implements Serializable {
 
 
 
-		
+
 		@ManyToMany(mappedBy="Target")
 		private Set<Movie> Source;
 		
@@ -58,7 +58,7 @@ public class Actor implements Serializable {
 
 
 
-		
+
 		public Set<Movie> getSource() {
 			return Source;
 		}
