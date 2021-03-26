@@ -64,7 +64,7 @@ public class UserController {
     @PutMapping("/api/user/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateUser (@RequestBody User user, @PathVariable Long id) {
-        User d = this.userService.updateUserById(id, user.getName(), user.getEmail(), user.getPassword());
+        User d = this.userService.updateUserById(id, user.getName(), user.getEmail(), user.getPassword(), user.getRole().getName());
 
         if (d != null) {
             return new ResponseEntity<>(d, HttpStatus.OK);

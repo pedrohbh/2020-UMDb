@@ -19,11 +19,12 @@ public class User {
     @Column(nullable = true)
     private Date registrationDate;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, Role role) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.registrationDate = new Date();
+        this.role = role;
     }
     public User() { }
 
@@ -44,5 +45,4 @@ public class User {
 
     public Date getDate() { return registrationDate; }
     public void setDate(Date registrationDate) { this.registrationDate = registrationDate; }
-
 }
