@@ -6,7 +6,7 @@ import com.ufes.inf.dwws.umdb.persistence.UserRepository;
 import com.ufes.inf.dwws.umdb.persistence.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.ufes.inf.dwws.umdb.security.WebSecurityConfig;
+//import com.ufes.inf.dwws.umdb.security.WebSecurityConfig;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
@@ -21,9 +21,10 @@ public class UserService {
 
     @Autowired
     RoleRepository roleRepository;
-
-    @Autowired
-    PasswordEncoder passwordEncoder = new WebSecurityConfig().encoder();
+//    TODO
+//    @Autowired
+//    WebSecurityConfig webSecurityConfig = new WebSecurityConfig();
+//    PasswordEncoder passwordEncoder = webSecurityConfig.encoder();
 
     public UserService (UserRepository userRepository){
         this.userRepository = userRepository;
@@ -36,7 +37,7 @@ public class UserService {
         if (!d.isEmpty()) {
             return null;
         } else {
-            return this.userRepository.save(new User(name, email, passwordEncoder.encode(password), role));
+            return this.userRepository.save(new User(name, email, password, role));
         }
     }
 
