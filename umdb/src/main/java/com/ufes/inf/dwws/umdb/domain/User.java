@@ -2,6 +2,7 @@ package com.ufes.inf.dwws.umdb.domain;
 import javax.persistence.*;
 import com.ufes.inf.dwws.umdb.domain.Role;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User {
@@ -18,6 +19,9 @@ public class User {
     private String password;
     @Column(nullable = true)
     private Date registrationDate;
+
+    @OneToMany
+    List<Review> reviewList;
 
     public User(String name, String email, String password, Role role) {
         this.name = name;
@@ -45,4 +49,7 @@ public class User {
 
     public Date getDate() { return registrationDate; }
     public void setDate(Date registrationDate) { this.registrationDate = registrationDate; }
+
+    public List<Review> getReviewList() { return reviewList; }
+    public void setReview(List<Review> reviewList) { this.reviewList = reviewList; }
 }

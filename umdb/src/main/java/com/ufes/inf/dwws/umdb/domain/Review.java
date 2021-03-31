@@ -13,6 +13,11 @@ public class Review {
     @Column(nullable = true)
     private String commentary;
 
+    @ManyToOne
+    private User user;
+    @ManyToOne
+    private Movie movie;
+
     public Review(int rating, String commentary){
         this.rating = rating;
         this.commentary = commentary;
@@ -39,6 +44,13 @@ public class Review {
     public void setCommentary(String commentary) {
         this.commentary = commentary;
     }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
+
+    public Movie getMovie() { return movie; }
+    public void setMovie(Movie movie) { this.movie = movie; }
+
 
 
 }
