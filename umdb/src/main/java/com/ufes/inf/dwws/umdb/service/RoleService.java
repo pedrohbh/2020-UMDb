@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.List;
 
 @Component
-public class RoleService {
+public class RoleService  {
 
     @Autowired
     RoleRepository roleRepository;
@@ -19,9 +19,9 @@ public class RoleService {
     }
 
     public Role saveRole(String name){
-        List<Role> d = this.roleRepository.findByName(name);
+        Role d = this.roleRepository.findByName(name);
 
-        if (!d.isEmpty()) {
+        if (d == null) {
             return null;
         } else {
             return this.roleRepository.save(new Role(name));

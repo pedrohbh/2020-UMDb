@@ -11,7 +11,9 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
 public interface UserRepository extends PagingAndSortingRepository<User, Long>, JpaRepository<User, Long> {
     List<User> findByNameContaining(@Param("name") String name);
-    List<User> findByName(@Param("name") String name);
-    List<User> findByEmail(@Param("email") String email);
+    User findByName(@Param("name") String name);
+    User findByEmail(@Param("email") String email);
+
+
 }
 

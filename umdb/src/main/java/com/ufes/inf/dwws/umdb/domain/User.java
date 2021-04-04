@@ -3,9 +3,13 @@ import javax.persistence.*;
 import com.ufes.inf.dwws.umdb.domain.Role;
 import java.util.Date;
 import java.util.List;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.*;
 
 @Entity
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +28,7 @@ public class User {
     List<Review> reviewList;
 
     public User(String name, String email, String password, Role role) {
+        super();
         this.name = name;
         this.email = email;
         this.password = password;
@@ -38,10 +43,52 @@ public class User {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<Role> roles = new ArrayList<>();
+        roles.add(this.getRole());
+
+        return roles;
+    }
+
     public String getPassword() { return password; }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
     public void setPassword(String password) { this.password = password; }
 
-    public Role getRole() { return role; }
+    public List<String> getRoles() {
+        List<String> r = new LinkedList<>();
+        r.add(role.getName());
+        return r;
+    }
+
+    public Role getRole(){
+        return role;
+    }
     public void setRole(Role role) { this.role = role; }
 
     public String getEmail() { return email; }

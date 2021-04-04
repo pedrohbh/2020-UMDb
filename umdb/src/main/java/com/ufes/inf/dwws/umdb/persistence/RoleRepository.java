@@ -11,7 +11,7 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "role", path = "role")
 public interface RoleRepository extends PagingAndSortingRepository<Role, Long>, JpaRepository<Role, Long> {
     List<Role> findByNameContaining(@Param("name") String name);
-    List<Role> findByName(@Param("name") String name);
+    Role findByName(@Param("name") String name);
 
 
 }

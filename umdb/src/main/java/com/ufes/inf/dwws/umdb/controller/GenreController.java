@@ -19,7 +19,7 @@ public class GenreController {
         this.genreService = genreService;
     }
 
-    @PostMapping("/api/genre")
+    @PostMapping("/api/admin/genre")
     @ResponseBody
     public ResponseEntity<Object> saveGenre (@RequestBody Genre genre) {
         Genre d = this.genreService.saveGenre(genre.getName());
@@ -31,13 +31,13 @@ public class GenreController {
         }
     }
 
-    @GetMapping("/api/genre")
+    @GetMapping("/api/open/genre")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.genreService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/api/genre/{id}")
+    @GetMapping("/api/open/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> findGenre(@PathVariable Long id) {
         Genre d = this.genreService.findGenreById(id);
@@ -49,7 +49,7 @@ public class GenreController {
         }
     }
 
-    @DeleteMapping("/api/genre/{id}")
+    @DeleteMapping("/api/admin/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteGenre (@PathVariable Long id) {
         Genre d = this.genreService.deleteGenreById(id);
@@ -61,7 +61,7 @@ public class GenreController {
         }
     }
 
-    @PutMapping("/api/genre/{id}")
+    @PutMapping("/api/admin/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateGenre (@RequestBody Genre genre, @PathVariable Long id) {
         Genre d = this.genreService.updateGenreById(id, genre.getName());
@@ -72,6 +72,5 @@ public class GenreController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
 
 }

@@ -19,7 +19,7 @@ public class ActorController {
         this.actorService = actorService;
     }
 
-    @PostMapping("/api/actor")
+    @PostMapping("/api/admin/actor")
     @ResponseBody
     public ResponseEntity<Object> saveActor (@RequestBody Actor actor) {
         Actor d = this.actorService.saveActor(actor.getName());
@@ -31,13 +31,13 @@ public class ActorController {
         }
     }
 
-    @GetMapping("/api/actor")
+    @GetMapping("/api/open/actor")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.actorService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/api/actor/{id}")
+    @GetMapping("/api/open/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> findActor(@PathVariable Long id) {
         Actor d = this.actorService.findActorById(id);
@@ -49,7 +49,7 @@ public class ActorController {
         }
     }
 
-    @DeleteMapping("/api/actor/{id}")
+    @DeleteMapping("/api/admin/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteActor (@PathVariable Long id) {
         Actor d = this.actorService.deleteActorById(id);
@@ -61,7 +61,7 @@ public class ActorController {
         }
     }
 
-    @PutMapping("/api/actor/{id}")
+    @PutMapping("/api/admin/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateActor (@RequestBody Actor actor, @PathVariable Long id) {
         Actor d = this.actorService.updateActorById(id, actor.getName());
@@ -72,6 +72,4 @@ public class ActorController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
-
 }
