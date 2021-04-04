@@ -19,7 +19,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @PostMapping("/api/movie")
+    @PostMapping("/api/admin/movie")
     @ResponseBody
     public ResponseEntity<Object> saveMovie (@RequestBody Movie movie) {
         Movie d = this.movieService.saveMovie(movie.getName(), movie.getYear());
@@ -31,13 +31,13 @@ public class MovieController {
         }
     }
 
-    @GetMapping("/api/movie")
+    @GetMapping("/api/open/movie")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.movieService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/api/movie/{id}")
+    @GetMapping("/api/open/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> findMovie(@PathVariable Long id) {
         Movie d = this.movieService.findMovieById(id);
@@ -49,7 +49,7 @@ public class MovieController {
         }
     }
 
-    @DeleteMapping("/api/movie/{id}")
+    @DeleteMapping("/api/admin/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteMovie (@PathVariable Long id) {
         Movie d = this.movieService.deleteMovieById(id);
@@ -61,7 +61,7 @@ public class MovieController {
         }
     }
 
-    @PutMapping("/api/movie/{id}")
+    @PutMapping("/api/admin/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateMovie (@RequestBody Movie movie, @PathVariable Long id) {
         Movie d = this.movieService.updateMovieById(id, movie.getName(), movie.getYear());
@@ -72,6 +72,5 @@ public class MovieController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
-
+    
 }

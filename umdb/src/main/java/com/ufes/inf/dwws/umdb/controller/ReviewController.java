@@ -1,9 +1,11 @@
 package com.ufes.inf.dwws.umdb.controller;
 
 import com.ufes.inf.dwws.umdb.domain.Review;
+import com.ufes.inf.dwws.umdb.domain.User;
 import com.ufes.inf.dwws.umdb.service.ReviewService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,7 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-    @PostMapping("/api/review")
+    @PostMapping("/api/close/review")
     @ResponseBody
     public ResponseEntity<Object> saveReview (@RequestBody Review review) {
         Review d = this.reviewService.saveReview(review.getRating(), review.getCommentary());
@@ -31,13 +33,13 @@ public class ReviewController {
         }
     }
 
-    @GetMapping("/api/review")
+    @GetMapping("/api/open/review")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.reviewService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/api/review/{id}")
+    @GetMapping("/api/open/review/{id}")
     @ResponseBody
     public ResponseEntity<Object> findReview(@PathVariable Long id) {
         Review d = this.reviewService.findReviewById(id);
@@ -49,15 +51,20 @@ public class ReviewController {
         }
     }
 
-    @DeleteMapping("/api/review/{id}")
+    @DeleteMapping("/api/close/review/{id}")
     @ResponseBody
-    public ResponseEntity<Object> deleteReview (@PathVariable Long id) {
+    public ResponseEntity<Object> deleteReview (@PathVariable Long id, @AuthenticationPrincipal User userDetails) {
         Review d = this.reviewService.deleteReviewById(id);
+        if (userDetails.getRole().getName().equals("ROLE_ADMIN") || userDetails.getId().equals(d.getUser().getId())) {
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            if (d != null) {
+                return new ResponseEntity<>(d, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Internal server error", HttpStatus.BAD_REQUEST);
+            }
+        }else{
+            return new ResponseEntity<>("internal server error", HttpStatus.BAD_REQUEST);
         }
+
     }
 }
