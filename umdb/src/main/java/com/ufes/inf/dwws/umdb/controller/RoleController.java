@@ -19,7 +19,7 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @PostMapping("/api/role")
+    @PostMapping("/api/admin/role")
     @ResponseBody
     public ResponseEntity<Object> saveRole (@RequestBody Role role) {
         Role d = this.roleService.saveRole(role.getName());
@@ -31,13 +31,13 @@ public class RoleController {
         }
     }
 
-    @GetMapping("/api/opened/role")
+    @GetMapping("/api/admin/role")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.roleService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/api/role/{id}")
+    @GetMapping("/api/admin/role/{id}")
     @ResponseBody
     public ResponseEntity<Object> findRole(@PathVariable Long id) {
         Role d = this.roleService.findRoleById(id);
@@ -49,7 +49,7 @@ public class RoleController {
         }
     }
 
-    @DeleteMapping("/api/role/{id}")
+    @DeleteMapping("/api/admin/role/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteRole (@PathVariable Long id) {
         Role d = this.roleService.deleteRoleById(id);
@@ -61,7 +61,7 @@ public class RoleController {
         }
     }
 
-    @PutMapping("/api/role/{id}")
+    @PutMapping("/api/admin/role/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateRole (@RequestBody Role role, @PathVariable Long id) {
         Role d = this.roleService.updateRoleById(id, role.getName());
@@ -72,6 +72,4 @@ public class RoleController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
-
 }
