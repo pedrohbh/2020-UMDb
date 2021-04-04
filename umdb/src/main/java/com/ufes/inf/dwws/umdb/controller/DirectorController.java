@@ -19,7 +19,7 @@ public class DirectorController {
         this.directorService = directorService;
     }
 
-    @PostMapping("/api/director")
+    @PostMapping("/api/admin/director")
     @ResponseBody
     public ResponseEntity<Object> saveDirector (@RequestBody Director director) {
         Director d = this.directorService.saveDirector(director.getName());
@@ -31,13 +31,13 @@ public class DirectorController {
         }
     }
 
-    @GetMapping("/api/director")
+    @GetMapping("/api/open/director")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.directorService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/api/director/{id}")
+    @GetMapping("/api/open/director/{id}")
     @ResponseBody
     public ResponseEntity<Object> findDirector(@PathVariable Long id) {
         Director d = this.directorService.findDirectorById(id);
@@ -49,7 +49,7 @@ public class DirectorController {
         }
     }
 
-    @DeleteMapping("/api/director/{id}")
+    @DeleteMapping("/api/admin/director/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteDirector (@PathVariable Long id) {
         Director d = this.directorService.deleteDirectorById(id);
@@ -61,7 +61,7 @@ public class DirectorController {
         }
     }
 
-    @PutMapping("/api/director/{id}")
+    @PutMapping("/api/admin/director/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateDirector (@RequestBody Director director, @PathVariable Long id) {
         Director d = this.directorService.updateDirectorById(id, director.getName());
@@ -72,6 +72,4 @@ public class DirectorController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
-
 }
