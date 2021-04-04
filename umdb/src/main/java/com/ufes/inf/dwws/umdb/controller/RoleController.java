@@ -31,7 +31,7 @@ public class RoleController {
         }
     }
 
-    @GetMapping("/api/role")
+    @GetMapping("/api/opened/role")
     @ResponseBody
     public ResponseEntity<List> findAll () {
         return new ResponseEntity<>(this.roleService.findAll(),HttpStatus.OK);
