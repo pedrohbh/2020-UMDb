@@ -63,7 +63,7 @@ public class ReviewController {
                 return new ResponseEntity<>("Internal server error", HttpStatus.BAD_REQUEST);
             }
         }else{
-            return new ResponseEntity<>("internal server error", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Internal server error", HttpStatus.BAD_REQUEST);
         }
 
     }

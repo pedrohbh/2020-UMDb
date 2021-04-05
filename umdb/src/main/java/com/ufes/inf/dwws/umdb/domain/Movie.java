@@ -21,28 +21,31 @@ public class Movie {
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Genre_id")
     )
-    private List<Genre> genreList;
+    private List<Genre> genres;
     @ManyToMany
     @JoinTable(
             name = "Movie_Actor",
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Actor_id")
     )
-    private List<Actor> actorList;
+    private List<Actor> actors;
     @ManyToMany
     @JoinTable(
             name = "Movie_Director",
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Director_id")
     )
-    private List<Director> directorList;
+    private List<Director> directors;
     @OneToMany
-    private List<Review> reviewList;
+    private List<Review> reviews;
 
 
-    public Movie(String name, int year) {
+    public Movie(String name, int year, List<Genre> genres, List<Actor> actors, List<Director> directors) {
         this.name = name;
         this.year = year;
+        this.genres = genres;
+        this.actors = actors;
+        this.directors = directors;
     }
     public Movie() {}
 
@@ -74,31 +77,31 @@ public class Movie {
         this.averageRating = averageRating;
     }
 
-    public List<Genre> getGenreList() {
-        return genreList;
+    public List<Genre> getGenres() {
+        return genres;
     }
-    public void setGenreList(List<Genre> genreList) {
-        this.genreList = genreList;
-    }
-
-    public List<Actor> getActorList() {
-        return actorList;
-    }
-    public void setActorList(List<Actor> actorList) {
-        this.actorList = actorList;
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 
-    public List<Director> getDirectorList() {
-        return directorList;
+    public List<Actor> getActors() {
+        return actors;
     }
-    public void setDirectorList(List<Director> directorList) {
-        this.directorList = directorList;
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
     }
 
-    public List<Review> getReviewList() {
-        return reviewList;
+    public List<Director> getDirectors() {
+        return directors;
     }
-    public void setReviewList(List<Review> reviewList) {
-        this.reviewList = reviewList;
+    public void setDirectors(List<Director> directors) {
+        this.directors = directors;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

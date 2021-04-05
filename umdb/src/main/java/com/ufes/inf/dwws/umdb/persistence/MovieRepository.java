@@ -17,7 +17,7 @@ public interface MovieRepository extends PagingAndSortingRepository<Movie, Long>
     List<Movie> findByNameContaining(@Param("name") String name);
     List<Movie> findByName(@Param("name") String name);
     List<Movie> findByYear(@Param("year") int year);
-//    List<Movie> findByGenre(@Param("genreList") Genre genre);
-//    List<Movie> findByDirector(@Param("directorList") Director director);
-//    List<Movie> findByActor(@Param("actorList") Actor actor);
+    List<Movie> findByGenres(Genre genre);
+    List<Movie> findByDirectors(Director director);
+    List<Movie> findByActors(Actor actor);
 }

@@ -22,7 +22,7 @@ public class MovieController {
     @PostMapping("/api/admin/movie")
     @ResponseBody
     public ResponseEntity<Object> saveMovie (@RequestBody Movie movie) {
-        Movie d = this.movieService.saveMovie(movie.getName(), movie.getYear());
+        Movie d = this.movieService.saveMovie(movie.getName(), movie.getYear(), movie.getGenres(), movie.getActors(), movie.getDirectors());
 
         if (d != null) {
             return new ResponseEntity<>(d, HttpStatus.OK);
@@ -68,6 +68,42 @@ public class MovieController {
 
         if (d != null) {
             return new ResponseEntity<>(d, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/api/open/movie/genre/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> findMoviebyGenre(@PathVariable Long id) {
+        List<Movie> m = this.movieService.findAllByGenre(id);
+
+        if (m != null) {
+            return new ResponseEntity<>(m, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/api/open/movie/actor/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> findMoviebyActor(@PathVariable Long id) {
+        List<Movie> m = this.movieService.findAllByActor(id);
+
+        if (m != null) {
+            return new ResponseEntity<>(m, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/api/open/movie/director/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> findMoviebyDirector(@PathVariable Long id) {
+        List<Movie> m = this.movieService.findAllByDirector(id);
+
+        if (m != null) {
+            return new ResponseEntity<>(m, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

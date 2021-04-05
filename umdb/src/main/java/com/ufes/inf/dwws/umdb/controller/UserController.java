@@ -100,7 +100,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("api/open/login")
+    @PostMapping("/api/open/login")
     @ResponseBody
     public ResponseEntity login(@RequestBody User user) {
 
