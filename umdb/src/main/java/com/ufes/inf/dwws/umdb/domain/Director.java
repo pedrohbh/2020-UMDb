@@ -1,5 +1,7 @@
 package com.ufes.inf.dwws.umdb.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Director {
     private String name;
 
     @ManyToMany(mappedBy="directors", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<Movie> movieList;
 
     public Director(String name){

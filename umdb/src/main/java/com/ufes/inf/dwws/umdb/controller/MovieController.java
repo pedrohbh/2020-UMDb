@@ -22,7 +22,7 @@ public class MovieController {
     @PostMapping("/api/admin/movie")
     @ResponseBody
     public ResponseEntity<Object> saveMovie (@RequestBody Movie movie) {
-        Movie d = this.movieService.saveMovie(movie.getName(), movie.getYear(), movie.getGenres(), movie.getActors(), movie.getDirectors());
+        Movie d = this.movieService.saveMovie(movie);
 
         if (d != null) {
             return new ResponseEntity<>(d, HttpStatus.OK);
@@ -64,7 +64,7 @@ public class MovieController {
     @PutMapping("/api/admin/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateMovie (@RequestBody Movie movie, @PathVariable Long id) {
-        Movie d = this.movieService.updateMovieById(id, movie.getName(), movie.getYear());
+        Movie d = this.movieService.updateMovieById(id, movie);
 
         if (d != null) {
             return new ResponseEntity<>(d, HttpStatus.OK);

@@ -14,6 +14,7 @@ import com.ufes.inf.dwws.umdb.persistence.DirectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
 import java.util.Optional;
 import java.util.List;
 
@@ -34,13 +35,22 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public Movie saveMovie(String name, int year, List<Genre> genres, List<Actor> actors, List<Director> directors){
-        List<Movie> d = this.movieRepository.findByName(name);
+    public Movie saveMovie(Movie movie){
+
+        List<Actor> actors = new LinkedList<>();
+        List<Genre> genres = new LinkedList<>();
+        List<Director> directors = new LinkedList<>();
+
+        movie.getActors().forEach(actor -> {actors.add(actorRepository.findById(actor.getId()).orElse(null));});
+        movie.getGenres().forEach(genre -> {genres.add(genreRepository.findById(genre.getId()).orElse(null));});
+        movie.getDirectors().forEach(director -> {directors.add(directorRepository.findById(director.getId()).orElse(null));});
+
+        List<Movie> d = this.movieRepository.findByName(movie.getName());
 
         if (!d.isEmpty()) {
             return null;
         } else {
-            return this.movieRepository.save(new Movie(name, year, genres, actors, directors));
+            return this.movieRepository.save(new Movie(movie.getName(), movie.getYear(), genres, actors, directors));
         }
     }
 
@@ -69,14 +79,26 @@ public class MovieService {
         }
     }
 
-    public Movie updateMovieById(Long id, String name, int year) {
+    public Movie updateMovieById(Long id, Movie movieToUpdate) {
         Optional<Movie> movie = this.movieRepository.findById(id);
 
         if (movie.isPresent()) {
-            Movie m = movie.get();
-            m.setName(name);
-            m.setYear(year);
 
+            List<Actor> actors = new LinkedList<>();
+            List<Genre> genres = new LinkedList<>();
+            List<Director> directors = new LinkedList<>();
+
+            movieToUpdate.getActors().forEach(actor -> {actors.add(actorRepository.findById(actor.getId()).orElse(null));});
+            movieToUpdate.getGenres().forEach(genre -> {genres.add(genreRepository.findById(genre.getId()).orElse(null));});
+            movieToUpdate.getDirectors().forEach(director -> {directors.add(directorRepository.findById(director.getId()).orElse(null));});
+
+
+            Movie m = movie.get();
+            m.setName(movieToUpdate.getName());
+            m.setYear(movieToUpdate.getYear());
+            m.setActors(actors);
+            m.setDirectors(directors);
+            m.setGenres(genres);
             this.movieRepository.save(m);
             return m;
         } else {
