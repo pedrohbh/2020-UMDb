@@ -3,6 +3,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 public class Movie {
     @Id
@@ -15,21 +16,21 @@ public class Movie {
     @Column(nullable = true, unique = false)
     private float averageRating;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "Movie_Genre",
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Genre_id")
     )
     private List<Genre> genres;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "Movie_Actor",
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Actor_id")
     )
     private List<Actor> actors;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "Movie_Director",
             joinColumns = @JoinColumn(name = "Movie_id"),

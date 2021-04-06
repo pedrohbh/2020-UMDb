@@ -13,7 +13,7 @@ public class Director {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="directors", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Movie> movieList;
 
     public Director(String name){

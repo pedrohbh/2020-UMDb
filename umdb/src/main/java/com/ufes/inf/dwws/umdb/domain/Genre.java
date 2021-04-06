@@ -12,7 +12,7 @@ public class Genre {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy="genres", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Movie> movieList;
 
     public Genre(String name){
