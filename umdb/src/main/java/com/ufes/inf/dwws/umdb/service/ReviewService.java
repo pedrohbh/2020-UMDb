@@ -5,6 +5,12 @@ import com.ufes.inf.dwws.umdb.persistence.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.ufes.inf.dwws.umdb.domain.User;
+import com.ufes.inf.dwws.umdb.domain.Movie;
+
+import com.ufes.inf.dwws.umdb.persistence.UserRepository;
+import com.ufes.inf.dwws.umdb.persistence.MovieRepository;
+
 import java.util.Optional;
 import java.util.List;
 
@@ -13,14 +19,21 @@ public class ReviewService {
 
     @Autowired
     ReviewRepository reviewRepository;
+    @Autowired
+    MovieRepository movieRepository;
+    @Autowired
+    UserRepository userRepository;
 
     public ReviewService (ReviewRepository reviewRepository){
         this.reviewRepository = reviewRepository;
     }
 
-    public Review saveReview(int rating, String commentary){
-        if (rating >= 0  && rating <= 5){
-            return this.reviewRepository.save(new Review(rating, commentary));
+    public Review saveReview(Review review){
+        User user = userRepository.findById(review.getUser().getId()).get();
+        Movie movie = movieRepository.findById(review.getMovie().getId()).get();
+
+        if (review.getRating() >= 0  && review.getRating() <= 5){
+            return this.reviewRepository.save(new Review(review.getRating(), review.getCommentary(), user, movie));
         } else {
             return null;
         }

@@ -1,10 +1,14 @@
 package com.ufes.inf.dwws.umdb.domain;
 import javax.persistence.*;
 import com.ufes.inf.dwws.umdb.domain.Role;
+import java.util.Date;
+import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class User implements UserDetails {
@@ -21,6 +25,9 @@ public class User implements UserDetails {
     private String password;
     @Column(nullable = true)
     private Date registrationDate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    List<Review> reviewList;
 
     public User(String name, String email, String password, Role role) {
         super();
@@ -91,4 +98,7 @@ public class User implements UserDetails {
 
     public Date getDate() { return registrationDate; }
     public void setDate(Date registrationDate) { this.registrationDate = registrationDate; }
+
+    public List<Review> getReviewList() { return reviewList; }
+    public void setReview(List<Review> reviewList) { this.reviewList = reviewList; }
 }

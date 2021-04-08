@@ -12,6 +12,4 @@ import java.util.List;
 public interface ActorRepository extends PagingAndSortingRepository<Actor, Long>, JpaRepository<Actor, Long> {
     List<Actor> findByNameContaining(@Param("name") String name);
     List<Actor> findByName(@Param("name") String name);
-
-
 }

@@ -1,7 +1,9 @@
 package com.ufes.inf.dwws.umdb.domain;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import javax.persistence.*;
+import java.util.List;
 @Entity
 public class Genre {
 
@@ -11,6 +13,10 @@ public class Genre {
 
     @Column(nullable = false, unique = true)
     private String name;
+
+    @ManyToMany(mappedBy="genres", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Movie> movieList;
 
     public Genre(String name){
         this.name = name;
@@ -30,4 +36,7 @@ public class Genre {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Movie> getMovieList() { return movieList; }
+    public void setMovieList(List<Movie> movieList) { this.movieList = movieList; }
 }
