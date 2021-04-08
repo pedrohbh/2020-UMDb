@@ -24,7 +24,7 @@ public class ReviewController {
     @PostMapping("/api/close/review")
     @ResponseBody
     public ResponseEntity<Object> saveReview (@RequestBody Review review) {
-        Review d = this.reviewService.saveReview(review.getRating(), review.getCommentary());
+        Review d = this.reviewService.saveReview(review);
 
         if (d != null) {
             return new ResponseEntity<>(d, HttpStatus.OK);

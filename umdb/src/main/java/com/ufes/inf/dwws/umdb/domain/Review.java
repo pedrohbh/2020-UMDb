@@ -1,6 +1,8 @@
 package com.ufes.inf.dwws.umdb.domain;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Review {
@@ -13,14 +15,20 @@ public class Review {
     @Column(nullable = true)
     private String commentary;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie_id")
+    @JsonBackReference
     private Movie movie;
 
-    public Review(int rating, String commentary){
+    public Review(int rating, String commentary, User user, Movie movie){
         this.rating = rating;
         this.commentary = commentary;
+        this.user = user;
+        this.movie = movie;
     }
     public Review(){}
 

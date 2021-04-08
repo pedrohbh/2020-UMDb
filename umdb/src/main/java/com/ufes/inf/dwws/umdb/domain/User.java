@@ -7,6 +7,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class User implements UserDetails {
@@ -24,7 +26,7 @@ public class User implements UserDetails {
     @Column(nullable = true)
     private Date registrationDate;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     List<Review> reviewList;
 
     public User(String name, String email, String password, Role role) {

@@ -4,11 +4,13 @@ import com.ufes.inf.dwws.umdb.domain.Movie;
 import com.ufes.inf.dwws.umdb.domain.Genre;
 import com.ufes.inf.dwws.umdb.domain.Actor;
 import com.ufes.inf.dwws.umdb.domain.Director;
+import com.ufes.inf.dwws.umdb.domain.Review;
 
 import com.ufes.inf.dwws.umdb.persistence.MovieRepository;
 import com.ufes.inf.dwws.umdb.persistence.GenreRepository;
 import com.ufes.inf.dwws.umdb.persistence.ActorRepository;
 import com.ufes.inf.dwws.umdb.persistence.DirectorRepository;
+import com.ufes.inf.dwws.umdb.persistence.ReviewRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class MovieService {
     ActorRepository actorRepository;
     @Autowired
     DirectorRepository directorRepository;
+    @Autowired
+    ReviewRepository reviewRepository;
 
 
     public MovieService (MovieRepository movieRepository){
@@ -87,10 +91,12 @@ public class MovieService {
             List<Actor> actors = new LinkedList<>();
             List<Genre> genres = new LinkedList<>();
             List<Director> directors = new LinkedList<>();
+            List<Review> reviews = new LinkedList<>();
 
             movieToUpdate.getActors().forEach(actor -> {actors.add(actorRepository.findById(actor.getId()).orElse(null));});
             movieToUpdate.getGenres().forEach(genre -> {genres.add(genreRepository.findById(genre.getId()).orElse(null));});
             movieToUpdate.getDirectors().forEach(director -> {directors.add(directorRepository.findById(director.getId()).orElse(null));});
+            movieToUpdate.getReviews().forEach(review -> {reviews.add(reviewRepository.findById(review.getId()).orElse(null));});
 
 
             Movie m = movie.get();
@@ -99,6 +105,7 @@ public class MovieService {
             m.setActors(actors);
             m.setDirectors(directors);
             m.setGenres(genres);
+            m.setReviews(reviews);
             this.movieRepository.save(m);
             return m;
         } else {

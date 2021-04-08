@@ -1,5 +1,5 @@
 package com.ufes.inf.dwws.umdb.domain;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -39,7 +39,7 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "Director_id")
     )
     private List<Director> directors;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
     private List<Review> reviews;
 
 
