@@ -9,7 +9,7 @@ const Header = () => {
         <div className="ui secondary pointing menu">
             <Link to="/" className="item">UMDb</Link>
             <div className="right menu">
-                <Link to="/signin" className="item">Sign In</Link>
+                <Link to="/signin" className="item">Login</Link>
                 <Link to="/admin" className="item">Página Administrativa</Link>
             </div>
         </div>
