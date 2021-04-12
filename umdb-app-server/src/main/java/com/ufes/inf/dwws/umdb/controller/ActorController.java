@@ -1,6 +1,7 @@
 package com.ufes.inf.dwws.umdb.controller;
 
 import com.ufes.inf.dwws.umdb.domain.Actor;
+import com.ufes.inf.dwws.umdb.service.ActorDTO;
 import com.ufes.inf.dwws.umdb.service.ActorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,10 @@ public class ActorController {
     @PostMapping("/api/admin/actor")
     @ResponseBody
     public ResponseEntity<Object> saveActor (@RequestBody Actor actor) {
-        Actor d = this.actorService.saveActor(actor.getName());
+        ActorDTO actorDTO = this.actorService.saveActor(actor.getName());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (actorDTO != null) {
+            return new ResponseEntity<>(actorDTO, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>("Já existe um ator cadastrado com esse nome!", HttpStatus.BAD_REQUEST);
         }
@@ -40,10 +41,10 @@ public class ActorController {
     @GetMapping("/api/open/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> findActor(@PathVariable Long id) {
-        Actor d = this.actorService.findActorById(id);
+        ActorDTO actor = this.actorService.findActorById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (actor != null) {
+            return new ResponseEntity<>(actor, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -52,10 +53,10 @@ public class ActorController {
     @DeleteMapping("/api/admin/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteActor (@PathVariable Long id) {
-        Actor d = this.actorService.deleteActorById(id);
+        Boolean isDeleted = this.actorService.deleteActorById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (isDeleted != null) {
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -64,10 +65,10 @@ public class ActorController {
     @PutMapping("/api/admin/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateActor (@RequestBody Actor actor, @PathVariable Long id) {
-        Actor d = this.actorService.updateActorById(id, actor.getName());
+        ActorDTO actorDTO = this.actorService.updateActorById(id, actor.getName());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (actorDTO != null) {
+            return new ResponseEntity<>(actorDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
