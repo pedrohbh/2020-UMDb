@@ -1,11 +1,7 @@
 package com.ufes.inf.dwws.umdb.service;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
-import com.ufes.inf.dwws.umdb.domain.Movie;
-import com.ufes.inf.dwws.umdb.domain.Genre;
-import com.ufes.inf.dwws.umdb.domain.Actor;
-import com.ufes.inf.dwws.umdb.domain.Director;
-import com.ufes.inf.dwws.umdb.domain.Review;
+import com.ufes.inf.dwws.umdb.domain.*;
 
 import com.ufes.inf.dwws.umdb.persistence.MovieRepository;
 import com.ufes.inf.dwws.umdb.persistence.GenreRepository;
@@ -208,4 +204,16 @@ public class MovieService {
         }
     }
 
+    public MovieDTO newReview(Long movieId, Review review, User user){
+        review.setUser(user);
+        Review newReview = this.reviewRepository.save(review);
+        Optional<Movie> movie = this.movieRepository.findById(movieId);
+
+        if(movie.isPresent()){
+            movie.get().addReview(newReview);
+            return initMovieDTO(movie.get());
+        }else{
+            return null;
+        }
+    }
 }
