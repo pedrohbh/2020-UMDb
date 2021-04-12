@@ -160,34 +160,49 @@ public class MovieService {
         }
     }
 
-    public List<Movie> findAllByGenre(Long id) {
+    public List<MovieDTO> findAllByGenre(Long id) {
         Optional<Genre> genre = this.genreRepository.findById(id);
         if (genre.isPresent()) {
             Genre g = genre.get();
+            List<MovieDTO> moviesDTO = new LinkedList<>();
             List<Movie> movies = this.movieRepository.findByGenres(g);
-            return movies;
+            movies.forEach(movie -> {
+                moviesDTO.add(initMovieDTO(movie));
+            });
+
+            return moviesDTO;
         } else {
             return null;
         }
     }
 
-    public List<Movie> findAllByActor(Long id) {
+    public List<MovieDTO> findAllByActor(Long id) {
         Optional<Actor> actor = this.actorRepository.findById(id);
         if (actor.isPresent()) {
             Actor a = actor.get();
+            List<MovieDTO> moviesDTO = new LinkedList<>();
             List<Movie> movies = this.movieRepository.findByActors(a);
-            return movies;
+            movies.forEach(movie -> {
+                moviesDTO.add(initMovieDTO(movie));
+            });
+
+            return moviesDTO;
         } else {
             return null;
         }
     }
 
-    public List<Movie> findAllByDirector(Long id) {
+    public List<MovieDTO> findAllByDirector(Long id) {
         Optional<Director> director = this.directorRepository.findById(id);
         if (director.isPresent()) {
             Director d = director.get();
+            List<MovieDTO> moviesDTO = new LinkedList<>();
             List<Movie> movies = this.movieRepository.findByDirectors(d);
-            return movies;
+            movies.forEach(movie -> {
+                moviesDTO.add(initMovieDTO(movie));
+            });
+
+            return moviesDTO;
         } else {
             return null;
         }
