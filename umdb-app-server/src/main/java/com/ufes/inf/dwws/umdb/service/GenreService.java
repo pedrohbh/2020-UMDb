@@ -1,10 +1,12 @@
 package com.ufes.inf.dwws.umdb.service;
 
+import com.ufes.inf.dwws.umdb.domain.Director;
 import com.ufes.inf.dwws.umdb.domain.Genre;
 import com.ufes.inf.dwws.umdb.persistence.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
 import java.util.Optional;
 import java.util.List;
 
@@ -18,48 +20,52 @@ public class GenreService {
         this.genreRepository = genreRepository;
     }
 
-    public Genre saveGenre(String name){
-        List<Genre> d = this.genreRepository.findByName(name);
+    public GenreDTO saveGenre(String name){
+        List<Genre> genres = this.genreRepository.findByName(name);
 
-        if (!d.isEmpty()) {
+        if (!genres.isEmpty()) {
             return null;
         } else {
-            return this.genreRepository.save(new Genre(name));
+            Genre genre = this.genreRepository.save(new Genre(name));
+            return new GenreDTO(genre);
         }
     }
 
-    public List<Genre> findAll(){
-        return  this.genreRepository.findAll();
+    public List<GenreDTO> findAll(){
+        List<GenreDTO> genresDTO = new LinkedList<>();
+        List<Genre> genres =   this.genreRepository.findAll();
+        genres.forEach(genre -> {genresDTO.add(new GenreDTO(genre));});
+        return genresDTO;
     }
 
-    public Genre findGenreById (Long id) {
-        Optional<Genre> d = this.genreRepository.findById(id);
+    public GenreDTO findGenreById (Long id) {
+        Optional<Genre> genre = this.genreRepository.findById(id);
 
-        if (d.isPresent()) {
-            return d.get();
+        if (genre.isPresent()) {
+            return new GenreDTO(genre.get());
         } else {
             return null;
         }
     }
 
-    public Genre deleteGenreById(Long id) {
-        Optional<Genre> d = this.genreRepository.findById(id);
+    public Boolean deleteGenreById(Long id) {
+        Optional<Genre> genre = this.genreRepository.findById(id);
 
-        if (d.isPresent()) {
+        if (genre.isPresent()) {
             this.genreRepository.deleteById(id);
-            return d.get();
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 
-    public Genre updateGenreById(Long id, String name) {
-        Optional<Genre> d = this.genreRepository.findById(id);
+    public GenreDTO updateGenreById(Long id, String name) {
+        Optional<Genre> genre = this.genreRepository.findById(id);
 
-        if (d.isPresent()) {
-            d.get().setName(name);
-            this.genreRepository.save(d.get());
-            return d.get();
+        if (genre.isPresent()) {
+            genre.get().setName(name);
+            this.genreRepository.save(genre.get());
+            return new GenreDTO(genre.get());
         } else {
             return null;
         }
