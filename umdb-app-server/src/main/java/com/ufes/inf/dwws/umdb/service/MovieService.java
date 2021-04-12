@@ -1,5 +1,6 @@
 package com.ufes.inf.dwws.umdb.service;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.ufes.inf.dwws.umdb.domain.Movie;
 import com.ufes.inf.dwws.umdb.domain.Genre;
 import com.ufes.inf.dwws.umdb.domain.Actor;
@@ -39,7 +40,7 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public Movie saveMovie(Movie movie){
+    public MovieDTO saveMovie(Movie movie){
 
         List<Actor> actors = new LinkedList<>();
         List<Genre> genres = new LinkedList<>();
@@ -49,41 +50,90 @@ public class MovieService {
         movie.getGenres().forEach(genre -> {genres.add(genreRepository.findById(genre.getId()).orElse(null));});
         movie.getDirectors().forEach(director -> {directors.add(directorRepository.findById(director.getId()).orElse(null));});
 
-        List<Movie> d = this.movieRepository.findByName(movie.getName());
+        List<Movie> movies = this.movieRepository.findByName(movie.getName());
 
-        if (!d.isEmpty()) {
+        if (!movies.isEmpty()) {
             return null;
         } else {
-            return this.movieRepository.save(new Movie(movie.getName(), movie.getYear(), genres, actors, directors));
+            Movie savedMovie = this.movieRepository.save(new Movie(movie.getName(), movie.getYear(), genres, actors, directors));
+            return initMovieDTO(savedMovie);
         }
     }
 
-    public List<Movie> findAll(){
-        return  this.movieRepository.findAll();
+    public List<MovieDTO> findAll(){
+        List<Movie> movies =  this.movieRepository.findAll();
+
+        List<MovieDTO> moviesDTO = new LinkedList<>();
+        movies.forEach( movie -> {
+            moviesDTO.add(initMovieDTO(movie));
+        });
+        return moviesDTO;
     }
 
-    public Movie findMovieById (Long id) {
-        Optional<Movie> d = this.movieRepository.findById(id);
+    public MovieDTO findMovieById (Long id) {
+        Optional<Movie> movie = this.movieRepository.findById(id);
 
-        if (d.isPresent()) {
-            return d.get();
+        if (movie.isPresent()) {
+            return initMovieDTO(movie.get());
         } else {
             return null;
         }
     }
 
-    public Movie deleteMovieById(Long id) {
-        Optional<Movie> d = this.movieRepository.findById(id);
+    public MovieDTO initMovieDTO(Movie movie){
+        List<GenreDTO> genresDTO = new LinkedList<>();
+        List<ActorDTO> actorsDTO = new LinkedList<>();
+        List<DirectorDTO> directorsDTO = new LinkedList<>();
+        List<ReviewDTO> reviewsDTO = new LinkedList<>();
 
-        if (d.isPresent()) {
+        MovieDTO movieDTO = new MovieDTO(movie);
+
+        if(movie.getActors() != null){
+            movie.getActors().forEach(actor -> {actorsDTO.add(new ActorDTO(actor));});
+        }
+
+        if(movie.getGenres() != null){
+            movie.getGenres().forEach(genre -> {genresDTO.add(new GenreDTO(genre));});
+        }
+
+        if(movie.getDirectors() != null){
+            movie.getDirectors().forEach(director -> {directorsDTO.add(new DirectorDTO(director));});
+        }
+
+        if (movie.getReviews() != null){
+            movie.getReviews().forEach(review -> {reviewsDTO.add(new ReviewDTO(review));});
+        }
+
+
+        movieDTO.setActors(actorsDTO);
+        movieDTO.setGenres(genresDTO);
+        movieDTO.setDirectors(directorsDTO);
+        movieDTO.setReviews(reviewsDTO);
+
+        movieDTO.setAvgRate(this.calculateAvgRate(reviewsDTO));
+        return movieDTO;
+    }
+
+    public double calculateAvgRate(List<ReviewDTO> reviews){
+        if (reviews.size() == 0){
+            return 0;
+        }
+        double totalRate = reviews.stream().mapToDouble(ReviewDTO::getRate).sum();
+        return totalRate/reviews.size();
+    }
+
+    public Boolean deleteMovieById(Long id) {
+        Optional<Movie> movie = this.movieRepository.findById(id);
+
+        if (movie.isPresent()) {
             this.movieRepository.deleteById(id);
-            return d.get();
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 
-    public Movie updateMovieById(Long id, Movie movieToUpdate) {
+    public MovieDTO updateMovieById(Long id, Movie movieToUpdate) {
         Optional<Movie> movie = this.movieRepository.findById(id);
 
         if (movie.isPresent()) {
@@ -91,13 +141,10 @@ public class MovieService {
             List<Actor> actors = new LinkedList<>();
             List<Genre> genres = new LinkedList<>();
             List<Director> directors = new LinkedList<>();
-            List<Review> reviews = new LinkedList<>();
 
             movieToUpdate.getActors().forEach(actor -> {actors.add(actorRepository.findById(actor.getId()).orElse(null));});
             movieToUpdate.getGenres().forEach(genre -> {genres.add(genreRepository.findById(genre.getId()).orElse(null));});
             movieToUpdate.getDirectors().forEach(director -> {directors.add(directorRepository.findById(director.getId()).orElse(null));});
-            movieToUpdate.getReviews().forEach(review -> {reviews.add(reviewRepository.findById(review.getId()).orElse(null));});
-
 
             Movie m = movie.get();
             m.setName(movieToUpdate.getName());
@@ -105,9 +152,9 @@ public class MovieService {
             m.setActors(actors);
             m.setDirectors(directors);
             m.setGenres(genres);
-            m.setReviews(reviews);
+
             this.movieRepository.save(m);
-            return m;
+            return initMovieDTO(m);
         } else {
             return null;
         }
