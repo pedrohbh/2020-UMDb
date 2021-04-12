@@ -1,10 +1,12 @@
 package com.ufes.inf.dwws.umdb.service;
 
+import com.ufes.inf.dwws.umdb.domain.Actor;
 import com.ufes.inf.dwws.umdb.domain.Director;
 import com.ufes.inf.dwws.umdb.persistence.DirectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
 import java.util.Optional;
 import java.util.List;
 
@@ -18,48 +20,52 @@ public class DirectorService {
         this.directorRepository = directorRepository;
     }
 
-    public Director saveDirector(String name){
-        List<Director> d = this.directorRepository.findByName(name);
+    public DirectorDTO saveDirector(String name){
+        List<Director> directors = this.directorRepository.findByName(name);
 
-        if (!d.isEmpty()) {
+        if (!directors.isEmpty()) {
             return null;
         } else {
-            return this.directorRepository.save(new Director(name));
+            Director director = this.directorRepository.save(new Director(name));
+            return new DirectorDTO(director);
         }
     }
 
-    public List<Director> findAll(){
-        return  this.directorRepository.findAll();
+    public List<DirectorDTO> findAll() {
+        List<DirectorDTO> directorsDTO = new LinkedList<>();
+        List<Director> directors =   this.directorRepository.findAll();
+        directors.forEach(director -> {directorsDTO.add(new DirectorDTO(director));});
+        return directorsDTO;
     }
 
-    public Director findDirectorById (Long id) {
-        Optional<Director> d = this.directorRepository.findById(id);
+    public DirectorDTO findDirectorById (Long id) {
+        Optional<Director> director = this.directorRepository.findById(id);
 
-        if (d.isPresent()) {
-            return d.get();
+        if (director.isPresent()) {
+            return new DirectorDTO(director.get());
         } else {
             return null;
         }
     }
 
-    public Director deleteDirectorById(Long id) {
-        Optional<Director> d = this.directorRepository.findById(id);
+    public Boolean deleteDirectorById(Long id) {
+        Optional<Director> director = this.directorRepository.findById(id);
 
-        if (d.isPresent()) {
+        if (director.isPresent()) {
             this.directorRepository.deleteById(id);
-            return d.get();
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 
-    public Director updateDirectorById(Long id, String name) {
-        Optional<Director> d = this.directorRepository.findById(id);
+    public DirectorDTO updateDirectorById(Long id, String name) {
+        Optional<Director> director = this.directorRepository.findById(id);
 
-        if (d.isPresent()) {
-            d.get().setName(name);
-            this.directorRepository.save(d.get());
-            return d.get();
+        if (director.isPresent()) {
+            director.get().setName(name);
+            this.directorRepository.save(director.get());
+            return new DirectorDTO(director.get()) ;
         } else {
             return null;
         }
