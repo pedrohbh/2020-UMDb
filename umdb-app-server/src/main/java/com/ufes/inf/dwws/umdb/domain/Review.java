@@ -20,7 +20,7 @@ public class Review {
     private User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id")
-    @JsonBackReference
+
     private Movie movie;
 
     public Review(int rating, String commentary, User user, Movie movie){

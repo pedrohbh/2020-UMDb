@@ -206,11 +206,11 @@ public class MovieService {
 
     public MovieDTO newReview(Long movieId, Review review, User user){
         review.setUser(user);
-        Review newReview = this.reviewRepository.save(review);
         Optional<Movie> movie = this.movieRepository.findById(movieId);
-
+        review.setMovie(movie.get());
+        this.reviewRepository.save(review);
+        movie = this.movieRepository.findById(movieId);
         if(movie.isPresent()){
-            movie.get().addReview(newReview);
             return initMovieDTO(movie.get());
         }else{
             return null;
