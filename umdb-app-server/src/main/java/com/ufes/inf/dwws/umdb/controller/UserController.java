@@ -2,6 +2,7 @@ package com.ufes.inf.dwws.umdb.controller;
 
 import com.ufes.inf.dwws.umdb.domain.User;
 import com.ufes.inf.dwws.umdb.security.JwtTokenProvider;
+import com.ufes.inf.dwws.umdb.service.UserDTO;
 import com.ufes.inf.dwws.umdb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,10 +34,10 @@ public class UserController {
     @PostMapping("/api/open/user")
     @ResponseBody
     public ResponseEntity<Object> saveUser (@RequestBody User user) {
-        User d = this.userService.saveUser(user.getName(), user.getEmail(), user.getPassword());
+        UserDTO userDTO = this.userService.saveUser(user.getName(), user.getEmail(), user.getPassword());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (userDTO != null) {
+            return new ResponseEntity<>(userDTO, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>("Já existe um ator cadastrado com esse nome!", HttpStatus.BAD_REQUEST);
         }
@@ -51,10 +52,10 @@ public class UserController {
     @GetMapping("/api/admin/user/{id}")
     @ResponseBody
     public ResponseEntity<Object> findUser(@PathVariable Long id) {
-        User d = this.userService.findUserById(id);
+        UserDTO user = this.userService.findUserById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (user != null) {
+            return new ResponseEntity<>(user, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -64,10 +65,10 @@ public class UserController {
     @ResponseBody
     public ResponseEntity<Object> deleteUser (@PathVariable Long id, @AuthenticationPrincipal User userDetails) {
         if (userDetails.getRole().getName().equals("ROLE_ADMIN") || userDetails.getId().equals(id)){
-            User d = this.userService.deleteUserById(id);
+            Boolean isDeleted = this.userService.deleteUserById(id);
 
-            if (d != null) {
-                return new ResponseEntity<>(d, HttpStatus.OK);
+            if (isDeleted != null) {
+                return new ResponseEntity<>(null, HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
             }
@@ -79,10 +80,10 @@ public class UserController {
     @PutMapping("/api/close/user/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateUser (@RequestBody User user, @PathVariable Long id) {
-        User d = this.userService.updateUserById(id, user.getName(), user.getEmail(), user.getPassword(), user.getRole().getName());
+        UserDTO userDTO = this.userService.updateUserById(id, user.getName(), user.getEmail(), user.getPassword());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (userDTO != null) {
+            return new ResponseEntity<>(userDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -91,10 +92,10 @@ public class UserController {
     @PutMapping("/api/admin/user/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateUserRole (@RequestBody User user, @PathVariable Long id) {
-        User d = this.userService.updateUserById(id, user.getRole().getName());
+        UserDTO userDTO = this.userService.updateUserById(id, user.getRole().getName());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (userDTO != null) {
+            return new ResponseEntity<>(userDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -104,11 +105,10 @@ public class UserController {
     @ResponseBody
     public ResponseEntity login(@RequestBody User user) {
 
-        Map myUser = this.userService.sigin(user.getEmail(),user.getPassword());
-        if (myUser == null){
+        UserDTO userDTO = this.userService.sigin(user.getEmail(),user.getPassword());
+        if (userDTO == null){
             return new ResponseEntity("USer not found", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(myUser, HttpStatus.OK);
-
+        return new ResponseEntity(userDTO, HttpStatus.OK);
     }
 }
