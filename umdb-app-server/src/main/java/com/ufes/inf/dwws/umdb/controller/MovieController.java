@@ -1,6 +1,7 @@
 package com.ufes.inf.dwws.umdb.controller;
 
 import com.ufes.inf.dwws.umdb.domain.Movie;
+import com.ufes.inf.dwws.umdb.service.MovieDTO;
 import com.ufes.inf.dwws.umdb.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,10 @@ public class MovieController {
     @PostMapping("/api/admin/movie")
     @ResponseBody
     public ResponseEntity<Object> saveMovie (@RequestBody Movie movie) {
-        Movie d = this.movieService.saveMovie(movie);
+        MovieDTO movieDTO = this.movieService.saveMovie(movie);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (movieDTO != null) {
+            return new ResponseEntity<>(movieDTO, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>("Já existe um filme cadastrado com esse nome!", HttpStatus.BAD_REQUEST);
         }
@@ -40,46 +41,46 @@ public class MovieController {
     @GetMapping("/api/open/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> findMovie(@PathVariable Long id) {
-        Movie d = this.movieService.findMovieById(id);
+        MovieDTO movieDTO = this.movieService.findMovieById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (movieDTO != null) {
+            return new ResponseEntity<>(movieDTO, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/api/admin/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteMovie (@PathVariable Long id) {
-        Movie d = this.movieService.deleteMovieById(id);
+        Boolean isDeleted = this.movieService.deleteMovieById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (isDeleted) {
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("/api/admin/movie/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateMovie (@RequestBody Movie movie, @PathVariable Long id) {
-        Movie d = this.movieService.updateMovieById(id, movie);
+        MovieDTO movieDTO = this.movieService.updateMovieById(id, movie);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (movieDTO != null) {
+            return new ResponseEntity<>(movieDTO, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>( HttpStatus.BAD_REQUEST);
         }
     }
 
     @GetMapping("/api/open/movie/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> findMoviebyGenre(@PathVariable Long id) {
-        List<Movie> m = this.movieService.findAllByGenre(id);
+        List<MovieDTO> moviesDTO = this.movieService.findAllByGenre(id);
 
-        if (m != null) {
-            return new ResponseEntity<>(m, HttpStatus.OK);
+        if (moviesDTO != null) {
+            return new ResponseEntity<>(moviesDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -88,10 +89,10 @@ public class MovieController {
     @GetMapping("/api/open/movie/actor/{id}")
     @ResponseBody
     public ResponseEntity<Object> findMoviebyActor(@PathVariable Long id) {
-        List<Movie> m = this.movieService.findAllByActor(id);
+        List<MovieDTO> moviesDTO = this.movieService.findAllByActor(id);
 
-        if (m != null) {
-            return new ResponseEntity<>(m, HttpStatus.OK);
+        if (moviesDTO != null) {
+            return new ResponseEntity<>(moviesDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -100,13 +101,12 @@ public class MovieController {
     @GetMapping("/api/open/movie/director/{id}")
     @ResponseBody
     public ResponseEntity<Object> findMoviebyDirector(@PathVariable Long id) {
-        List<Movie> m = this.movieService.findAllByDirector(id);
+        List<MovieDTO> moviesDTO = this.movieService.findAllByDirector(id);
 
-        if (m != null) {
-            return new ResponseEntity<>(m, HttpStatus.OK);
+        if (moviesDTO != null) {
+            return new ResponseEntity<>(moviesDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-    
 }

@@ -28,21 +28,6 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
-    public Review saveReview(Review review){
-        User user = userRepository.findById(review.getUser().getId()).get();
-        Movie movie = movieRepository.findById(review.getMovie().getId()).get();
-
-        if (review.getRating() >= 0  && review.getRating() <= 5){
-            return this.reviewRepository.save(new Review(review.getRating(), review.getCommentary(), user, movie));
-        } else {
-            return null;
-        }
-    }
-
-    public List<Review> findAll(){
-        return  this.reviewRepository.findAll();
-    }
-
     public Review findReviewById (Long id) {
         Optional<Review> d = this.reviewRepository.findById(id);
 
@@ -53,14 +38,14 @@ public class ReviewService {
         }
     }
 
-    public Review deleteReviewById(Long id) {
+    public Boolean deleteReviewById(Long id) {
         Optional<Review> d = this.reviewRepository.findById(id);
 
         if (d.isPresent()) {
             this.reviewRepository.deleteById(id);
-            return d.get();
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 

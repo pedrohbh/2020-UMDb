@@ -5,6 +5,7 @@ import com.ufes.inf.dwws.umdb.persistence.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
 import java.util.Optional;
 import java.util.List;
 
@@ -18,48 +19,52 @@ public class ActorService {
         this.actorRepository = actorRepository;
     }
 
-    public Actor saveActor(String name){
-        List<Actor> d = this.actorRepository.findByName(name);
+    public ActorDTO saveActor(String name){
+        List<Actor> actors = this.actorRepository.findByName(name);
 
-        if (!d.isEmpty()) {
+        if (!actors.isEmpty()) {
             return null;
         } else {
-            return this.actorRepository.save(new Actor(name));
+            Actor actor = this.actorRepository.save(new Actor(name));
+            return new ActorDTO(actor);
         }
     }
 
-    public List<Actor> findAll(){
-        return  this.actorRepository.findAll();
+    public List<ActorDTO> findAll(){
+        List<ActorDTO> actorsDTO = new LinkedList<>();
+        List<Actor> actors =   this.actorRepository.findAll();
+        actors.forEach(actor -> {actorsDTO.add(new ActorDTO(actor));});
+        return actorsDTO;
     }
 
-    public Actor findActorById (Long id) {
-        Optional<Actor> d = this.actorRepository.findById(id);
+    public ActorDTO findActorById (Long id) {
+        Optional<Actor> actor = this.actorRepository.findById(id);
 
-        if (d.isPresent()) {
-            return d.get();
+        if (actor.isPresent()) {
+            return new ActorDTO(actor.get());
         } else {
             return null;
         }
     }
 
-    public Actor deleteActorById(Long id) {
-        Optional<Actor> d = this.actorRepository.findById(id);
+    public Boolean deleteActorById(Long id) {
+        Optional<Actor> actor = this.actorRepository.findById(id);
 
-        if (d.isPresent()) {
+        if (actor.isPresent()) {
             this.actorRepository.deleteById(id);
-            return d.get();
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 
-    public Actor updateActorById(Long id, String name) {
-        Optional<Actor> d = this.actorRepository.findById(id);
+    public ActorDTO updateActorById(Long id, String name) {
+        Optional<Actor> actor = this.actorRepository.findById(id);
 
-        if (d.isPresent()) {
-            d.get().setName(name);
-            this.actorRepository.save(d.get());
-            return d.get();
+        if (actor.isPresent()) {
+            actor.get().setName(name);
+            this.actorRepository.save(actor.get());
+            return new ActorDTO(actor.get());
         } else {
             return null;
         }

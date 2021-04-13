@@ -1,6 +1,7 @@
 package com.ufes.inf.dwws.umdb.controller;
 
 import com.ufes.inf.dwws.umdb.domain.Genre;
+import com.ufes.inf.dwws.umdb.service.GenreDTO;
 import com.ufes.inf.dwws.umdb.service.GenreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,10 @@ public class GenreController {
     @PostMapping("/api/admin/genre")
     @ResponseBody
     public ResponseEntity<Object> saveGenre (@RequestBody Genre genre) {
-        Genre d = this.genreService.saveGenre(genre.getName());
+        GenreDTO genreDTO = this.genreService.saveGenre(genre.getName());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (genreDTO != null) {
+            return new ResponseEntity<>(genreDTO, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>("Já existe um genero cadastrado com esse nome!", HttpStatus.BAD_REQUEST);
         }
@@ -40,34 +41,34 @@ public class GenreController {
     @GetMapping("/api/open/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> findGenre(@PathVariable Long id) {
-        Genre d = this.genreService.findGenreById(id);
+        GenreDTO genreDTO = this.genreService.findGenreById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (genreDTO != null) {
+            return new ResponseEntity<>(genreDTO, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>( HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/api/admin/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> deleteGenre (@PathVariable Long id) {
-        Genre d = this.genreService.deleteGenreById(id);
+        Boolean isDeleted = this.genreService.deleteGenreById(id);
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (isDeleted) {
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("/api/admin/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> updateGenre (@RequestBody Genre genre, @PathVariable Long id) {
-        Genre d = this.genreService.updateGenreById(id, genre.getName());
+        GenreDTO genreDTO = this.genreService.updateGenreById(id, genre.getName());
 
-        if (d != null) {
-            return new ResponseEntity<>(d, HttpStatus.OK);
+        if (genreDTO != null) {
+            return new ResponseEntity<>(genreDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
