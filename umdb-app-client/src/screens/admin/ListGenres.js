@@ -22,11 +22,11 @@ const ListGenres = () => {
                                 Gênero 1
                             </td>
                             <td>
-                                <button class="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i class="edit icon"></i>
+                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
+                                    <i className="edit icon"></i>
                                 </button>
                                 <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i class="trash alternate outline icon"></i>
+                                    <i className="trash alternate outline icon"></i>
                                 </button>
                             </td>
                         </tr>
@@ -35,11 +35,11 @@ const ListGenres = () => {
                                 Gênero 2
                             </td>
                             <td>
-                                <button class="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i class="edit icon"></i>
+                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
+                                    <i className="edit icon"></i>
                                 </button>
                                 <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i class="trash alternate outline icon"></i>
+                                    <i className="trash alternate outline icon"></i>
                                 </button>
                             </td>
                         </tr>
@@ -48,11 +48,11 @@ const ListGenres = () => {
                                 Gênero 3
                             </td>
                             <td>
-                                <button class="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i class="edit icon"></i>
+                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
+                                    <i className="edit icon"></i>
                                 </button>
                                 <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i class="trash alternate outline icon"></i>
+                                    <i className="trash alternate outline icon"></i>
                                 </button>
                             </td>
                         </tr>
@@ -61,11 +61,11 @@ const ListGenres = () => {
                                 Gênero 4
                             </td>
                             <td>
-                                <button class="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i class="edit icon"></i>
+                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
+                                    <i className="edit icon"></i>
                                 </button>
                                 <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i class="trash alternate outline icon"></i>
+                                    <i className="trash alternate outline icon"></i>
                                 </button>
                             </td>
                         </tr>
