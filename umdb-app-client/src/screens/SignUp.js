@@ -13,6 +13,10 @@ const SignUp = () => {
         console.log(`Submitting Form ${JSON.stringify({ name, email, password1, password2 })}`)
     }
 
+    const isButtonDisabled = () => {
+        return !passwordsMatch || !name || !email || !password1 || !password2
+    }
+
     return (
         <div className="page-login">
             <div className="ui centered grid container">
@@ -73,7 +77,7 @@ const SignUp = () => {
                                         passwordsMatch ? (
                                             null
                                         ) : (
-                                            <div className="icon">
+                                            <div className="icon" style={{ marginTop: '5px' }}>
                                                 <i className="ban icon"></i>
                                                 Senhas não são iguais.
                                             </div>
@@ -81,7 +85,12 @@ const SignUp = () => {
                                     }
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center'}}>
-                                    <button disabled={password1 !== password2} className="ui labeled icon button" type="submit" style={{ marginRight: '10px' }}>
+                                    <button
+                                        disabled={isButtonDisabled()}
+                                        className="ui labeled icon button cadastro"
+                                        type="submit"
+                                        style={{ marginRight: '10px' }}
+                                    >
                                         <i className="unlock alternate icon"></i>
                                         Cadastrar
                                     </button>
