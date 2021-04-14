@@ -1,10 +1,11 @@
 import React from 'react';
+import AdminContainer from '../../components/AdminContainer';
 
 const CreateDirector = () => {
     return (
-        <div>
+        <AdminContainer activeItem="directors">
             CreateDirector
-        </div>
+        </AdminContainer>
     );
 };
 

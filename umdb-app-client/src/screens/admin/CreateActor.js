@@ -1,10 +1,11 @@
 import React from 'react';
+import AdminContainer from '../../components/AdminContainer';
 
 const CreateActor = () => {
     return (
-        <div>
-            CreateActor
-        </div>
+        <AdminContainer activeItem="actors">
+            Create Actor
+        </AdminContainer>
     );
 };
 

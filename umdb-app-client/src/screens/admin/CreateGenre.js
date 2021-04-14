@@ -1,10 +1,11 @@
 import React from 'react';
+import AdminContainer from '../../components/AdminContainer';
 
 const CreateGenre = () => {
     return (
-        <div>
+        <AdminContainer activeItem="genres">
             CreateGenre
-        </div>
+        </AdminContainer>
     );
 };
 
