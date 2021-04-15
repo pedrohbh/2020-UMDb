@@ -1,68 +1,58 @@
 import React from 'react';
+import { Button, Dropdown, Icon, Form, Input} from 'semantic-ui-react'
 
 import AdminContainer from '../../components/AdminContainer';
 import AdminInternalHeader from '../../components/AdminInternalHeader';
 
+
 const CreateMovie = () => {
+    const directors = [
+        { key: 'director1', text: 'Diretor 1', value: 'director1' },
+        { key: 'director2', text: 'Diretor 2', value: 'director2' },
+        { key: 'director3', text: 'Diretor 3', value: 'director3' },
+        { key: 'director4', text: 'Diretor 4', value: 'director4' }
+    ]
+    const actors = [
+        { key: 'actor1', text: 'Ator 1', value: 'actor1' },
+        { key: 'actor2', text: 'Ator 2', value: 'actor2' },
+        { key: 'actor3', text: 'Ator 3', value: 'actor3' },
+        { key: 'actor4', text: 'Ator 4', value: 'actor4' }
+    ]
+    const genres = [
+        { key: 'genre1', text: 'Genero 1', value: 'genre1' },
+        { key: 'genre2', text: 'Genero 2', value: 'genre2' },
+        { key: 'genre3', text: 'Genero 3', value: 'genre3' },
+        { key: 'genre4', text: 'Genero 4', value: 'genre4' }
+    ]
     return (
         <AdminContainer activeItem="movies">
             <AdminInternalHeader title="Criar filme" link="" />
-            <form className="ui form">
-                <div className="field">
+            <Form>
+                <Form.Field>
                     <label>Nome</label>
-                    <input type="text" name="nome" placeholder="Nome" />
-                </div>
-                <div className="field">
+                    <Input placeholder='Nome' name="name" />
+                </Form.Field>
+                <Form.Field>
                     <label>Ano</label>
-                    <input type="text" name="year" placeholder="Ano" />
-                </div>
-                <div className="field">
+                    <Input placeholder='Ano' name="year" type="number" />
+                </Form.Field>
+                <Form.Field>
                     <label>Diretor</label>
-                    <div className="ui fluid search selection dropdown">
-                        <input type="hidden" name="director" />
-                        <i className="dropdown icon"></i>
-                        <div className="default text">Selecione o diretor</div>
-                        <div className="menu">
-                            <div className="item">Diretor 1</div>
-                            <div className="item">Diretor 2</div>
-                            <div className="item">Diretor 3</div>
-                            <div className="item">Diretor 4</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="field">
+                    <Dropdown placeholder='Selecione o diretor' name="director" fluid selection search options={directors} />
+                </Form.Field>
+                <Form.Field>
                     <label>Atores</label>
-                    <div className="ui fluid search selection dropdown">
-                        <input type="hidden" name="director" />
-                        <i className="dropdown icon"></i>
-                        <div className="default text">Selecione os atores</div>
-                        <div className="menu">
-                            <div className="item">Ator 1</div>
-                            <div className="item">Ator 2</div>
-                            <div className="item">Ator 3</div>
-                            <div className="item">Ator 4</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="field">
-                    <label>Gêneros</label>
-                    <div className="ui fluid search selection dropdown">
-                        <input type="hidden" name="director" />
-                        <i className="dropdown icon"></i>
-                        <div className="default text">Selecione os gêneros</div>
-                        <div className="menu">
-                            <div className="item">Gênero 1</div>
-                            <div className="item">Gênero 2</div>
-                            <div className="item">Gênero 3</div>
-                            <div className="item">Gênero 4</div>
-                        </div>
-                    </div>
-                </div>
-                <button className="ui labeled icon button" type="submit">
-                    <i className="plus icon"></i>
+                    <Dropdown placeholder='Selecione os atores' name="actors" fluid selection multiple search options={actors} />
+                </Form.Field>
+                <Form.Field>
+                    <label>Generos</label>
+                    <Dropdown placeholder='Selecione os gêneros' name="genres" fluid selection multiple search options={genres} />
+                </Form.Field>
+                <Button icon type="submit" labelPosition='left'>
+                    <Icon name='plus' />
                     Adicionar
-                </button>
-            </form>
+                </Button>
+            </Form>
         </AdminContainer>
     );
 };

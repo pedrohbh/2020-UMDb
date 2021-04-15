@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 import Home from '../screens/Home';
 import SignIn from '../screens/SignIn';
@@ -20,7 +21,7 @@ import ListMovies from '../screens/admin/ListMovies';
 
 const App = () => {
     return (
-        <div className="ui container">
+        <Container>
             <BrowserRouter>
                 <div>
                     <Header />
@@ -50,7 +51,7 @@ const App = () => {
                     <Footer />
                 </div>
             </BrowserRouter>
-        </div>
+        </Container>
     );
 }
 

@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 
 const AdminSidebar = props => {
@@ -8,7 +9,7 @@ const AdminSidebar = props => {
     }
 
     return (
-        <div className="ui vertical fluid tabular menu">
+        <Menu vertical fluid tabular>
             <Link to="/admin/actors" className={getClassName('actors')}>
                 Atores
             </Link>
@@ -21,7 +22,7 @@ const AdminSidebar = props => {
             <Link to="/admin/genres" className={getClassName('genres')}>
                 Gêneros
             </Link>
-        </div>
+        </Menu>
     );
 }
 

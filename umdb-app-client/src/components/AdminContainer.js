@@ -1,20 +1,21 @@
 import React from 'react'
+import { Grid, Segment } from 'semantic-ui-react'
 
 import AdminSidebar from '../components/AdminSidebar'
 
 
 const AdminContainer = props => {
     return (
-        <div className="ui grid">
-            <div className="four wide column">
+        <Grid>
+            <Grid.Column width={4}>
                 <AdminSidebar activeItem={props.activeItem} />
-            </div>
-            <div className="twelve wide stretched column">
-                <div className="ui segment">
+            </Grid.Column>
+            <Grid.Column width={12} stretched>
+                <Segment>
                     { props.children }
-                </div>
-            </div>
-        </div>
+                </Segment>
+            </Grid.Column>
+        </Grid>
     );
 };
 

@@ -1,10 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Header } from 'semantic-ui-react';
 
 const AdminInternalHeader = ({ title, link }) => {
     return (
         <div style={{ marginBottom: "2em", position: "relative" }}>
-            <h2 className="ui header centered">{title}</h2>
+            <Header as='h2' className="centered">{title}</Header>
             {
                 link ? (
                     <Link

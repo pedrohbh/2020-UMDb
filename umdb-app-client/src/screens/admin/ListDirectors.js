@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Icon, Table } from 'semantic-ui-react'
 
 import AdminContainer from '../../components/AdminContainer'
 import AdminInternalHeader from '../../components/AdminInternalHeader'
@@ -9,68 +10,68 @@ const ListDirectors = () => {
         <div>
             <AdminContainer activeItem="directors">
                 <AdminInternalHeader title="Diretores" link="/admin/directors/add" />
-                <table className="ui very basic collapsing celled table" style={{ width: '100%' }}>
-                    <thead>
-                        <tr>
-                            <th className="fourteen wide">Nome</th>
-                            <th className="two wide">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
+                <Table basic='very' celled collapsing style={{ width: '100%' }}>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell width={14}>Nome</Table.HeaderCell>
+                            <Table.HeaderCell width={2}>Ações</Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                        <Table.Row>
+                            <Table.Cell>
                                 Diretor 1
-                            </td>
-                            <td>
-                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i className="edit icon"></i>
-                                </button>
-                                <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i className="trash alternate outline icon"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Table.Cell>
+                            <Table.Cell>
+                                <Button icon size="mini" data-tooltip="Editar" data-position="top center">
+                                    <Icon name='edit' />
+                                </Button>
+                                <Button icon size="mini" data-tooltip="Deletar" data-position="top center">
+                                    <Icon name='trash alternate outline' />
+                                </Button>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row>
+                            <Table.Cell>
                                 Diretor 2
-                            </td>
-                            <td>
-                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i className="edit icon"></i>
-                                </button>
-                                <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i className="trash alternate outline icon"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Table.Cell>
+                            <Table.Cell>
+                                <Button icon size="mini" data-tooltip="Editar" data-position="top center">
+                                    <Icon name='edit' />
+                                </Button>
+                                <Button icon size="mini" data-tooltip="Deletar" data-position="top center">
+                                    <Icon name='trash alternate outline' />
+                                </Button>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row>
+                            <Table.Cell>
                                 Diretor 3
-                            </td>
-                            <td>
-                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i className="edit icon"></i>
-                                </button>
-                                <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i className="trash alternate outline icon"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Table.Cell>
+                            <Table.Cell>
+                                <Button icon size="mini" data-tooltip="Editar" data-position="top center">
+                                    <Icon name='edit' />
+                                </Button>
+                                <Button icon size="mini" data-tooltip="Deletar" data-position="top center">
+                                    <Icon name='trash alternate outline' />
+                                </Button>
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row>
+                            <Table.Cell>
                                 Diretor 4
-                            </td>
-                            <td>
-                                <button className="ui icon button mini" data-tooltip="Editar" data-position="top center">
-                                    <i className="edit icon"></i>
-                                </button>
-                                <button className="ui icon button mini" data-tooltip="Deletar" data-position="top center">
-                                    <i className="trash alternate outline icon"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </Table.Cell>
+                            <Table.Cell>
+                                <Button icon size="mini" data-tooltip="Editar" data-position="top center">
+                                    <Icon name='edit' />
+                                </Button>
+                                <Button icon size="mini" data-tooltip="Deletar" data-position="top center">
+                                    <Icon name='trash alternate outline' />
+                                </Button>
+                            </Table.Cell>
+                        </Table.Row>
+                    </Table.Body>
+                </Table>
             </AdminContainer>
         </div>
     );
