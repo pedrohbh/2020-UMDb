@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react'
 
 import { isAuthenticated, isAdmin } from '../services/auth';
 
 const Header = () => {
     return (
-        <header className="ui secondary pointing menu">
+        <Menu secondary pointing>
             <Link to="/" className="item">UMDb</Link>
-            <div className="right menu">
+            <Menu.Menu position='right'>
                 {
                     !isAuthenticated() ? (
                         <Link to="/signin" className="item">Login</Link>
@@ -16,8 +17,8 @@ const Header = () => {
                     )
                 }
                 { isAdmin() ? (<Link to="/admin" className="item">Página Administrativa</Link>) : null }
-            </div>
-        </header>
+            </Menu.Menu>
+        </Menu>
     );
 }
 

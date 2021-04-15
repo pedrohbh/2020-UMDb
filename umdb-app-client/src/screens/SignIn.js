@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Icon, Form, Input, Card, Grid } from 'semantic-ui-react';
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -12,8 +13,8 @@ const SignIn = () => {
 
     return (
         <div className="page-login">
-            <div className="ui centered grid container">
-                <div className="eight wide column">
+            <Grid centered container>
+                <Grid.Column width={8}>
                     {/* <div className="ui icon warning message">
                         <i className="lock icon"></i>
                         <div className="content">
@@ -23,41 +24,41 @@ const SignIn = () => {
                             <p>Verifique seu usuário, senha e tente novamente!</p>
                         </div>
                     </div> */}
-                    <div className="ui fluid card">
-                        <div className="content">
-                            <form className="ui form" method="POST" onSubmit={handleLogin}>
-                                <div className="field">
+                    <Card fluid>
+                        <Card.Content>
+                            <Form method="POST" onSubmit={handleLogin}>
+                                <Form.Field>
                                     <label>E-mail</label>
-                                    <input
+                                    <Input
                                         type="email"
                                         name="email"
                                         placeholder="E-mail"
                                         onChange={e => setEmail(e.target.value)}
                                     />
-                                </div>
-                                <div className="field">
+                                </Form.Field>
+                                <Form.Field>
                                     <label>Senha</label>
-                                    <input
+                                    <Input
                                         type="password"
                                         name="password"
                                         placeholder="Senha"
                                         onChange={e => setPassword(e.target.value)}
                                     />
-                                </div>
+                                </Form.Field>
                                 <div style={{ display: 'flex', alignItems: 'center'}}>
-                                    <button className="ui labeled icon button" type="submit" style={{ marginRight: '10px' }}>
-                                        <i className="unlock alternate icon"></i>
+                                    <Button icon labelPosition='left' type="submit" style={{ marginRight: '10px' }}>
+                                        <Icon name="unlock alternate" />
                                         Login
-                                    </button>
+                                    </Button>
                                     <div className="link-cadastro">
                                         Não tem uma conta? <Link to='/signup'>Cadastre-se</Link>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </Form>
+                        </Card.Content>
+                    </Card>
+                </Grid.Column>
+            </Grid>
         </div>
     );
 };
