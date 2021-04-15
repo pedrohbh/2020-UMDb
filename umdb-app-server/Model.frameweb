@@ -12,20 +12,38 @@
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="averageRating" visibility="private">
           <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/float"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="synopsis" visibility="private">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="image" visibility="private">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Director">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="name" visibility="private" size="100">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Actor">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="name" visibility="private" size="100">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Genre">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="name" visibility="private" size="100">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has/Target">
@@ -80,6 +98,9 @@
         <ownedAttribute xsi:type="frameweb:DateTimeAttribute" name="registrationDate" visibility="private" owlEquivalentProperty="">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Date"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainClass" name="Review">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="rating" visibility="private">
@@ -88,6 +109,9 @@
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="commentary" visibility="private" isNull="true">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="post" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/post/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/post/Target">
@@ -115,6 +139,9 @@
       <packagedElement xsi:type="frameweb:DomainClass" name="Role">
         <ownedAttribute xsi:type="frameweb:DomainAttribute" name="name" visibility="private" size="100">
           <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:DomainAttribute" name="id" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="frameweb/Java.frameweb#//@compose.0/long"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:DomainAssociation" name="has" memberEnd="//@compose.0/com.ufes.inf.dwws.umdb.domain/has.4/Source //@compose.0/com.ufes.inf.dwws.umdb.domain/has.4/Target">
@@ -154,11 +181,6 @@
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithReviews" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
-          <ownedParameter name="id">
-            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
-          </ownedParameter>
-        </ownedOperation>
         <ownedOperation xsi:type="frameweb:DAOMethod" name="getAll" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
         <ownedOperation xsi:type="frameweb:DAOMethod" name="filter" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="genre">
@@ -170,16 +192,6 @@
           <ownedParameter name="actor">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
             <defaultValue xsi:type="uml:LiteralString" value=""/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
-          <ownedParameter name="id">
-            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
-          <ownedParameter name="id">
-            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/Long"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
@@ -676,8 +688,6 @@
         <ownedOperation xsi:type="frameweb:ServiceMethod" name="update" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie">
           <ownedParameter name="movie" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
         </ownedOperation>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirector" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
-        <ownedOperation xsi:type="frameweb:ServiceMethod" name="getWithActorsAndGenresAndDirectorAndReviews" methodType="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
         <ownedOperation xsi:type="frameweb:ServiceMethod" name="createReview">
           <ownedParameter name="review" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Review"/>
           <ownedParameter name="movie" type="//@compose.0/com.ufes.inf.dwws.umdb.domain/Movie"/>
