@@ -26,7 +26,7 @@ const CreateMovie = () => {
     ]
 
     return (
-        <AdminContainer activeItem="movies">
+        <AdminContainer activeItem="movie">
             <AdminInternalHeader title="Criar filme" link="" />
             <Form method="POST">
                 <Form.Field>

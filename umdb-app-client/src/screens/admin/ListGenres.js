@@ -8,7 +8,7 @@ import AdminInternalHeader from '../../components/AdminInternalHeader'
 const ListGenres = () => {
     return (
         <div>
-            <AdminContainer activeItem="genres">
+            <AdminContainer activeItem="genre">
                 <AdminInternalHeader title="Generos" link="/admin/genres/add" />
                 <Table basic='very' celled collapsing style={{ width: '100%' }}>
                     <Table.Header>

@@ -8,7 +8,7 @@ import AdminInternalHeader from '../../components/AdminInternalHeader'
 const ListDirectors = () => {
     return (
         <div>
-            <AdminContainer activeItem="directors">
+            <AdminContainer activeItem="director">
                 <AdminInternalHeader title="Diretores" link="/admin/directors/add" />
                 <Table basic='very' celled collapsing style={{ width: '100%' }}>
                     <Table.Header>

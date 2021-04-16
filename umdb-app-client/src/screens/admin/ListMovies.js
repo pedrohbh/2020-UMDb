@@ -8,7 +8,7 @@ import AdminInternalHeader from '../../components/AdminInternalHeader'
 const ListMovies = () => {
     return (
         <div>
-            <AdminContainer activeItem="movies">
+            <AdminContainer activeItem="movie">
                 <AdminInternalHeader title="Filmes" link="/admin/movies/add" />
                 <Table basic='very' celled collapsing style={{ width: '100%' }}>
                     <Table.Header>

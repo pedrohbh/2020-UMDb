@@ -10,16 +10,16 @@ const AdminSidebar = props => {
 
     return (
         <Menu vertical fluid tabular>
-            <Link to="/admin/actors" className={getClassName('actors')}>
+            <Link to="/admin/actors" className={getClassName('actor')}>
                 Atores
             </Link>
-            <Link to="/admin/directors" className={getClassName('directors')}>
+            <Link to="/admin/directors" className={getClassName('director')}>
                 Diretores
             </Link>
-            <Link to="/admin/movies" className={getClassName('movies')}>
+            <Link to="/admin/movies" className={getClassName('movie')}>
                 Filmes
             </Link>
-            <Link to="/admin/genres" className={getClassName('genres')}>
+            <Link to="/admin/genres" className={getClassName('genre')}>
                 Gêneros
             </Link>
         </Menu>
