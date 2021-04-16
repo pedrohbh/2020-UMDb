@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 const MovieCard = ({ title, year, link, imageSource }) => {
     return (
@@ -20,12 +19,6 @@ const MovieCard = ({ title, year, link, imageSource }) => {
                     <span className='date'>{year}</span>
                 </Card.Meta>
             </Card.Content>
-            {/* <Card.Content extra>
-                <Link to={link}>
-                    <Icon name='chevron right' />
-                    Veja mais detalhes
-                </Link>
-            </Card.Content> */}
         </Card>
     );
 }
