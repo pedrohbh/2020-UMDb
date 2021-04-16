@@ -218,4 +218,63 @@ public class MovieService {
             return null;
         }
     }
+
+    public List<MovieDTO> filterMovies(String entity, String name){
+
+        List<MovieDTO> moviesDto = new LinkedList<>();
+
+        if (name.isEmpty()){return moviesDto;}
+        
+        if(entity.equalsIgnoreCase("actor")){
+            List<Actor> actors = this.actorRepository.findByNameContaining(name);
+            List<Movie> movies = new LinkedList<>();
+            actors.forEach(actor -> {
+                movies.addAll(this.movieRepository.findByActors(actor));
+            });
+            
+            movies.forEach(movie -> {
+                moviesDto.add(this.initMovieDTO(movie));
+            });
+            
+            return moviesDto;
+            
+            
+        }else if(entity.equalsIgnoreCase(("director"))){
+
+            List<Director> directors = this.directorRepository.findByNameContaining(name);
+            List<Movie> movies = new LinkedList<>();
+            directors.forEach(director -> {
+                movies.addAll(this.movieRepository.findByDirectors(director));
+            });
+
+            movies.forEach(movie -> {
+                moviesDto.add(this.initMovieDTO(movie));
+            });
+
+            return moviesDto;
+            
+        }else if(entity.equalsIgnoreCase(("genre"))){
+            List<Genre> genres = this.genreRepository.findByNameContaining(name);
+            List<Movie> movies = new LinkedList<>();
+            genres.forEach(genre -> {
+                movies.addAll(this.movieRepository.findByGenres(genre));
+            });
+
+            movies.forEach(movie -> {
+                moviesDto.add(this.initMovieDTO(movie));
+            });
+
+            return moviesDto;
+        }else if(entity.equalsIgnoreCase(("movie"))){
+            List<Movie> movies;
+            movies = this.movieRepository.findByNameContaining(name);
+            movies.forEach(movie -> {
+                moviesDto.add(this.initMovieDTO(movie));
+            });
+            return moviesDto;
+        }else{
+            return null;
+        }
+
+    }
 }

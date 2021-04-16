@@ -86,6 +86,18 @@ public class MovieController {
         }
     }
 
+    @GetMapping("/api/open/movie/filter")
+    @ResponseBody
+    public ResponseEntity<Object> filterMovie(@RequestParam("entity") String entity, @RequestParam("name") String name){
+        List<MovieDTO> movieDTO = this.movieService.filterMovies(entity, name);
+
+        if (movieDTO != null) {
+            return new ResponseEntity<>(movieDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>( "Nenhum resultado para a pesquisa", HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/api/open/movie/genre/{id}")
     @ResponseBody
     public ResponseEntity<Object> findMoviebyGenre(@PathVariable Long id) {
