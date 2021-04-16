@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Rating } from 'semantic-ui-react';
 
 const MovieCard = ({ title, year, link, imageSource }) => {
     return (
@@ -18,6 +18,10 @@ const MovieCard = ({ title, year, link, imageSource }) => {
                 <Card.Meta>
                     <span className='date'>{year}</span>
                 </Card.Meta>
+            </Card.Content>
+            <Card.Content extra>
+                <Rating defaultRating={4} maxRating={5} disabled style={{ marginRight: '5px' }} />
+                4.5/5
             </Card.Content>
         </Card>
     );
