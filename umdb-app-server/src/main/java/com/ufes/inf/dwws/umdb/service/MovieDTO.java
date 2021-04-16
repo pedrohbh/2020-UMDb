@@ -3,6 +3,7 @@ package com.ufes.inf.dwws.umdb.service;
 
 import com.ufes.inf.dwws.umdb.domain.Movie;
 
+import java.util.Base64;
 import java.util.List;
 
 public class MovieDTO {
@@ -11,7 +12,10 @@ public class MovieDTO {
     private String name;
     private int year;
     private double avgRate;
+    private String image;
+    private String synopsis;
     private List<ActorDTO> actors;
+
     private List<GenreDTO> genres;
     private List<DirectorDTO> directors;
     private List<ReviewDTO> reviews;
@@ -20,6 +24,8 @@ public class MovieDTO {
         this.id = movie.getId();
         this.name = movie.getName();
         this.year = movie.getYear();
+        this.image = movie.getImageAsBase64();
+        this.synopsis = movie.getSynopsis();
     }
 
     public long getId() {
@@ -84,5 +90,21 @@ public class MovieDTO {
 
     public void setReviews(List<ReviewDTO> reviews) {
         this.reviews = reviews;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 }

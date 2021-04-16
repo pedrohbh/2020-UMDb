@@ -51,7 +51,7 @@ public class MovieService {
         if (!movies.isEmpty()) {
             return null;
         } else {
-            Movie savedMovie = this.movieRepository.save(new Movie(movie.getName(), movie.getYear(), genres, actors, directors));
+            Movie savedMovie = this.movieRepository.save(new Movie(movie.getName(), movie.getImage(), movie.getSynopsis(), movie.getYear(), genres, actors, directors));
             return initMovieDTO(savedMovie);
         }
     }
@@ -145,6 +145,8 @@ public class MovieService {
             Movie m = movie.get();
             m.setName(movieToUpdate.getName());
             m.setYear(movieToUpdate.getYear());
+            m.setImage(movieToUpdate.getImage());
+            m.setSynopsis(movieToUpdate.getSynopsis());
             m.setActors(actors);
             m.setDirectors(directors);
             m.setGenres(genres);

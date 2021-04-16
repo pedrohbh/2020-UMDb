@@ -2,6 +2,7 @@ package com.ufes.inf.dwws.umdb.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -13,10 +14,14 @@ public class Movie {
     private Long id;
     @Column(nullable = false, unique = true)
     private String name;
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private int year;
-    @Column(nullable = true, unique = false)
-    private float averageRating;
+    @Column(length = 1000)
+    private byte[] image;
+
+    @Column
+    private String synopsis;
+
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
@@ -43,12 +48,14 @@ public class Movie {
     private List<Review> reviews;
 
 
-    public Movie(String name, int year, List<Genre> genres, List<Actor> actors, List<Director> directors) {
+    public Movie(String name, byte[] image, String synopsis, int year, List<Genre> genres, List<Actor> actors, List<Director> directors) {
         this.name = name;
         this.year = year;
         this.genres = genres;
         this.actors = actors;
         this.directors = directors;
+        this.image = image;
+        this.synopsis = synopsis;
     }
     public Movie() {}
 
@@ -71,13 +78,6 @@ public class Movie {
     }
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public float getAverageRating() {
-        return averageRating;
-    }
-    public void setAverageRating(float averageRating) {
-        this.averageRating = averageRating;
     }
 
     public List<Genre> getGenres() {
@@ -106,6 +106,26 @@ public class Movie {
     }
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public String getImageAsBase64(){
+        return Base64.getEncoder().encodeToString(this.image);
     }
 
     public void addReview(Review review){
