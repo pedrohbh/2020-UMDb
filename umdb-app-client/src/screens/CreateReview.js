@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Segment, Grid, Header, Image, TextArea, Form, Rating, Button, Icon } from 'semantic-ui-react';
 
 import rockyImage from '../assets/rocky.jpeg'
@@ -25,7 +25,18 @@ const CreateReview = () => {
                             synopsys="Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo Creed, quando o adversário do invicto lutador agendado para a luta é ferido. Durante o treinamento com o mal-humorado Mickey Goldmill, Rocky timidamente começa um relacionamento com Adrian, a invisível irmã de Paulie, seu amigo empacotador de carne."
                         />
                         <div>
-                            <Header as="h3">Create review</Header>
+                            <div style={{ position: 'relative' }}>
+                                <Header as="h3">Escrever avaliação</Header>
+                                <Link
+                                    to={`/movie/${id}/`}
+                                    className="ui labeled icon button mini"
+                                    style={{ position: 'absolute', top: '0', right: '0' }}
+                                >
+                                    <i className="cancel icon"></i>
+                                    Cancelar
+                                </Link>
+                            </div>
+                            
                             <Form method="POST">
                                 <Form.Field>
                                     <Rating maxRating={5} clearable />

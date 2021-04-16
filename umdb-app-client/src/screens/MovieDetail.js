@@ -28,7 +28,7 @@ const MovieDetail = () => {
                         />
                         <div>
                             <div style={{ position: 'relative' }}>
-                                <Header as="h3">Reviews</Header>
+                                <Header as="h3">Avaliações</Header>
                                 <Link
                                     to={`/movie/${id}/review`}
                                     className="ui labeled icon button mini"
