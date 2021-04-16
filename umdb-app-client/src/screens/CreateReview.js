@@ -1,14 +1,12 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Segment, Grid, Header, Image } from 'semantic-ui-react';
+import { Segment, Grid, Header, Image, TextArea, Form, Rating, Button, Icon } from 'semantic-ui-react';
 
 import rockyImage from '../assets/rocky.jpeg'
 import MovieInfo from '../components/MovieInfo';
-import SingleReview from '../components/SingleReview';
 
-const MovieDetail = () => {
-    let { id } = useParams();
-
+const CreateReview = () => {
+    const { id } = useParams()
     return (
         <Segment>
             <Grid>
@@ -28,26 +26,29 @@ const MovieDetail = () => {
                         />
                         <div>
                             <div style={{ position: 'relative' }}>
-                                <Header as="h3">Avaliações</Header>
+                                <Header as="h3">Escrever avaliação</Header>
                                 <Link
-                                    to={`/movie/${id}/review`}
+                                    to={`/movie/${id}/`}
                                     className="ui labeled icon button mini"
                                     style={{ position: 'absolute', top: '0', right: '0' }}
                                 >
-                                    <i className="plus icon"></i>
-                                    Adicionar
+                                    <i className="cancel icon"></i>
+                                    Cancelar
                                 </Link>
                             </div>
-                            <SingleReview
-                                name="Breno Krohling"
-                                rating="4"
-                                text="Pellentesque habitant morbi tristique senectus."
-                            />
-                            <SingleReview
-                                name="Lucas Tassis"
-                                rating="4"
-                                text="Pellentesque habitant morbi tristique senectus."
-                            />
+                            
+                            <Form method="POST">
+                                <Form.Field>
+                                    <Rating maxRating={5} clearable />
+                                </Form.Field>
+                                <Form.Field>
+                                    <TextArea placeholder='Texto da avaliação' name="text" />
+                                </Form.Field>
+                                <Button icon type="submit" labelPosition='left'>
+                                    <Icon name='write' />
+                                    Enviar
+                                </Button>
+                            </Form>
                         </div>
                     </Grid.Column>
                 </Grid.Row>
@@ -56,4 +57,4 @@ const MovieDetail = () => {
     );
 };
 
-export default MovieDetail;
+export default CreateReview;
