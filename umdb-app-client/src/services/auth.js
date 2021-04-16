@@ -17,7 +17,6 @@ const login = (email, password) => {
     password
   }).then(({data}) => {
     setCredentials(data)
-    window.location.href = '/'
   }).catch((error) => {
     return false;
   })
@@ -28,6 +27,7 @@ const setCredentials = ({name, token, roles}) => {
   localStorage.setItem(TOKEN_KEY, token)
   localStorage.setItem(USER_ROLE_KEY, role)
   localStorage.setItem(USER_NAME_KEY, name)
+  window.location.href = '/'
 }
 
 const logout = () => {

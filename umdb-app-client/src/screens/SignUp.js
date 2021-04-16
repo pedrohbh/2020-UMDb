@@ -2,16 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Form, Input, Card, Grid } from 'semantic-ui-react';
 
+import { createUser } from '../services/user'
+
 const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
+    const [error, setError] = useState(false)
 
     const handleSignUp = (e) => {
         e.preventDefault();
         console.log(`Submitting Form ${JSON.stringify({ name, email, password1, password2 })}`)
+
+        const created = createUser(name, email, password1)
+        if (!created) {
+            setError(true)
+        }
     }
 
     const isButtonDisabled = () => {
@@ -22,15 +30,17 @@ const SignUp = () => {
         <div className="page-login">
             <Grid centered container>
                 <Grid.Column width={8}>
-                    {/* <div className="ui icon warning message">
-                        <i className="lock icon"></i>
-                        <div className="content">
-                            <div className="header">
-                                Oops, algo deu errado!
+                { error ? (
+                        <div className="ui icon warning message">
+                            <i className="lock icon"></i>
+                            <div className="content">
+                                <div className="header">
+                                    Oops, algo deu errado!
+                                </div>
+                                <p>Verifique seus dados e tente novamente!</p>
                             </div>
-                            <p>Verifique seu usuário, senha e tente novamente!</p>
                         </div>
-                    </div> */}
+                    ) : null}
                     <Card fluid>
                         <Card.Content>
                             <Form method="POST" onSubmit={handleSignUp}>
