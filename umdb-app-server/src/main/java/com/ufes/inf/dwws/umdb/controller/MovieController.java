@@ -1,13 +1,19 @@
 package com.ufes.inf.dwws.umdb.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ufes.inf.dwws.umdb.domain.Movie;
 import com.ufes.inf.dwws.umdb.service.MovieDTO;
 import com.ufes.inf.dwws.umdb.service.MovieService;
+import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -22,8 +28,14 @@ public class MovieController {
 
     @PostMapping("/api/admin/movie")
     @ResponseBody
-    public ResponseEntity<Object> saveMovie (@RequestBody Movie movie) {
-        MovieDTO movieDTO = this.movieService.saveMovie(movie);
+    public ResponseEntity<Object> saveMovie (@RequestParam String movie, @RequestParam MultipartFile image) throws IOException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Movie movieObject = objectMapper.readValue(movie, Movie.class);
+
+        movieObject.setImage(image.getBytes());
+
+        MovieDTO movieDTO = this.movieService.saveMovie(movieObject);
 
         if (movieDTO != null) {
             return new ResponseEntity<>(movieDTO, HttpStatus.CREATED);

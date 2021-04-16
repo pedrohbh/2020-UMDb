@@ -873,7 +873,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbmRlZmF1bHRAZW1haWwiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxODI0NTg5MywiZXhwIjoxNjE4MjQ5NDkzfQ.33dgd_zvgayd_v-2xreUXZOjQAURrf6E2WokqQpu3TQ",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbmRlZmF1bHRAZW1haWwiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxODUzMTczNCwiZXhwIjoxNjE4NTM1MzM0fQ.lqsoT0OoE4c5ZrrUOuJVlD22ekC-7cjzcwF9Xvnbnuw",
 									"type": "string"
 								}
 							]
@@ -881,8 +881,19 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Ribeiro no paogode\",\r\n    \"year\": 2021,\r\n    \"actors\": [\r\n        {\r\n            \"id\": 3\r\n        },\r\n        {\r\n            \"id\": 5\r\n        }\r\n    ],\r\n    \"genres\": [\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ],\r\n    \"directors\": [\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ]\r\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie",
+									"value": "{\n   \"name\": \"Ribeiro no paogode\",\n    \"year\": 2021,\n    \"actors\": [\n        {\n            \"id\":  1\n        }\n       \n    ],\n    \"genres\": [\n        {\n            \"id\":  1\n        }\n    ],\n    \"directors\": [\n        {\n            \"id\":1\n        }\n    ]\n}",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Breno Krohling/Pictures/264x264.jpg"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1011,7 +1022,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbmRlZmF1bHRAZW1haWwiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxODI1Mzc5MSwiZXhwIjoxNjE4MjU3MzkxfQ.qFnpb1GbAV_NefU9sW7S3NJSHyAt1TOoCOuN5zwbyPc",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbmRlZmF1bHRAZW1haWwiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxODI2MTA5OCwiZXhwIjoxNjE4MjY0Njk4fQ.k9xNVgCmwT_6Z_pYNcwaciWGgEicBG4WPwBhM-UjdMw",
 									"type": "string"
 								}
 							]
@@ -1028,7 +1039,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/close/movie/7/review",
+							"raw": "http://localhost:8080/api/close/movie/2/review",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1038,7 +1049,7 @@
 								"api",
 								"close",
 								"movie",
-								"7",
+								"2",
 								"review"
 							]
 						}
