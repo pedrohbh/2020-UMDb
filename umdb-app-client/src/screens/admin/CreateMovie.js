@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dropdown, Icon, Form, Input} from 'semantic-ui-react'
+import { Button, Dropdown, Icon, Form, Input, TextArea } from 'semantic-ui-react'
 
 import AdminContainer from '../../components/AdminContainer';
 import AdminInternalHeader from '../../components/AdminInternalHeader';
@@ -24,13 +24,22 @@ const CreateMovie = () => {
         { key: 'genre3', text: 'Genero 3', value: 'genre3' },
         { key: 'genre4', text: 'Genero 4', value: 'genre4' }
     ]
+
     return (
         <AdminContainer activeItem="movies">
             <AdminInternalHeader title="Criar filme" link="" />
-            <Form>
+            <Form method="POST">
                 <Form.Field>
                     <label>Nome</label>
                     <Input placeholder='Nome' name="name" />
+                </Form.Field>
+                <Form.Field>
+                    <label>Imagem</label>
+                    <Input type="file" name="image" accept=".jpg, .jpeg, .png" />
+                </Form.Field>
+                <Form.Field>
+                    <label>Sinopse</label>
+                    <TextArea rows="6" placeholder='Sinopse' name="synopsis" />
                 </Form.Field>
                 <Form.Field>
                     <label>Ano</label>

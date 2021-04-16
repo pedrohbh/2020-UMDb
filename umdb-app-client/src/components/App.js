@@ -18,6 +18,7 @@ import ListDirectors from '../screens/admin/ListDirectors';
 import ListGenres from '../screens/admin/ListGenres';
 import ListActors from '../screens/admin/ListActors';
 import ListMovies from '../screens/admin/ListMovies';
+import MovieDetail from '../screens/MovieDetail';
 
 const App = () => {
     return (
@@ -48,6 +49,7 @@ const App = () => {
                     />
                     <Route path="/admin/movies" exact component={ListMovies} />
                     <Route path="/admin/movies/add" exact component={CreateMovie} />
+                    <Route path="/movie/:id" exact component={MovieDetail} />
                     <Footer />
                 </div>
             </BrowserRouter>
