@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createActor } from '../../actions/actor';
+import { createDirector } from '../../actions/director';
 
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
@@ -15,15 +16,15 @@ class CreateDefault extends Component  {
             activeItem,
             inputValue: ''
         }
-        console.log(this.state)
     }
 
     onSubmit = (e) => {
         e.preventDefault()
         if (this.state.activeItem === 'actor') {
             this.props.createActor({name: this.state.inputValue});
+        } else if (this.state.activeItem === 'director') {
+            this.props.createDirector({name: this.state.inputValue});
         }
-        console.log(this.state.inputValue)
     };
 
     handleChange = (value) => {
@@ -42,6 +43,6 @@ class CreateDefault extends Component  {
 
 export default connect(
     null,
-    { createActor }
+    { createActor, createDirector }
 )(CreateDefault);
   

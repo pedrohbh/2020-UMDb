@@ -12,7 +12,6 @@ const movieReducer = (state = {}, action) => {
         case FETCH_MOVIES:
             return {...state, ..._.mapKeys(action.payload, 'id') }
         case FETCH_MOVIE:
-            console.log(action.payload.id)
             return { ...state, [action.payload.id]: action.payload };
         case CREATE_MOVIE:
             return { ...state, [action.payload.id]: action.payload };

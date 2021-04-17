@@ -23,7 +23,6 @@ class ListActors extends Component {
     }
 
     renderRow() {
-
         return this.props.actors.map(({id, name}) => {
             return (
                 <Table.Row key={id}>
@@ -41,7 +40,6 @@ class ListActors extends Component {
                 </Table.Row>
             );
         });
-
     }
 
     render() {

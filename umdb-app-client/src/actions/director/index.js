@@ -1,5 +1,5 @@
-import api from '../services/api'
-import history from '../history';
+import api from '../../services/api'
+import history from '../../history';
 
 import {
     FETCH_DIRECTORS,
@@ -28,6 +28,7 @@ export const createDirector = formValues => async dispatch => {
 export const editDirector = (id, formValues) => async dispatch => {
     const response = await api.put(`admin/director/${id}`, formValues);
     dispatch({ type: EDIT_DIRECTOR, payload: response.data });
+    history.push('/admin/directors')
 };
 
 export const deleteDirector = id => async dispatch => {

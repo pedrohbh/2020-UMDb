@@ -12,7 +12,6 @@ const genreReducer = (state = {}, action) => {
         case FETCH_GENRES:
             return {...state, ..._.mapKeys(action.payload, 'id') }
         case FETCH_GENRE:
-            console.log(action.payload.id)
             return { ...state, [action.payload.id]: action.payload };
         case CREATE_GENRE:
             return { ...state, [action.payload.id]: action.payload };

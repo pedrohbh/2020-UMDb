@@ -12,7 +12,6 @@ const directorReducer = (state = {}, action) => {
         case FETCH_DIRECTORS:
             return {...state, ..._.mapKeys(action.payload, 'id') }
         case FETCH_DIRECTOR:
-            console.log(action.payload.id)
             return { ...state, [action.payload.id]: action.payload };
         case CREATE_DIRECTOR:
             return { ...state, [action.payload.id]: action.payload };

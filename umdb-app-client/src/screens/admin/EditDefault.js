@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editActor, fetchActor } from '../../actions/actor';
-import { withRouter } from 'react-router-dom';
+import { editDirector, fetchDirector } from '../../actions/director';
+import { editGenre, fetchGenre } from '../../actions/genre';
 
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
@@ -15,18 +16,32 @@ class EditDefault extends Component  {
             headerTitle,
             activeItem,
             name: '',
-            id: this.props.match.params.id
+            id: this.props.match.params.id,
+            initialValue: ''
         }
     }
 
     componentDidMount() {
-        this.props.fetchActor(this.state.id)
+        if (this.state.activeItem === 'actor') {
+            this.props.fetchActor(this.state.id)
+            // this.setState({initialValue: this.props.actor.name})
+        } else if (this.state.activeItem === 'director') {
+            this.props.fetchDirector(this.state.id)
+            // this.setState({initialValue: this.props.director.name})
+        } else if (this.state.activeItem === 'genre') {
+            this.props.fetchDirector(this.state.id)
+            // this.setState({initialValue: this.props.genres.name})
+        }
     }
 
     onSubmit = (e) => {
         e.preventDefault()
         if (this.state.activeItem === 'actor') {
             this.props.editActor(this.state.id, {name: this.state.name});
+        } else if (this.state.activeItem === 'director') {
+            this.props.editDirector(this.state.id, {name: this.state.name});
+        } else if (this.state.activeItem === 'genre') {
+            this.props.editGenre(this.state.id, {name: this.state.name});
         }
     };
 
@@ -38,18 +53,33 @@ class EditDefault extends Component  {
         return (
             <AdminContainer activeItem={this.state.activeItem}>
                 <AdminInternalHeader title={this.state.headerTitle} link="" />
-                <DefaultForm buttonLabel="Editar" buttonIcon="write" initialValue={this.props.actor.name} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
+                <DefaultForm buttonLabel="Editar" buttonIcon="write" initialValue={this.state.initialValue} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
             </AdminContainer>
         );   
     }
 };
 
 const mapStateToProps = (state, ownProps) => {
-    return { actor: state.actors[ownProps.match.params.id] };
+    return {
+        genre: state.genres[ownProps.match.params.id],
+        actor: state.actors[ownProps.match.params.id],
+        director: state.directors[ownProps.match.params.id]
+    };
+    console.log(state)
+    if (state.actors !== {}) {
+        console.log(1)
+        return { actor: state.actors[ownProps.match.params.id] };
+    } else if (state.directors !== {}) {
+        console.log(2)
+        return { director: state.directors[ownProps.match.params.id] };
+    } else if (state.genres !== {}) {
+        console.log(3)
+        return { genre: state.genres[ownProps.match.params.id] };
+    }
 };
 
 export default connect(
     mapStateToProps,
-    { editActor, fetchActor }
+    { editActor, fetchActor, fetchDirector, editDirector, editGenre, fetchGenre }
 )(EditDefault);
   

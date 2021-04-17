@@ -46,6 +46,10 @@ const App = () => {
                     />
                     <Route path="/admin/directors" exact component={ListDirectors} />
                     <Route
+                        path="/admin/director/edit/:id" exact
+                        render={props => <EditDefault {...props} headerTitle="Editar Diretor" activeItem="director" />}
+                    />
+                    <Route
                         path="/admin/directors/add" exact
                         render={() => <CreateDefault headerTitle="Criar Diretor" activeItem="director" />}
                     />

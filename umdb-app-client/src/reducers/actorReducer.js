@@ -12,7 +12,6 @@ const actorReducer = (state = {}, action) => {
         case FETCH_ACTORS:
             return {...state, ..._.mapKeys(action.payload, 'id') }
         case FETCH_ACTOR:
-            console.log(action.payload.id)
             return { ...state, [action.payload.id]: action.payload };
         case CREATE_ACTOR:
             return { ...state, [action.payload.id]: action.payload };
