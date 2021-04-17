@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createActor } from '../../actions/actor';
 import { createDirector } from '../../actions/director';
+import { createGenre } from '../../actions/genre';
 
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
@@ -24,6 +25,8 @@ class CreateDefault extends Component  {
             this.props.createActor({name: this.state.inputValue});
         } else if (this.state.activeItem === 'director') {
             this.props.createDirector({name: this.state.inputValue});
+        } else if (this.state.activeItem === 'genre') {
+            this.props.createGenre({name: this.state.inputValue});
         }
     };
 
@@ -43,6 +46,6 @@ class CreateDefault extends Component  {
 
 export default connect(
     null,
-    { createActor, createDirector }
+    { createActor, createDirector, createGenre }
 )(CreateDefault);
   
