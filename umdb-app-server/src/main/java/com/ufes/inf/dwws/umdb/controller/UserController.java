@@ -39,7 +39,7 @@ public class UserController {
         if (userDTO != null) {
             return new ResponseEntity<>(userDTO, HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>("Já existe um ator cadastrado com esse nome!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Esse e-mail já está sendo usado.", HttpStatus.BAD_REQUEST);
         }
     }
 
