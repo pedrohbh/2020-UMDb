@@ -65,14 +65,7 @@ class EditMovie extends Component {
             directors: this.state.selectedDirectors.map((id) => { return { id } }),
             genres: this.state.selectedGenres.map((id) => { return { id } })
         }
-        // formData.append('image', this.state.image)
-        formData.append('movie', JSON.stringify(movie))
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        }
-        this.props.editMovie(this.props.match.params.id, formData, config)
+        this.props.editMovie(this.props.match.params.id,movie)
     };
 
     render() {

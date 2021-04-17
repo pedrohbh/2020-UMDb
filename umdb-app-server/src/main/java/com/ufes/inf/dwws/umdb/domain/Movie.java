@@ -125,6 +125,9 @@ public class Movie {
     }
 
     public String getImageAsBase64(){
+        if (this.image == null){
+            return null;
+        }
         return Base64.getEncoder().encodeToString(this.image);
     }
 
