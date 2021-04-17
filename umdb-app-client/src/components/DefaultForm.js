@@ -15,8 +15,11 @@ class DefaultForm extends Component  {
     }
 
     handleChange = e => {
-        this.setState({ inputValue: e.target.value })
-        this.props.onInputChange(this.state.inputValue)
+        this.setState({
+            inputValue: e.target.value
+        }, () => {
+            this.props.onInputChange(this.state.inputValue)
+        })
     }
 
     render () {
