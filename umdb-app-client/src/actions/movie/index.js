@@ -6,7 +6,8 @@ import {
     FETCH_MOVIE,
     CREATE_MOVIE,
     DELETE_MOVIE,
-    EDIT_MOVIE
+    EDIT_MOVIE,
+    FILTER_MOVIE
 } from './types'
 
 export const fetchMovies = () => async dispatch => {
@@ -34,4 +35,9 @@ export const editMovie = (id, formValues) => async dispatch => {
 export const deleteMovie = id => async dispatch => {
     await api.delete(`admin/movie/${id}`);
     dispatch({ type: DELETE_MOVIE, payload: id });
+};
+
+export const filterMovie = (entity, name) => async dispatch => {
+    const response = await api.get(`open/movie/filter?entity=${entity}&name=${name}`);
+    dispatch({ type: FILTER_MOVIE, payload: response.data});
 };

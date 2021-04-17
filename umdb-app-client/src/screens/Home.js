@@ -20,7 +20,7 @@ class Home extends Component{
     renderRow(){
         return this.props.movies.map((movie) =>{
             return(
-                <Grid.Column width={4}>
+                <Grid.Column width={4} key={movie.id}>
                     <MovieCard
                         fluid
                         title={movie.name}
