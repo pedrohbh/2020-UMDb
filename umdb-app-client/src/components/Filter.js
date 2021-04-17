@@ -1,81 +1,111 @@
-import React, { useState } from 'react';
+import React, {Component, useState} from 'react';
 import { Header, Accordion, Icon, Divider, Form, Input, Button } from 'semantic-ui-react'
+import {filterMovie} from "../actions/movie";
+import {connect} from "react-redux";
 
-const Filter = () => {
-    const [activeIndex, setActiveIndex] = useState(-1)
-
-    const handleClick = (e, titleProps) => {
-        const { index } = titleProps
-        const newIndex = activeIndex === index ? -1 : index
-        setActiveIndex(newIndex)
+class Filter extends Component{
+    constructor(props) {
+        super(props)
+        this.state = {
+            activeIndex: -1,
+            filterValue: ''
+        }
     }
 
-    const renderForm = (inputPlaceholder) => {
+    handleClick = (e, titleProps) => {
+        const { index } = titleProps
+        const newIndex = this.state.activeIndex === index ? -1 : index
+        this.setState({activeIndex: newIndex})
+    }
+
+    handleInputChange (event) {
+        this.setState({filterValue: event.target.value})
+    }
+
+    handleFilter(event, entity){
+        event.preventDefault()
+        this.props.filterMovie(entity, this.state.filterValue);
+    }
+
+
+    renderForm (inputPlaceholder, entity){
         return (
             <Form style={{ display: 'flex' }}>
-                <Input type="text" name="term" placeholder={inputPlaceholder} style={{ marginRight: '5px' }} />
-                <Button type="submit" icon>
+                <Input type="text" name="term" value={this.state.filterValue} placeholder={inputPlaceholder} style={{ marginRight: '5px' }}
+                       onChange={(e)=> {this.handleInputChange(e)}}
+                />
+                <Button type="submit" icon onClick={(e)=>{this.handleFilter(e, entity)}}>
                     <Icon name="angle right" />
                 </Button>
             </Form>
         );
     }
 
-    return (
-        <>
-            <Header as="h5" textAlign="center">Filtro</Header>
-            <Divider />
-            <Accordion>
-                <Accordion.Title
-                    active={activeIndex === 0}
-                    index={0}
-                    onClick={handleClick}
-                >
-                    <Icon name='dropdown' />
-                    Nome
-                </Accordion.Title>
-                <Accordion.Content active={activeIndex === 0}>
-                    { renderForm('Nome') }
-                </Accordion.Content>
+    render(){
+        return (
+            <>
+                <Header as="h5" textAlign="center">Filtro</Header>
+                <Divider />
+                <Accordion>
+                    <Accordion.Title
+                        active={this.state.activeIndex === 0}
+                        index={0}
+                        onClick={this.handleClick}
+                    >
+                        <Icon name='dropdown' />
+                        Nome
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.activeIndex === 0}>
+                        { this.renderForm('Nome', 'movie') }
+                    </Accordion.Content>
 
-                <Accordion.Title
-                    active={activeIndex === 1}
-                    index={1}
-                    onClick={handleClick}
-                >
-                    <Icon name='dropdown' />
-                    Diretor
-                </Accordion.Title>
-                <Accordion.Content active={activeIndex === 1}>
-                    { renderForm('Diretor') }
-                </Accordion.Content>
+                    <Accordion.Title
+                        active={this.state.activeIndex === 1}
+                        index={1}
+                        onClick={this.handleClick}
+                    >
+                        <Icon name='dropdown' />
+                        Diretor
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.activeIndex === 1}>
+                        { this.renderForm('Diretor', 'director') }
+                    </Accordion.Content>
 
-                <Accordion.Title
-                    active={activeIndex === 2}
-                    index={2}
-                    onClick={handleClick}
-                >
-                    <Icon name='dropdown' />
-                    Ator
-                </Accordion.Title>
-                <Accordion.Content active={activeIndex === 2}>
-                    { renderForm('Ator') }
-                </Accordion.Content>
+                    <Accordion.Title
+                        active={this.state.activeIndex === 2}
+                        index={2}
+                        onClick={this.handleClick}
+                    >
+                        <Icon name='dropdown' />
+                        Ator
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.activeIndex === 2}>
+                        { this.renderForm('Ator', 'actor') }
+                    </Accordion.Content>
 
-                <Accordion.Title
-                    active={activeIndex === 3}
-                    index={3}
-                    onClick={handleClick}
-                >
-                    <Icon name='dropdown' />
-                    Gênero
-                </Accordion.Title>
-                <Accordion.Content active={activeIndex === 3}>
-                    { renderForm('Gênero') }
-                </Accordion.Content>
-            </Accordion>
-        </>
-    );
+                    <Accordion.Title
+                        active={this.state.activeIndex === 3}
+                        index={3}
+                        onClick={this.handleClick}
+                    >
+                        <Icon name='dropdown' />
+                        Gênero
+                    </Accordion.Title>
+                    <Accordion.Content active={this.state.activeIndex === 3}>
+                        { this.renderForm('Gênero', 'genre') }
+                    </Accordion.Content>
+                </Accordion>
+            </>
+        );
+    }
+
 }
 
-export default Filter;
+const mapStateToProps = state => {
+    return { movies: Object.values(state.movies) };
+};
+
+export default connect(
+    mapStateToProps,
+    { filterMovie}
+)(Filter);
