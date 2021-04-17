@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card, Rating } from 'semantic-ui-react';
+import history from '../history'
 
-const MovieCard = ({ title, year, link, imageSource }) => {
+const MovieCard = ({ title, year, link, imageSource, avgRate }) => {
+    const handleClick = (e) => {
+        e.preventDefault()
+        history.push(link)
+    }
     return (
-        <Card style={{ marginBottom: '15px' }} href={link}>
+        <Card style={{ marginBottom: '15px' }} onClick={handleClick}>
             <img
                 alt={title}
                 style={{
@@ -20,8 +25,8 @@ const MovieCard = ({ title, year, link, imageSource }) => {
                 </Card.Meta>
             </Card.Content>
             <Card.Content extra>
-                <Rating defaultRating={4} maxRating={5} disabled style={{ marginRight: '5px' }} />
-                4.5/5
+                <Rating defaultRating={Math.floor(avgRate)} maxRating={5} disabled style={{ marginRight: '5px' }} />
+                {avgRate}/5
             </Card.Content>
         </Card>
     );

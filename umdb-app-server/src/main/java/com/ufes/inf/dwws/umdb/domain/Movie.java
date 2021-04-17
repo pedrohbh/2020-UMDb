@@ -23,21 +23,21 @@ public class Movie {
     private String synopsis;
 
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "Movie_Genre",
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Genre_id")
     )
     private List<Genre> genres;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "Movie_Actor",
             joinColumns = @JoinColumn(name = "Movie_id"),
             inverseJoinColumns = @JoinColumn(name = "Actor_id")
     )
     private List<Actor> actors;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "Movie_Director",
             joinColumns = @JoinColumn(name = "Movie_id"),
@@ -125,6 +125,9 @@ public class Movie {
     }
 
     public String getImageAsBase64(){
+        if (this.image == null){
+            return null;
+        }
         return Base64.getEncoder().encodeToString(this.image);
     }
 

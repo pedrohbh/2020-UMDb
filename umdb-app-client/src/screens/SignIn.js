@@ -2,28 +2,39 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Form, Input, Card, Grid } from 'semantic-ui-react';
 
+import { login, setCredentials } from '../services/auth'
+
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(false)
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log(`Submitting Form ${JSON.stringify({ email, password })}`)
+
+        login(email, password).then(({data}) => {
+            setCredentials(data)
+        }).catch((error) => {
+            console.error(error)
+            setError(true)
+        })
     }
 
     return (
         <div className="page-login">
             <Grid centered container>
                 <Grid.Column width={8}>
-                    {/* <div className="ui icon warning message">
-                        <i className="lock icon"></i>
-                        <div className="content">
-                            <div className="header">
-                                Oops, algo deu errado!
+                    { error ? (
+                        <div className="ui icon warning message">
+                            <i className="lock icon"></i>
+                            <div className="content">
+                                <div className="header">
+                                    Oops, algo deu errado!
+                                </div>
+                                <p>Verifique seu usuário, senha e tente novamente!</p>
                             </div>
-                            <p>Verifique seu usuário, senha e tente novamente!</p>
                         </div>
-                    </div> */}
+                    ) : null}
                     <Card fluid>
                         <Card.Content>
                             <Form method="POST" onSubmit={handleLogin}>
