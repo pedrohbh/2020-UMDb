@@ -28,6 +28,7 @@ export const createActor = formValues => async dispatch => {
 export const editActor = (id, formValues) => async dispatch => {
     const response = await api.put(`admin/actor/${id}`, formValues);
     dispatch({ type: EDIT_ACTOR, payload: response.data });
+    history.push('/admin/actors')
 };
 
 export const deleteActor = id => async dispatch => {

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Button, Icon , Table} from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import history from '../../history'
 
 import AdminContainer from '../../components/AdminContainer'
 import AdminInternalHeader from '../../components/AdminInternalHeader'
-import { fetchActors, createActor } from '../../actions/actor'
+import { fetchActors, deleteActor } from '../../actions/actor'
 
 
 class ListActors extends Component {
@@ -14,11 +15,11 @@ class ListActors extends Component {
     }
 
     handleEditButtonClick = (e, id) => {
-        this.props.history.push(`/admin/actor/edit/${id}`)
+        history.push(`/admin/actor/edit/${id}`)
     }
 
     handleDeleteButtonClick = (e, id) => {
-        this.props.history.push(`/admin/actor/delete/${id}`)
+        this.props.deleteActor(id)
     }
 
     renderRow() {
@@ -81,5 +82,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchActors, createActor }
+    { fetchActors, deleteActor }
 )(ListActors);

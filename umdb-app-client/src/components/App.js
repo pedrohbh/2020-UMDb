@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 import Home from '../screens/Home';
@@ -11,6 +11,7 @@ import AdminHome from '../screens/admin/AdminHome';
 
 import Header from './Header';
 import Footer from './Footer';
+import history from '../history';
 
 import CreateDefault from '../screens/admin/CreateDefault';
 import CreateMovie from '../screens/admin/CreateMovie';
@@ -25,7 +26,7 @@ import EditDefault from '../screens/admin/EditDefault';
 const App = () => {
     return (
         <Container>
-            <BrowserRouter>
+            <Router history={history}>
                 <div>
                     <Header />
                     <Route path="/" exact component={Home} />
@@ -41,7 +42,7 @@ const App = () => {
                     />
                     <Route
                         path="/admin/actor/edit/:id" exact
-                        render={() => <EditDefault headerTitle="Editar Ator" activeItem="actor" />}
+                        render={props => <EditDefault {...props} headerTitle="Editar Ator" activeItem="actor" />}
                     />
                     <Route path="/admin/directors" exact component={ListDirectors} />
                     <Route
@@ -59,7 +60,7 @@ const App = () => {
                     <Route path="/movie/:id/review" exact component={CreateReview} />
                     <Footer />
                 </div>
-            </BrowserRouter>
+            </Router>
         </Container>
     );
 }

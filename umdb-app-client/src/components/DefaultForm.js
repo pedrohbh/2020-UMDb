@@ -6,7 +6,7 @@ class DefaultForm extends Component  {
     constructor(props) {
         super(props)
         this.state = {
-            inputValue: ''
+            inputValue: this.props.initialValue || ''
         }
     }
 
