@@ -12,13 +12,9 @@ const isAdmin = () => localStorage.getItem(USER_ROLE_KEY) === ADMIN_VALUE
 const getToken = () => localStorage.getItem(TOKEN_KEY)
 
 const login = (email, password) => {
-  api.post('/open/login/', {
+  return api.post('/open/login/', {
     email,
     password
-  }).then(({data}) => {
-    setCredentials(data)
-  }).catch((error) => {
-    return false;
   })
 };
 
@@ -31,8 +27,7 @@ const setCredentials = ({name, token, roles}) => {
 }
 
 const logout = () => {
-  localStorage.removeItem(TOKEN_KEY)
-  localStorage.removeItem(USER_ROLE_KEY)
+  localStorage.clear()
   window.location.href = '/'
 };
 
