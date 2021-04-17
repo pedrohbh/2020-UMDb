@@ -4,8 +4,7 @@ import {
     FETCH_MOVIE,
     CREATE_MOVIE,
     EDIT_MOVIE,
-    DELETE_MOVIE,
-    FILTER_MOVIE
+    DELETE_MOVIE
 } from '../actions/movie/types'
 
 const movieReducer = (state = {}, action) => {
@@ -20,8 +19,6 @@ const movieReducer = (state = {}, action) => {
             return { ...state, [action.payload.id]: action.payload };
         case DELETE_MOVIE:
             return _.omit(state, action.payload);
-        case FILTER_MOVIE:
-            return {...state, ..._.mapKeys(action.payload, 'id') }
         default:
             return state;
     }

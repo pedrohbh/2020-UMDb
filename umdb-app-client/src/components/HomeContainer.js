@@ -9,7 +9,7 @@ const HomeContainer = props => {
         <Grid>
             <Grid.Column width={4}>
                 <Segment>
-                    <Filter />
+                    <Filter onFilterMovie={props.onFilterMovie}/>
                 </Segment>
             </Grid.Column>
             <Grid.Column width={12} stretched>

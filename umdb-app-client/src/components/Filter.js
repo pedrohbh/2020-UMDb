@@ -1,7 +1,6 @@
-import React, {Component, useState} from 'react';
+import React, { Component } from 'react';
 import { Header, Accordion, Icon, Divider, Form, Input, Button } from 'semantic-ui-react'
-import {filterMovie} from "../actions/movie";
-import {connect} from "react-redux";
+import api from '../services/api';
 
 class Filter extends Component{
     constructor(props) {
@@ -22,9 +21,14 @@ class Filter extends Component{
         this.setState({filterValue: event.target.value})
     }
 
-    handleFilter(event, entity){
+    async handleFilter(event, entity){
         event.preventDefault()
-        this.props.filterMovie(entity, this.state.filterValue);
+        api.get(`open/movie/filter?entity=${entity}&name=${this.state.filterValue}`)
+        .then(({ data }) => {
+            this.props.onFilterMovie(data);
+        }).catch((error) => {
+            console.error(error)
+        })
     }
 
 
@@ -41,7 +45,7 @@ class Filter extends Component{
         );
     }
 
-    render(){
+    render() {
         return (
             <>
                 <Header as="h5" textAlign="center">Filtro</Header>
@@ -101,11 +105,4 @@ class Filter extends Component{
 
 }
 
-const mapStateToProps = state => {
-    return { movies: Object.values(state.movies) };
-};
-
-export default connect(
-    mapStateToProps,
-    { filterMovie}
-)(Filter);
+export default Filter;
