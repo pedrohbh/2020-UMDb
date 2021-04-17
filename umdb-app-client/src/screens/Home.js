@@ -8,13 +8,20 @@ import {connect} from "react-redux";
 
 
 class Home extends Component{
+    constructor (props) {
+        super(props)
+        this.state = {
+            movies: []
+        }
+    }
 
-    componentDidMount(){
-        this.props.fetchMovies();
+    async componentDidMount(){
+        await this.props.fetchMovies();
+        this.setState({ movies: this.props.movies })
     }
 
     renderRow(){
-        return this.props.movies.map((movie) =>{
+        return this.state.movies.map((movie) =>{
             return(
                 <Grid.Column width={4} key={movie.id}>
                     <MovieCard
@@ -31,6 +38,11 @@ class Home extends Component{
         })
     }
 
+    onFilterMovie = (data) => {
+        console.log(data);
+        this.setState({ movies: data })
+    }
+
     render(){
         return (
         <>
@@ -41,11 +53,11 @@ class Home extends Component{
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-            <HomeContainer>
+            <HomeContainer onFilterMovie={this.onFilterMovie}>
                 <Grid>
                     <Grid.Row>
                         {
-                            this.props.movies.length > 0 ? (
+                            this.state.movies.length > 0 ? (
                                 this.renderRow()
                             ): (
                                 <Grid.Column width={4}>
