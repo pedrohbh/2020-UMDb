@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Icon, Form, Input, Card, Grid } from 'semantic-ui-react';
 
 import { createUser } from '../services/user'
+import { setCredentials } from '../services/auth'
 
 const SignUp = () => {
     const [name, setName] = useState('');
@@ -10,16 +11,20 @@ const SignUp = () => {
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
-    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState('')
 
     const handleSignUp = (e) => {
         e.preventDefault();
         console.log(`Submitting Form ${JSON.stringify({ name, email, password1, password2 })}`)
 
-        const created = createUser(name, email, password1)
-        if (!created) {
-            setError(true)
-        }
+        createUser(name, email, password1).then(({data}) => {
+            setCredentials(data)
+        }).catch((error) => {
+            console.error(error)
+            if (error && error.response && error.response.data) {
+                setErrorMsg(error.response.data)
+            }
+        })
     }
 
     const isButtonDisabled = () => {
@@ -30,14 +35,14 @@ const SignUp = () => {
         <div className="page-login">
             <Grid centered container>
                 <Grid.Column width={8}>
-                { error ? (
+                { errorMsg !== '' ? (
                         <div className="ui icon warning message">
                             <i className="lock icon"></i>
                             <div className="content">
                                 <div className="header">
                                     Oops, algo deu errado!
                                 </div>
-                                <p>Verifique seus dados e tente novamente!</p>
+                                <p>{errorMsg}</p>
                             </div>
                         </div>
                     ) : null}

@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import MovieInfo from '../components/MovieInfo';
 import SingleReview from '../components/SingleReview';
 import { fetchMovie } from '../actions/movie';
+import { isAuthenticated } from '../services/auth'
 
 class MovieDetail extends Component {
     constructor (props) {
@@ -70,14 +71,18 @@ class MovieDetail extends Component {
                             <div>
                                 <div style={{ position: 'relative' }}>
                                     <Header as="h3">Avaliações</Header>
-                                    <Link
-                                        to={`/movie/${this.props.match.params.id}/review`}
-                                        className="ui labeled icon button mini"
-                                        style={{ position: 'absolute', top: '0', right: '0' }}
-                                    >
-                                        <i className="plus icon"></i>
-                                        Adicionar
-                                    </Link>
+                                    {
+                                        isAuthenticated() ? (
+                                            <Link
+                                                to={`/movie/${this.props.match.params.id}/review`}
+                                                className="ui labeled icon button mini"
+                                                style={{ position: 'absolute', top: '0', right: '0' }}
+                                            >
+                                                <i className="plus icon"></i>
+                                                Adicionar
+                                            </Link>
+                                        ) : null
+                                    }
                                 </div>
                                 {
                                     this.props.movie?.reviews?.length > 0 ? (

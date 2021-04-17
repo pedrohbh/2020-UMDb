@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Form, Input, Card, Grid } from 'semantic-ui-react';
 
-import { login } from '../services/auth'
+import { login, setCredentials } from '../services/auth'
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false)
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        const logged = login(email, password)
-        if (!logged) {
+        login(email, password).then(({data}) => {
+            setCredentials(data)
+        }).catch((error) => {
+            console.error(error)
             setError(true)
-        }
+        })
     }
 
     return (
