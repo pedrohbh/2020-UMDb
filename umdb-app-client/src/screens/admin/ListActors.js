@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import AdminContainer from '../../components/AdminContainer'
 import AdminInternalHeader from '../../components/AdminInternalHeader'
-import { fetchActors, createActor } from '../../actions'
+import { fetchActors, createActor } from '../../actions/actor'
 
 
 class ListActors extends Component {

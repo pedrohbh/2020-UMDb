@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createActor } from '../../actions';
+import { createActor } from '../../actions/actor';
 
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
