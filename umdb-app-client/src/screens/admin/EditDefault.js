@@ -7,7 +7,6 @@ import { editGenre, fetchGenre } from '../../actions/genre';
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
 import AdminInternalHeader from '../../components/AdminInternalHeader'
-import history from '../../history'
 
 class EditDefault extends Component  {
     constructor(props) {
@@ -26,13 +25,10 @@ class EditDefault extends Component  {
     componentDidMount() {
         if (this.state.activeItem === 'actor') {
             this.props.fetchActor(this.state.id)
-            // this.setState({initialValue: this.props.actor.name})
         } else if (this.state.activeItem === 'director') {
             this.props.fetchDirector(this.state.id)
-            // this.setState({initialValue: this.props.director.name})
         } else if (this.state.activeItem === 'genre') {
             this.props.fetchGenre(this.state.id)
-            // this.setState({initialValue: this.props.genres.name})
         }
     }
 
@@ -67,17 +63,6 @@ const mapStateToProps = (state, ownProps) => {
         actor: state.actors[ownProps.match.params.id],
         director: state.directors[ownProps.match.params.id]
     };
-    console.log(state)
-    if (state.actors !== {}) {
-        console.log(1)
-        return { actor: state.actors[ownProps.match.params.id] };
-    } else if (state.directors !== {}) {
-        console.log(2)
-        return { director: state.directors[ownProps.match.params.id] };
-    } else if (state.genres !== {}) {
-        console.log(3)
-        return { genre: state.genres[ownProps.match.params.id] };
-    }
 };
 
 export default connect(

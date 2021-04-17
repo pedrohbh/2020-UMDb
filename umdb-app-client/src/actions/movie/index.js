@@ -25,8 +25,8 @@ export const createMovie = (formValues, config) => async dispatch => {
     history.push('/admin/movies')
 };
 
-export const editMovie = (id, formValues) => async dispatch => {
-    const response = await api.put(`admin/movie/${id}`, formValues);
+export const editMovie = (id, formValues, config) => async dispatch => {
+    const response = await api.put(`admin/movie/${id}`, formValues, config);
     dispatch({ type: EDIT_MOVIE, payload: response.data });
 };
 

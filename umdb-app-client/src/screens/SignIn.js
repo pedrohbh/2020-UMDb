@@ -11,7 +11,6 @@ const SignIn = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(`Submitting Form ${JSON.stringify({ email, password })}`)
 
         const logged = login(email, password)
         if (!logged) {
