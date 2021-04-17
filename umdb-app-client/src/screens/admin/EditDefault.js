@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editActor, fetchActor } from '../../actions';
-import { withRouter } from 'react-router-dom';
 
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
@@ -14,33 +13,31 @@ class EditDefault extends Component  {
         this.state = {
             headerTitle,
             activeItem,
-            name: ''
+            name: '',
+            id: this.props.match.params.id
         }
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
-        this.props.fetchActor(id)
+        this.props.fetchActor(this.state.id)
     }
 
     onSubmit = (e) => {
-        console.log(this.state)
         e.preventDefault()
         if (this.state.activeItem === 'actor') {
-            // this.props.editActor({name: this.state.name});
+            this.props.editActor(this.state.id, {name: this.state.name});
         }
-        console.log(this.state.name)
     };
 
     handleChange = (value) => {
-        this.setState({inputValue: value});
+        this.setState({name: value});
     }
 
     render () {
         return (
             <AdminContainer activeItem={this.state.activeItem}>
                 <AdminInternalHeader title={this.state.headerTitle} link="" />
-                <DefaultForm onSubmit={this.onSubmit} onInputChange={this.handleChange} />
+                <DefaultForm initialValue={this.props.actor.name} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
             </AdminContainer>
         );   
     }
@@ -50,8 +47,8 @@ const mapStateToProps = (state, ownProps) => {
     return { actor: state.actors[ownProps.match.params.id] };
 };
 
-export default withRouter(connect(
+export default connect(
     mapStateToProps,
     { editActor, fetchActor }
-)(EditDefault));
+)(EditDefault);
   
