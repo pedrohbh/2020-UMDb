@@ -7,15 +7,17 @@ import { editGenre, fetchGenre } from '../../actions/genre';
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'
 import AdminInternalHeader from '../../components/AdminInternalHeader'
+import history from '../../history'
 
 class EditDefault extends Component  {
     constructor(props) {
         super(props)
         const { headerTitle, activeItem } = this.props
+        const entity = this.props[activeItem]
         this.state = {
             headerTitle,
             activeItem,
-            name: '',
+            name: entity ? entity.name : '',
             id: this.props.match.params.id,
             initialValue: ''
         }
@@ -29,7 +31,7 @@ class EditDefault extends Component  {
             this.props.fetchDirector(this.state.id)
             // this.setState({initialValue: this.props.director.name})
         } else if (this.state.activeItem === 'genre') {
-            this.props.fetchDirector(this.state.id)
+            this.props.fetchGenre(this.state.id)
             // this.setState({initialValue: this.props.genres.name})
         }
     }
@@ -53,7 +55,7 @@ class EditDefault extends Component  {
         return (
             <AdminContainer activeItem={this.state.activeItem}>
                 <AdminInternalHeader title={this.state.headerTitle} link="" />
-                <DefaultForm buttonLabel="Editar" buttonIcon="write" initialValue={this.state.initialValue} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
+                <DefaultForm buttonLabel="Editar" buttonIcon="write" initialValue={this.state.name} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
             </AdminContainer>
         );   
     }

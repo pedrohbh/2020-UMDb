@@ -15,7 +15,7 @@ class ListGenres extends Component {
     }
 
     handleEditButtonClick = (e, id) => {
-        history.push(`/admin/actor/edit/${id}`)
+        history.push(`/admin/genre/edit/${id}`)
     }
 
     handleDeleteButtonClick = (e, id) => {

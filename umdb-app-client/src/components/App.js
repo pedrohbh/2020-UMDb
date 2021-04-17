@@ -59,6 +59,10 @@ const App = () => {
                         path="/admin/genres/add" exact
                         render={() => <CreateDefault headerTitle="Criar Gênero" activeItem="genre" />}
                     />
+                    <Route
+                        path="/admin/genre/edit/:id" exact
+                        render={props => <EditDefault {...props} headerTitle="Editar Gênero" activeItem="genre" />}
+                    />
                     <Route path="/admin/movies" exact component={ListMovies} />
                     <Route path="/admin/movies/add" exact component={CreateMovie} />
                     <Route path="/admin/movie/edit/:id" exact component={EditMovie} />
