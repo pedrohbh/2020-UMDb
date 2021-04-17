@@ -13,7 +13,7 @@ Para realizar o desenvolvimento dos mesmo, as seguintes tecnologias foram utiliz
 	- ReactJS
 
 ### Acesso da aplicação
-Foi realizado deploy da aplicação no serviço Heroku. a aplicação final poder ser acessada [aqui](https://umdb-client.herokuapp.com/).
+Foi realizado deploy da aplicação no serviço Heroku. a aplicação final poder ser acessada [aqui](https://www.umdb.heroku.app.com).
 	
 ### Configuração de ambiente para execução local
 A seguir são descritos como instalar as tecnologias necessárias para execução e desenvolvimento do servidor. Como ele é baseado no Spring Boot e Java, é necessário a instalação do JDK do Java 8. Após isso será descrito como configurar a aplicação web baseada em ReactJS .Outro ponto importante é que o tutorial é realizado para usuários Linux utilizando o `apt-get`.
@@ -140,3 +140,4 @@ Baixada as depêndencias, ao executar `npm start` o projeto será servido no end
 * [Nodejs](https://nodejs.org/en/)
 * [NPM](https://docs.npmjs.com/cli/install)
 * [ReactJS](https://pt-br.reactjs.org/)
+
