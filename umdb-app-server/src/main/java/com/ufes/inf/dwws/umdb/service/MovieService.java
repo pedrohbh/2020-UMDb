@@ -145,7 +145,6 @@ public class MovieService {
             Movie m = movie.get();
             m.setName(movieToUpdate.getName());
             m.setYear(movieToUpdate.getYear());
-            m.setImage(movieToUpdate.getImage());
             m.setSynopsis(movieToUpdate.getSynopsis());
             m.setActors(actors);
             m.setDirectors(directors);
