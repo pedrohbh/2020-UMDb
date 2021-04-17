@@ -46,7 +46,7 @@ class CreateMovie extends Component {
                 'content-type': 'multipart/form-data'
             }
         }
-        this.props.createMovie(formData, config)
+        this.props.editMovie(formData, config)
     };
 
     render() {
