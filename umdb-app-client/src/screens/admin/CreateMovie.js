@@ -4,10 +4,8 @@ import { connect } from 'react-redux'
 
 import AdminContainer from '../../components/AdminContainer';
 import AdminInternalHeader from '../../components/AdminInternalHeader';
-import { fetchDirectors } from '../../actions/director';
-import { fetchGenres } from '../../actions/genre';
-import { fetchActors } from '../../actions/actor';
 import { createMovie } from '../../actions/movie';
+import api from '../../services/api';
 
 
 class CreateMovie extends Component {
@@ -18,16 +16,27 @@ class CreateMovie extends Component {
             image: '',
             synopsis: '',
             year: '',
-            director: '',
-            actors: [],
-            genres: []
+            directorsList: [],
+            actorsList: [],
+            genresList: [],
+            selectedDirectors: [],
+            selectedActors: [],
+            selectedGenres: [],
         }
     }
 
     componentDidMount() {
-        this.props.fetchDirectors()
-        this.props.fetchGenres()
-        this.props.fetchActors()
+        api.get('/open/director')
+        .then((response) => this.setState({directorsList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
+        .catch((error) => console.error(error))
+
+        api.get('/open/actor')
+        .then((response) => this.setState({actorsList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
+        .catch((error) => console.error(error))
+
+        api.get('/open/genre')
+        .then((response) => this.setState({genresList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
+        .catch((error) => console.error(error))
     }
 
     onSubmit = (e) => {
@@ -37,9 +46,12 @@ class CreateMovie extends Component {
             name: this.state.name,
             year: this.state.year,
             synopsis: this.state.synopsis,
+            actors: this.state.selectedActors.map((id) => { return { id } }),
+            directors: this.state.selectedDirectors.map((id) => { return { id } }),
+            genres: this.state.selectedGenres.map((id) => { return { id } })
         }
         formData.append('image', this.state.image)
-        formData.append('movie', movie)
+        formData.append('movie', JSON.stringify(movie))
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -69,18 +81,18 @@ class CreateMovie extends Component {
                         <label>Ano</label>
                         <Input placeholder='Ano' name="year" type="number" value={this.state.year} onChange={(e) => this.setState({ year: e.target.value })} />
                     </Form.Field>
-                    {/* <Form.Field>
-                        <label>Diretor</label>
-                        <Dropdown placeholder='Selecione o diretor' name="director" fluid selection search options={this.props.directos.map(({id, name}) => { return {key: id, text: name, value: id} })} value={this.state.director} onChange={(e) => this.setState({ director: e.target.value })} />
+                    <Form.Field>
+                        <label>Diretores</label>
+                        <Dropdown placeholder='Selecione o diretor' name="director" fluid selection multiple search options={this.state.directorsList} onChange={(e, data) => this.setState({ selectedDirectors: data.value })} />
                     </Form.Field>
                     <Form.Field>
                         <label>Atores</label>
-                        <Dropdown placeholder='Selecione os atores' name="actors" fluid selection multiple search options={this.props.actors.map(({id, name}) => { return {key: id, text: name, value: id} })} value={this.state.actors} onChange={(e) => this.setState({ actors: e.target.value })} />
+                        <Dropdown placeholder='Selecione os atores' name="actors" fluid selection multiple search options={this.state.actorsList} onChange={(e, data) => this.setState({ selectedActors: data.value })} />
                     </Form.Field>
                     <Form.Field>
                         <label>Generos</label>
-                        <Dropdown placeholder='Selecione os gêneros' name="genres" fluid selection multiple search options={this.props.actors.map(({id, name}) => { return {key: id, text: name, value: id} })} value={this.state.genres} onChange={(e) => this.setState({ genres: e.target.value })} />
-                    </Form.Field> */}
+                        <Dropdown placeholder='Selecione os gêneros' name="genres" fluid selection multiple search options={this.state.genresList} onChange={(e, data) => this.setState({ selectedGenres: data.value })} />
+                    </Form.Field>
                     <Button icon type="submit" labelPosition='left'>
                         <Icon name='plus' />
                         Adicionar
@@ -92,15 +104,7 @@ class CreateMovie extends Component {
 
 };
 
-const mapStateToProps = state => {
-    return {
-        directors: Object.values(state.directors),
-        actors: Object.values(state.actors),
-        genres: Object.values(state.genres),
-    };
-};
-
 export default connect(
-    mapStateToProps,
-    { fetchDirectors, fetchActors, fetchGenres, createMovie }
+    null,
+    { createMovie }
 )(CreateMovie);
