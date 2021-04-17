@@ -22,6 +22,7 @@ import ListMovies from '../screens/admin/ListMovies';
 import MovieDetail from '../screens/MovieDetail';
 import CreateReview from '../screens/CreateReview';
 import EditDefault from '../screens/admin/EditDefault';
+import EditMovie from '../screens/admin/EditMovie';
 
 const App = () => {
     return (
@@ -60,6 +61,7 @@ const App = () => {
                     />
                     <Route path="/admin/movies" exact component={ListMovies} />
                     <Route path="/admin/movies/add" exact component={CreateMovie} />
+                    <Route path="/admin/movie/edit/:id" exact component={EditMovie} />
                     <Route path="/movie/:id" exact component={MovieDetail} />
                     <Route path="/movie/:id/review" exact component={CreateReview} />
                     <Footer />

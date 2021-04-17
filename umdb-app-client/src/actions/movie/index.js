@@ -19,8 +19,8 @@ export const fetchMovie = id => async dispatch => {
     dispatch({ type: FETCH_MOVIE, payload: response.data });
 };
 
-export const createMovie = formValues => async dispatch => {
-    const response = await api.post('/admin/movie', formValues);
+export const createMovie = (formValues, config) => async dispatch => {
+    const response = await api.post('/admin/movie', formValues, config);
     dispatch({ type: CREATE_MOVIE, payload: response.data });
     history.push('/admin/movies')
 };

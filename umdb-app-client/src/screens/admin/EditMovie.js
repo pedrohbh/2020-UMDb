@@ -7,7 +7,7 @@ import AdminInternalHeader from '../../components/AdminInternalHeader';
 import { fetchDirectors } from '../../actions/director';
 import { fetchGenres } from '../../actions/genre';
 import { fetchActors } from '../../actions/actor';
-import { createMovie } from '../../actions/movie';
+import { editMovie, fetchMovie } from '../../actions/movie';
 
 
 class CreateMovie extends Component {
@@ -25,6 +25,7 @@ class CreateMovie extends Component {
     }
 
     componentDidMount() {
+        this.props.fetchMovie(this.props.match.params.id)
         this.props.fetchDirectors()
         this.props.fetchGenres()
         this.props.fetchActors()
@@ -42,7 +43,7 @@ class CreateMovie extends Component {
                 'content-type': 'multipart/form-data'
             }
         }
-        this.props.createMovie(formData, config)
+        this.props.editMovie(formData, config)
     };
 
     render() {
@@ -89,15 +90,17 @@ class CreateMovie extends Component {
 
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
+        movie: state.movies[ownProps.match.params.id],
         directors: Object.values(state.directors),
         actors: Object.values(state.actors),
         genres: Object.values(state.genres),
+
     };
 };
 
 export default connect(
     mapStateToProps,
-    { fetchDirectors, fetchActors, fetchGenres, createMovie }
+    { fetchDirectors, fetchActors, fetchGenres, editMovie, fetchMovie }
 )(CreateMovie);
