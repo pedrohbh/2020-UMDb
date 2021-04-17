@@ -55,8 +55,6 @@ class EditMovie extends Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        const formData = new FormData();
-        console.log(this.state)
         const movie = {
             name: this.state.name,
             year: this.state.year,
