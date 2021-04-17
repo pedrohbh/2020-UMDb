@@ -34,7 +34,7 @@ class CreateDefault extends Component  {
         return (
             <AdminContainer activeItem={this.state.activeItem}>
                 <AdminInternalHeader title={this.state.headerTitle} link="" />
-                <DefaultForm onSubmit={this.onSubmit} onInputChange={this.handleChange} />
+                <DefaultForm buttonLabel="Adicionar" buttonIcon="plus"  onSubmit={this.onSubmit} onInputChange={this.handleChange} />
             </AdminContainer>
         );   
     }

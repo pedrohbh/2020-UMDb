@@ -27,8 +27,8 @@ class DefaultForm extends Component  {
                     <Input placeholder='Nome' name="name" value={this.state.inputValue} onChange={this.handleChange} />
                 </Form.Field>
                 <Button icon type="submit" labelPosition='left'>
-                    <Icon name='plus' />
-                    Adicionar
+                    <Icon name={this.props.buttonIcon} />
+                    {this.props.buttonLabel}
                 </Button>
             </Form>
         );   

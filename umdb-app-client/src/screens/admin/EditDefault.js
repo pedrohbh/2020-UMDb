@@ -37,7 +37,7 @@ class EditDefault extends Component  {
         return (
             <AdminContainer activeItem={this.state.activeItem}>
                 <AdminInternalHeader title={this.state.headerTitle} link="" />
-                <DefaultForm initialValue={this.props.actor.name} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
+                <DefaultForm buttonLabel="Editar" buttonIcon="write" initialValue={this.props.actor.name} onSubmit={this.onSubmit} onInputChange={this.handleChange} />
             </AdminContainer>
         );   
     }

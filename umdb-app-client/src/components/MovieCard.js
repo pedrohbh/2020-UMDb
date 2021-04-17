@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card, Rating } from 'semantic-ui-react';
+import history from '../history'
 
 const MovieCard = ({ title, year, link, imageSource }) => {
+    const handleClick = (e) => {
+        e.preventDefault()
+        history.push(link)
+    }
     return (
-        <Card style={{ marginBottom: '15px' }} href={link}>
+        <Card style={{ marginBottom: '15px' }} onClick={handleClick}>
             <img
                 alt={title}
                 style={{
