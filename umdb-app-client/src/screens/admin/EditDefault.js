@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editActor, fetchActor } from '../../actions';
+import { editActor, fetchActor } from '../../actions/actor';
+import { withRouter } from 'react-router-dom';
 
 import DefaultForm from '../../components/DefaultForm'
 import AdminContainer from '../../components/AdminContainer'

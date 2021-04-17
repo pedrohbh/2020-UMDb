@@ -5,7 +5,7 @@ import {
     CREATE_ACTOR,
     EDIT_ACTOR,
     DELETE_ACTOR
-} from '../actions/types'
+} from '../actions/actor/types'
 
 const actorReducer = (state = {}, action) => {
     switch(action.type) {

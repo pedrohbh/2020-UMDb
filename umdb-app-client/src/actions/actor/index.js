@@ -1,5 +1,5 @@
-import api from '../services/api'
-import history from '../history';
+import api from '../../services/api'
+import history from '../../history';
 
 import {
     FETCH_ACTORS,

@@ -5,7 +5,7 @@ import history from '../../history'
 
 import AdminContainer from '../../components/AdminContainer'
 import AdminInternalHeader from '../../components/AdminInternalHeader'
-import { fetchActors, deleteActor } from '../../actions'
+import { fetchActors, deleteActor } from '../../actions/actor'
 
 
 class ListActors extends Component {
