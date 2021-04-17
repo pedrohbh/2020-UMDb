@@ -33,10 +33,13 @@ class CreateMovie extends Component {
     onSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData();
+        const movie = {
+            name: this.state.name,
+            year: this.state.year,
+            synopsis: this.state.synopsis,
+        }
         formData.append('image', this.state.image)
-        formData.append('name', this.state.name)
-        formData.append('year', this.state.year)
-        formData.append('synopsis', this.state.synopsis)
+        formData.append('movie', movie)
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
