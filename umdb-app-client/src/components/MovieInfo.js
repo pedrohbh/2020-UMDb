@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Rating } from 'semantic-ui-react';
 
-const MovieInfo = ({ title, rating, year, director, actors, genres, synopsys }) => {
+const MovieInfo = ({ title, rating, year, director, actors, genres, synopsis }) => {
     return (
         <>
             <Header as="h3">{title}</Header>
@@ -28,7 +28,7 @@ const MovieInfo = ({ title, rating, year, director, actors, genres, synopsys }) 
             <div style={{ marginBottom: '20px'}}>
                 <p>
                     <label style={{ fontWeight: 'bold', marginRight: '2px' }}>Sinopse:</label>
-                    {synopsys}
+                    {synopsis}
                 </p>
             </div>
         </>
