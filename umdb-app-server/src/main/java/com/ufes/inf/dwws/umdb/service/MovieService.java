@@ -9,7 +9,11 @@ import com.ufes.inf.dwws.umdb.persistence.ActorRepository;
 import com.ufes.inf.dwws.umdb.persistence.DirectorRepository;
 import com.ufes.inf.dwws.umdb.persistence.ReviewRepository;
 
-
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -275,5 +279,35 @@ public class MovieService {
             return null;
         }
 
+    }
+
+    public String getSuggestion(String movieName) {
+        String query = "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
+        "PREFIX dbp: <http://dbpedia.org/property/>\n" +
+        "SELECT ?name ?year ?desc ?director" +
+        "WHERE {\n" +
+        "?film a dbo:Film ; dbp:name \""+ movieName +"\"@en .\n"+
+        "OPTIONAL { ?film rdfs:label ?name . }\n" +
+        "OPTIONAL { ?film rdfs:comment ?desc . }\n" +
+        "OPTIONAL { ?film dbp:released ?year . }\n" +
+        "OPTIONAL { ?film dbo:director ?dir . ?dir dbp:name ?director .}\n" +
+        "FILTER(langMatches(lang(?desc), \"EN\")) \n" +
+        "FILTER(langMatches(lang(?name), \"EN\"))\n" +
+        "}";
+
+        QueryExecution queryExecution = QueryExecutionFactory.sparqlService("https://dbpedia.org/sparql", query);
+        ResultSet results = queryExecution.execSelect();
+
+        if (results.hasNext()) {
+            QuerySolution solution = results.next();
+
+            Literal name = solution.getLiteral("name");
+            Literal desc = solution.getLiteral("desc");
+            Literal year = solution.getLiteral("year");
+
+            System.out.println((""+name.getValue()) + (""+desc.getValue()) + (""+year.getValue()));
+            return (""+name.getValue()) + (""+desc.getValue()) + (""+year.getValue());
+        }
+        return "Nao tem nenhum resultado";        
     }
 }
