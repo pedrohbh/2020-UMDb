@@ -134,9 +134,9 @@ public class MovieController {
         }
     }
 
-    @GetMapping("/api/open/movie/suggestion/{name}")
+    @GetMapping("/api/open/movie/suggestion")
     @ResponseBody
-    public ResponseEntity<Object> getSuggestion(@PathVariable String name) {
+    public ResponseEntity<Object> getSuggestion(@RequestParam("name") String name) {
         String suggestion = this.movieService.getSuggestion(name);
         return new ResponseEntity<>(suggestion, HttpStatus.OK);
     }

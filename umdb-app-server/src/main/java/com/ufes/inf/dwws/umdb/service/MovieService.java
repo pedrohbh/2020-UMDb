@@ -282,31 +282,42 @@ public class MovieService {
     }
 
     public String getSuggestion(String movieName) {
+
         String query = "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
+        "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
         "PREFIX dbp: <http://dbpedia.org/property/>\n" +
-        "SELECT ?name ?year ?desc ?director" +
-        "WHERE {\n" +
-        "?film a dbo:Film ; dbp:name \""+ movieName +"\"@en .\n"+
-        "OPTIONAL { ?film rdfs:label ?name . }\n" +
-        "OPTIONAL { ?film rdfs:comment ?desc . }\n" +
-        "OPTIONAL { ?film dbp:released ?year . }\n" +
-        "OPTIONAL { ?film dbo:director ?dir . ?dir dbp:name ?director .}\n" +
-        "FILTER(langMatches(lang(?desc), \"EN\")) \n" +
-        "FILTER(langMatches(lang(?name), \"EN\"))\n" +
+        "SELECT ?name ?year ?desc ?director\n"+
+        "WHERE {\n"+
+        "?film a dbo:Film ; dbp:name " + movieName + "@en .\n"+
+        "OPTIONAL { ?film rdfs:label ?name . }\n"+
+        "OPTIONAL { ?film rdfs:comment ?desc . }\n"+
+        "OPTIONAL { ?film dbp:released ?year . }\n"+
+        "OPTIONAL { ?film dbo:director ?dir . ?dir dbp:name ?director .}\n"+
+        "FILTER(langMatches(lang(?desc), \"EN\"))\n"+
+        "FILTER(langMatches(lang(?name), \"EN\"))\n"+
         "}";
+
+        System.out.println(query);
 
         QueryExecution queryExecution = QueryExecutionFactory.sparqlService("https://dbpedia.org/sparql", query);
         ResultSet results = queryExecution.execSelect();
 
         if (results.hasNext()) {
             QuerySolution solution = results.next();
+            String result = "";
 
-            Literal name = solution.getLiteral("name");
-            Literal desc = solution.getLiteral("desc");
-            Literal year = solution.getLiteral("year");
+            if (solution.contains("name")) {
+                result = result + (""+ solution.getLiteral("name")) + "\n";
+            }
+            if (solution.contains("desc")) {
+                result = result + (""+ solution.getLiteral("desc")) + "\n";
+            }
+            if (solution.contains("year")) {
+                result = result + (""+ solution.getLiteral("year")) + "\n";
+            }   
 
-            System.out.println((""+name.getValue()) + (""+desc.getValue()) + (""+year.getValue()));
-            return (""+name.getValue()) + (""+desc.getValue()) + (""+year.getValue());
+            // System.out.println((""+name.getValue()) + (""+desc.getValue()) + (""+year.getValue()));
+            return result;
         }
         return "Nao tem nenhum resultado";        
     }
