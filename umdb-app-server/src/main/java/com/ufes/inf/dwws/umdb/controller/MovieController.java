@@ -133,4 +133,16 @@ public class MovieController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/api/open/movie/suggestion")
+    @ResponseBody
+    public ResponseEntity<Object> getSuggestion(@RequestParam("name") String name) {
+        MovieDTO suggestion = this.movieService.getSuggestion(name);
+        if (suggestion != null) {
+            return new ResponseEntity<>(suggestion, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
 }

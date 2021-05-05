@@ -8,8 +8,12 @@ import com.ufes.inf.dwws.umdb.persistence.GenreRepository;
 import com.ufes.inf.dwws.umdb.persistence.ActorRepository;
 import com.ufes.inf.dwws.umdb.persistence.DirectorRepository;
 import com.ufes.inf.dwws.umdb.persistence.ReviewRepository;
-
-
+import com.ufes.inf.dwws.umdb.service.DirectorService;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +34,8 @@ public class MovieService {
     DirectorRepository directorRepository;
     @Autowired
     ReviewRepository reviewRepository;
+    @Autowired
+    DirectorService directorService;
 
 
     public MovieService (MovieRepository movieRepository){
@@ -275,5 +281,63 @@ public class MovieService {
             return null;
         }
 
+    }
+
+    public MovieDTO getSuggestion(String movieName) {
+
+        String query = "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
+        "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+        "PREFIX dbp: <http://dbpedia.org/property/>\n" +
+        "SELECT ?name ?year ?desc ?director\n"+
+        "WHERE {\n"+
+        "?film a dbo:Film ; dbp:name " + movieName + "@en .\n"+
+        "OPTIONAL { ?film rdfs:label ?name . }\n"+
+        "OPTIONAL { ?film rdfs:comment ?desc . }\n"+
+        "OPTIONAL { ?film dbp:released ?year . }\n"+
+        "OPTIONAL { ?film dbo:director ?dir . ?dir dbp:name ?director .}\n"+
+        "FILTER(langMatches(lang(?desc), \"EN\"))\n"+
+        "FILTER(langMatches(lang(?name), \"EN\"))\n"+
+        "}";
+
+        // System.out.println(query);
+
+        QueryExecution queryExecution = QueryExecutionFactory.sparqlService("https://dbpedia.org/sparql", query);
+        ResultSet results = queryExecution.execSelect();
+
+        if (results.hasNext()) {
+            QuerySolution solution = results.next();
+            String result = "";
+            String name = "";
+            String desc = "";
+            String directorName = "";
+            String yearStr = "";
+            Integer year = 0;
+            if (solution.contains("name")) {
+                name = solution.getLiteral("name").getString();
+            }
+            if (solution.contains("desc")) {
+                desc = solution.getLiteral("desc").getString();
+            }
+            if (solution.contains("year")) {
+                yearStr = solution.getLiteral("year").getString().split("-")[0];
+                year = Integer.parseInt(yearStr);
+            }
+            if (solution.contains("director")) {
+                directorName = solution.getLiteral("director").getString();
+            }
+            
+            DirectorDTO directorDTO = directorService.saveDirector(directorName);
+            List<Director> directors = directorRepository.findByName(directorName);
+            Movie movie = new Movie();
+            movie.setId(new Long(-1));
+            movie.setName(name);
+            movie.setSynopsis(desc);
+            movie.setYear(year);
+            movie.setDirectors(directors);
+            
+            
+            return initMovieDTO(movie);
+        }
+        return null;        
     }
 }
