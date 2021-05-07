@@ -14,9 +14,18 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.ResourceFactory;
+import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.List;
@@ -339,5 +348,103 @@ public class MovieService {
             return initMovieDTO(movie);
         }
         return null;        
+    }
+
+    public void publishMovieData() {
+        List<Movie> movies = movieRepository.findAll();
+
+        Model model = ModelFactory.createDefaultModel();
+        String myNS = "http://localhost:8080/open/movie/data/";
+        String dboNS = "http://dbpedia.org/ontology/";
+        String dbpNS = "http://dbpedia.org/property/";
+
+        model.setNsPrefix("dbo", dboNS);
+        model.setNsPrefix("dbp", dbpNS);
+
+        // Resources
+        Resource movieResource = ResourceFactory.createResource(dboNS+ "Film");
+        Resource actorResource = ResourceFactory.createResource(dboNS + "Actor");
+        Resource directorResource = ResourceFactory.createResource(dboNS + "Director"); // Criado
+        Resource genreResource = ResourceFactory.createResource(dboNS + "Genre");
+        Resource reviewResource = ResourceFactory.createResource(dboNS + "Review"); // Criado
+
+        // Properties for classes
+        Property actors = ResourceFactory.createProperty(dbpNS + "starring");
+        Property directors = ResourceFactory.createProperty(dbpNS + "director");
+        Property genres = ResourceFactory.createProperty(dbpNS + "genre");
+        Property reviews = ResourceFactory.createProperty(dbpNS  + "reviews"); // Criado
+
+        Property released = ResourceFactory.createProperty(dbpNS + "released");
+        Property averageRating = ResourceFactory.createProperty(dbpNS + "averageRating");
+        Property reviewCommentary = ResourceFactory.createProperty(dbpNS + "reviewCommentary"); // Criado
+        Property reviewAuthor = ResourceFactory.createProperty(dbpNS + "reviewAuthor"); // Criado
+        Property reviewRating = ResourceFactory.createProperty(dbpNS + "reviewRating"); // Criado
+
+        
+        // falta a sinopse, img
+        for (Movie m : movies) {
+            Resource movieRDF = model.createResource(myNS + m.getId());
+            movieRDF.addProperty(RDF.type, movieResource);
+            
+            // Add nome
+            if (m.getName() != null) {
+                movieRDF.addProperty(RDFS.label, m.getName());
+            }
+
+            // Add year
+            if (m.getYear() != 0) {
+                movieRDF.addLiteral(released, m.getYear());
+            }
+
+            // Add sinopse
+            if (m.getSynopsis() != null) {
+                movieRDF.addProperty(RDFS.label, m.getSynopsis());
+            }
+
+            // Add rating
+
+            // Add actors
+            for (Actor a : m.getActors()) {
+                movieRDF.addProperty(actors , model.createResource()
+                                                   .addProperty(RDF.type, actorResource)
+                                                   .addProperty(RDFS.label, a.getName()));
+            }
+
+            // Add directors
+            for (Director d : m.getDirectors()) {
+                movieRDF.addProperty(directors , model.createResource()
+                                                   .addProperty(RDF.type, directorResource)
+                                                   .addProperty(RDFS.label, d.getName()));
+            }
+            
+            // Add genres
+            for (Genre g : m.getGenres()) {
+                movieRDF.addProperty(genres , model.createResource()
+                                                   .addProperty(RDF.type, genreResource)
+                                                   .addProperty(RDFS.label, g.getName()));
+            }
+
+            float avgRating = 0;
+            // Add reviews
+            for (Review r : m.getReviews()) {
+                movieRDF.addProperty(reviews , model.createResource()
+                                                   .addProperty(RDF.type, reviewResource)
+                                                   .addProperty(reviewCommentary, r.getCommentary())
+                                                   .addProperty(reviewAuthor, r.getUser().getName())
+                                                   .addLiteral(reviewRating, r.getRating()));
+                
+                avgRating += r.getRating();
+            }
+
+            movieRDF.addLiteral(averageRating, avgRating);
+        
+        }
+
+        PrintStream output = System.out;
+        model.write(output, "RDF/XML");
+        		
+		
+		
+
     }
 }

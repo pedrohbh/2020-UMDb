@@ -144,5 +144,12 @@ public class MovieController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/api/open/movie/data/")
+    @ResponseBody
+    public ResponseEntity<Object> getData() {
+        this.movieService.publishMovieData();
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
     
 }
