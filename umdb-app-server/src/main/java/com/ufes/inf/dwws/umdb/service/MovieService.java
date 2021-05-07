@@ -299,7 +299,7 @@ public class MovieService {
         "PREFIX dbp: <http://dbpedia.org/property/>\n" +
         "SELECT ?name ?year ?desc ?director\n"+
         "WHERE {\n"+
-        "?film a dbo:Film ; dbp:name " + movieName + "@en .\n"+
+        "?film a dbo:Film ; dbp:name " + '"' + movieName + '"' + "@en .\n"+
         "OPTIONAL { ?film rdfs:label ?name . }\n"+
         "OPTIONAL { ?film rdfs:comment ?desc . }\n"+
         "OPTIONAL { ?film dbp:released ?year . }\n"+
