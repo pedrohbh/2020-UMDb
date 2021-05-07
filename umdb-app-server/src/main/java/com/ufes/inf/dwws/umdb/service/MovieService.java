@@ -375,6 +375,7 @@ public class MovieService {
         Property reviews = ResourceFactory.createProperty(dbpNS  + "reviews"); // Criado
 
         Property released = ResourceFactory.createProperty(dbpNS + "released");
+        Property averageRating = ResourceFactory.createProperty(dbpNS + "averageRating");
         Property reviewCommentary = ResourceFactory.createProperty(dbpNS + "reviewCommentary"); // Criado
         Property reviewAuthor = ResourceFactory.createProperty(dbpNS + "reviewAuthor"); // Criado
         Property reviewRating = ResourceFactory.createProperty(dbpNS + "reviewRating"); // Criado
@@ -399,7 +400,9 @@ public class MovieService {
             if (m.getSynopsis() != null) {
                 movieRDF.addProperty(RDFS.label, m.getSynopsis());
             }
-            
+
+            // Add rating
+
             // Add actors
             for (Actor a : m.getActors()) {
                 movieRDF.addProperty(actors , model.createResource()
@@ -421,6 +424,7 @@ public class MovieService {
                                                    .addProperty(RDFS.label, g.getName()));
             }
 
+            float avgRating = 0;
             // Add reviews
             for (Review r : m.getReviews()) {
                 movieRDF.addProperty(reviews , model.createResource()
@@ -428,7 +432,11 @@ public class MovieService {
                                                    .addProperty(reviewCommentary, r.getCommentary())
                                                    .addProperty(reviewAuthor, r.getUser().getName())
                                                    .addLiteral(reviewRating, r.getRating()));
+                
+                avgRating += r.getRating();
             }
+
+            movieRDF.addLiteral(averageRating, avgRating);
         
         }
 
