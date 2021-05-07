@@ -1,10 +1,17 @@
 package com.ufes.inf.dwws.umdb.service;
 
 import com.ufes.inf.dwws.umdb.domain.User;
+import com.ufes.inf.dwws.umdb.domain.Director;
+import com.ufes.inf.dwws.umdb.domain.Review;
 import com.ufes.inf.dwws.umdb.domain.Role;
 import com.ufes.inf.dwws.umdb.persistence.UserRepository;
 import com.ufes.inf.dwws.umdb.persistence.RoleRepository;
 import com.ufes.inf.dwws.umdb.security.JwtTokenProvider;
+
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,7 +22,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 //import com.ufes.inf.dwws.umdb.security.WebSecurityConfig;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 import java.util.*;
 
@@ -134,5 +140,54 @@ public class UserService implements UserDetailsService {
         UserDTO userDTO = new UserDTO(user);
         userDTO.setToken(token);
         return userDTO;
+    }
+
+    public List<String> getUserSuggestionsList(Long id) {
+
+        User user = this.userRepository.findById(id).get();
+        List<Review> reviews = user.getReviewList();
+        List<String> movieList = new LinkedList<String>();
+
+        if (!reviews.isEmpty()) {
+            // Generate random idx
+            Random rand = new Random();
+            int randomIndex = rand.nextInt(reviews.size());
+
+            // Get random director
+            Director director = reviews.get(randomIndex).getMovie().getDirectors().get(0);
+            String directorName = director.getName().replaceAll(" ", "_");
+
+            String query = "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+            "PREFIX dbp: <http://dbpedia.org/property/>\n" +
+            "PREFIX dbr: <http://dbpedia.org/resource/>\n" +
+            "SELECT ?name\n" +
+            "WHERE {\n" +
+            "?film a dbo:Film ;  dbo:director dbr:"+ directorName + " . \n" +
+            "?film rdfs:label ?name . \n" +
+            "FILTER(langMatches(lang(?name), \"EN\")) \n" +
+            "}";
+
+            QueryExecution queryExecution = QueryExecutionFactory.sparqlService("https://dbpedia.org/sparql", query);
+            ResultSet results = queryExecution.execSelect();
+            int numSuggestions = 0;
+
+            while (results.hasNext()) {
+                QuerySolution solution = results.next();
+                String name = "";
+                if (solution.contains("name")) {
+                    name = solution.getLiteral("name").getString();
+                    movieList.add(name);
+                }
+                numSuggestions += 1;
+
+                if (numSuggestions == 2) {
+                    return movieList;
+                }
+            }
+
+        }
+
+        return movieList;
     }
 }

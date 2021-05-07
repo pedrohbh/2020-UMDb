@@ -111,4 +111,11 @@ public class UserController {
         }
         return new ResponseEntity(userDTO, HttpStatus.OK);
     }
+
+    @GetMapping("/api/admin/user/suggestion/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> getUserSuggestion(@PathVariable Long id) {
+        List<String> movieList = this.userService.getUserSuggestionsList(id);
+        return new ResponseEntity<>(movieList, HttpStatus.OK);
+    }
 }
