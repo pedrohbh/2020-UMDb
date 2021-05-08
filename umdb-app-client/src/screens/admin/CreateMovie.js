@@ -27,6 +27,7 @@ class CreateMovie extends Component {
     }
 
     componentDidMount() {
+
         api.get('/open/director')
         .then((response) => this.setState({directorsList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
         .catch((error) => console.error(error))
@@ -64,17 +65,17 @@ class CreateMovie extends Component {
     tryToFetchMovie = () => {
         this.setState({isFetching: true})
         api.get(`/open/movie/suggestion?name=${this.state.name}`)
-        .then((response) => {
-            if (response.director) {
+        .then(({ data }) => {
+            if (data.directors) {
                 api.get('/open/director')
                 .then((response) => this.setState({directorsList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
                 .catch((error) => console.error(error))
-                this.setState({ selectedDirectors: [response.director.id] })
+                this.setState({ selectedDirectors: data.directors.map((director) => director.id) })
             }
             this.setState({
-                name: response.name,
-                synopsis: response.synopsis,
-                year: response.year
+                name: data.name,
+                synopsis: data.synopsis,
+                year: data.year
             })
         })
         .catch((error) => console.error(error))
@@ -105,7 +106,7 @@ class CreateMovie extends Component {
                         </Form.Field>
                         <Form.Field>
                             <label>Diretores</label>
-                            <Dropdown placeholder='Selecione o diretor' name="director" fluid selection multiple search options={this.state.directorsList} onChange={(e, data) => this.setState({ selectedDirectors: data.value })} />
+                            <Dropdown placeholder='Selecione o diretor' name="director" fluid selection multiple search options={this.state.directorsList} onChange={(e, data) => this.setState({ selectedDirectors: data.value })} value={this.state.selectedDirectors} />
                         </Form.Field>
                         <Form.Field>
                             <label>Atores</label>
@@ -124,7 +125,6 @@ class CreateMovie extends Component {
             </AdminContainer>
         );
     }
-
 };
 
 export default connect(
