@@ -22,10 +22,12 @@ class CreateMovie extends Component {
             selectedDirectors: [],
             selectedActors: [],
             selectedGenres: [],
+            isFetching: false
         }
     }
 
     componentDidMount() {
+
         api.get('/open/director')
         .then((response) => this.setState({directorsList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
         .catch((error) => console.error(error))
@@ -60,48 +62,69 @@ class CreateMovie extends Component {
         this.props.createMovie(formData, config)
     };
 
+    tryToFetchMovie = () => {
+        this.setState({isFetching: true})
+        api.get(`/open/movie/suggestion?name=${this.state.name}`)
+        .then(({ data }) => {
+            if (data.directors) {
+                api.get('/open/director')
+                .then((response) => this.setState({directorsList: response.data.map(({id, name}) => { return {key: id, text: name, value: id} })}))
+                .catch((error) => console.error(error))
+                this.setState({ selectedDirectors: data.directors.map((director) => director.id) })
+            }
+            this.setState({
+                name: data.name,
+                synopsis: data.synopsis,
+                year: data.year
+            })
+        })
+        .catch((error) => console.error(error))
+        this.setState({isFetching: false})
+    }
+
     render() {
         return (
             <AdminContainer activeItem="movie">
                 <AdminInternalHeader title="Criar filme" link="" />
                 <Form method="POST" onSubmit={this.onSubmit}>
-                    <Form.Field>
-                        <label>Nome</label>
-                        <Input placeholder='Nome' name="name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Imagem</label>
-                        <Input type="file" name="image" accept=".jpg, .jpeg, .png" onChange={(e) => this.setState({image: e.target.files[0]})} />
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Sinopse</label>
-                        <TextArea rows="6" placeholder='Sinopse' name="synopsis" value={this.state.synopsis} onChange={(e) => this.setState({ synopsis: e.target.value })} />
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Ano</label>
-                        <Input placeholder='Ano' name="year" type="number" value={this.state.year} onChange={(e) => this.setState({ year: e.target.value })} />
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Diretores</label>
-                        <Dropdown placeholder='Selecione o diretor' name="director" fluid selection multiple search options={this.state.directorsList} onChange={(e, data) => this.setState({ selectedDirectors: data.value })} />
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Atores</label>
-                        <Dropdown placeholder='Selecione os atores' name="actors" fluid selection multiple search options={this.state.actorsList} onChange={(e, data) => this.setState({ selectedActors: data.value })} />
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Generos</label>
-                        <Dropdown placeholder='Selecione os gêneros' name="genres" fluid selection multiple search options={this.state.genresList} onChange={(e, data) => this.setState({ selectedGenres: data.value })} />
-                    </Form.Field>
-                    <Button icon type="submit" labelPosition='left'>
-                        <Icon name='plus' />
-                        Adicionar
-                    </Button>
+                    <fieldset disabled={this.state.isFetching} style={{border: 0, padding: 0}}>
+                        <Form.Field>
+                            <label>Nome</label>
+                            <Input onBlur={this.tryToFetchMovie} placeholder='Nome' name="name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Imagem</label>
+                            <Input type="file" name="image" accept=".jpg, .jpeg, .png" onChange={(e) => this.setState({image: e.target.files[0]})} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Sinopse</label>
+                            <TextArea rows="6" placeholder='Sinopse' name="synopsis" value={this.state.synopsis} onChange={(e) => this.setState({ synopsis: e.target.value })} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Ano</label>
+                            <Input placeholder='Ano' name="year" type="number" value={this.state.year} onChange={(e) => this.setState({ year: e.target.value })} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Diretores</label>
+                            <Dropdown placeholder='Selecione o diretor' name="director" fluid selection multiple search options={this.state.directorsList} onChange={(e, data) => this.setState({ selectedDirectors: data.value })} value={this.state.selectedDirectors} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Atores</label>
+                            <Dropdown placeholder='Selecione os atores' name="actors" fluid selection multiple search options={this.state.actorsList} onChange={(e, data) => this.setState({ selectedActors: data.value })} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Generos</label>
+                            <Dropdown placeholder='Selecione os gêneros' name="genres" fluid selection multiple search options={this.state.genresList} onChange={(e, data) => this.setState({ selectedGenres: data.value })} />
+                        </Form.Field>
+                        <Button icon type="submit" labelPosition='left'>
+                            <Icon name='plus' />
+                            Adicionar
+                        </Button>
+                    </fieldset>
                 </Form>
             </AdminContainer>
         );
     }
-
 };
 
 export default connect(
