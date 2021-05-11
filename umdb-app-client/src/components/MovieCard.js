@@ -26,7 +26,7 @@ const MovieCard = ({ title, year, link, imageSource, avgRate }) => {
             </Card.Content>
             <Card.Content extra>
                 <Rating defaultRating={Math.floor(avgRate)} maxRating={5} disabled style={{ marginRight: '5px' }} />
-                {avgRate}/5
+                {avgRate.toFixed(1)}/5
             </Card.Content>
         </Card>
     );
