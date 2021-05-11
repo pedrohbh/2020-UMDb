@@ -143,8 +143,14 @@ public class UserService implements UserDetailsService {
     }
 
     public List<String> getUserSuggestionsList(Long id) {
-
-        User user = this.userRepository.findById(id).get();
+        Optional<User> u = this.userRepository.findById(id);
+        User user = null;
+        if (u.isPresent()) {
+            user = this.userRepository.findById(id).get();
+        } else {
+            System.out.println("Deu ruim antes de achar o user!");
+            return new LinkedList<String>();
+        }
         List<Review> reviews = user.getReviewList();
         List<String> movieList = new LinkedList<String>();
 
@@ -177,15 +183,18 @@ public class UserService implements UserDetailsService {
                 String name = "";
                 if (solution.contains("name")) {
                     name = solution.getLiteral("name").getString();
+                    if (name.contains("(film)")) {
+                        name = name.replace("(film)", "");
+                    }
                     movieList.add(name);
+                    // System.out.println(name);
                 }
                 numSuggestions += 1;
 
-                if (numSuggestions == 2) {
+                if (numSuggestions == 3) {
                     return movieList;
                 }
             }
-
         }
 
         return movieList;

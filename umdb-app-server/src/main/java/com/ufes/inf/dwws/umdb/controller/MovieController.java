@@ -148,8 +148,14 @@ public class MovieController {
     @GetMapping("/api/open/movie/data/")
     @ResponseBody
     public ResponseEntity<Object> getData() {
-        this.movieService.publishMovieData();
+        this.movieService.publishMovieData(new Long(-1));
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
-    
+
+    @GetMapping("/api/open/movie/data/{id}")
+    @ResponseBody
+    public ResponseEntity<Object> getDataById(@PathVariable Long id) {
+        this.movieService.publishMovieData(id);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 }

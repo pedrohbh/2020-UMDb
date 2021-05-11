@@ -19,7 +19,7 @@ public class Movie {
     @Column(length = 1000)
     private byte[] image;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String synopsis;
 
 

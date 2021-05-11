@@ -350,23 +350,34 @@ public class MovieService {
         return null;        
     }
 
-    public void publishMovieData() {
-        List<Movie> movies = movieRepository.findAll();
+    public void publishMovieData(Long id) {
+        
+        List<Movie> movies = new LinkedList<Movie>();
+        if (id == -1) {
+            movies = movieRepository.findAll();
+        } else {
+            Optional<Movie> m = movieRepository.findById(id);
+            if (m.isPresent()) {
+                movies.add(m.get());
+            }
+        }
 
         Model model = ModelFactory.createDefaultModel();
         String myNS = "http://localhost:8080/open/movie/data/";
         String dboNS = "http://dbpedia.org/ontology/";
         String dbpNS = "http://dbpedia.org/property/";
+        String schNS = "http://schema.org/";
 
         model.setNsPrefix("dbo", dboNS);
         model.setNsPrefix("dbp", dbpNS);
+        model.setNsPrefix("schema", schNS);
 
         // Resources
         Resource movieResource = ResourceFactory.createResource(dboNS+ "Film");
         Resource actorResource = ResourceFactory.createResource(dboNS + "Actor");
-        Resource directorResource = ResourceFactory.createResource(dboNS + "Director"); // Criado
+        Resource directorResource = ResourceFactory.createResource(dboNS + "MovieDirector");
         Resource genreResource = ResourceFactory.createResource(dboNS + "Genre");
-        Resource reviewResource = ResourceFactory.createResource(dboNS + "Review"); // Criado
+        Resource reviewResource = ResourceFactory.createResource(schNS + "Review"); // Criado
 
         // Properties for classes
         Property actors = ResourceFactory.createProperty(dbpNS + "starring");
@@ -375,10 +386,10 @@ public class MovieService {
         Property reviews = ResourceFactory.createProperty(dbpNS  + "reviews"); // Criado
 
         Property released = ResourceFactory.createProperty(dbpNS + "released");
-        Property averageRating = ResourceFactory.createProperty(dbpNS + "averageRating");
-        Property reviewCommentary = ResourceFactory.createProperty(dbpNS + "reviewCommentary"); // Criado
-        Property reviewAuthor = ResourceFactory.createProperty(dbpNS + "reviewAuthor"); // Criado
-        Property reviewRating = ResourceFactory.createProperty(dbpNS + "reviewRating"); // Criado
+        Property averageRating = ResourceFactory.createProperty(dbpNS + "rating");
+        Property reviewCommentary = ResourceFactory.createProperty(schNS + "reviewBody"); 
+        Property reviewAuthor = ResourceFactory.createProperty(schNS + "author"); 
+        Property reviewRating = ResourceFactory.createProperty(schNS + "reviewRating"); 
 
         
         // falta a sinopse, img
@@ -401,8 +412,6 @@ public class MovieService {
                 movieRDF.addProperty(RDFS.label, m.getSynopsis());
             }
 
-            // Add rating
-
             // Add actors
             for (Actor a : m.getActors()) {
                 movieRDF.addProperty(actors , model.createResource()
@@ -424,8 +433,8 @@ public class MovieService {
                                                    .addProperty(RDFS.label, g.getName()));
             }
 
-            float avgRating = 0;
             // Add reviews
+            float avgRating = 0;
             for (Review r : m.getReviews()) {
                 movieRDF.addProperty(reviews , model.createResource()
                                                    .addProperty(RDF.type, reviewResource)
@@ -436,15 +445,13 @@ public class MovieService {
                 avgRating += r.getRating();
             }
 
+            // Add rating
             movieRDF.addLiteral(averageRating, avgRating);
         
         }
 
         PrintStream output = System.out;
-        model.write(output, "RDF/XML");
-        		
-		
-		
+        model.write(output, "RDF/XML");   			
 
     }
 }
