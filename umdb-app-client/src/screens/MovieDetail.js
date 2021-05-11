@@ -56,7 +56,7 @@ class MovieDetail extends Component {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={5}>
-                            <Image wrapped ui={false} src={`data:image/gif;Base64,${this.state.image}`} />
+                            <Image className="movie-cover" wrapped ui={false} src={`data:image/gif;Base64,${this.state.image}`} />
                         </Grid.Column>
                         <Grid.Column width={11}>
                             <MovieInfo
