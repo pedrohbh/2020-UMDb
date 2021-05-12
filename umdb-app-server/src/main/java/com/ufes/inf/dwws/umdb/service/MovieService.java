@@ -377,13 +377,13 @@ public class MovieService {
         Resource actorResource = ResourceFactory.createResource(dboNS + "Actor");
         Resource directorResource = ResourceFactory.createResource(dboNS + "MovieDirector");
         Resource genreResource = ResourceFactory.createResource(dboNS + "Genre");
-        Resource reviewResource = ResourceFactory.createResource(schNS + "Review"); // Criado
+        Resource reviewResource = ResourceFactory.createResource(schNS + "Review");
 
         // Properties for classes
         Property actors = ResourceFactory.createProperty(dbpNS + "starring");
         Property directors = ResourceFactory.createProperty(dbpNS + "director");
         Property genres = ResourceFactory.createProperty(dbpNS + "genre");
-        Property reviews = ResourceFactory.createProperty(dbpNS  + "reviews"); // Criado
+        Property reviews = ResourceFactory.createProperty(dbpNS  + "reviews");
 
         Property released = ResourceFactory.createProperty(dbpNS + "released");
         Property averageRating = ResourceFactory.createProperty(dbpNS + "rating");
@@ -409,7 +409,7 @@ public class MovieService {
 
             // Add sinopse
             if (m.getSynopsis() != null) {
-                movieRDF.addProperty(RDFS.label, m.getSynopsis());
+                movieRDF.addProperty(RDFS.comment, m.getSynopsis());
             }
 
             // Add actors
