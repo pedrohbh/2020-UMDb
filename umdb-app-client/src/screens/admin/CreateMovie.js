@@ -73,7 +73,6 @@ class CreateMovie extends Component {
                 this.setState({ selectedDirectors: data.directors.map((director) => director.id) })
             }
             this.setState({
-                name: data.name,
                 synopsis: data.synopsis,
                 year: data.year
             })
