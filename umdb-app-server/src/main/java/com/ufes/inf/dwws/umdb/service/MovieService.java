@@ -21,6 +21,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
+import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,12 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.List;
+
+import java.io.*;
+
+import org.jdom2.*;
+import org.jdom2.input.*;
+import org.jdom2.output.*;
 
 @Component
 public class MovieService {
@@ -350,7 +357,7 @@ public class MovieService {
         return null;        
     }
 
-    public void publishMovieData(Long id) {
+    public void publishMovieData(Long id) throws IOException {
         
         List<Movie> movies = new LinkedList<Movie>();
         if (id == -1) {
@@ -450,8 +457,7 @@ public class MovieService {
         
         }
 
-        PrintStream output = System.out;
-        model.write(output, "RDF/XML");   			
-
+        FileOutputStream output = new FileOutputStream("./src/main/resources/publish_data.xml");
+        model.write(output, "RDF/XML");
     }
 }

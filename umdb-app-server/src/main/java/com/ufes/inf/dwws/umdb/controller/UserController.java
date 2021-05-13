@@ -112,10 +112,10 @@ public class UserController {
         return new ResponseEntity(userDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/api/admin/user/suggestion/{id}")
+    @GetMapping("/api/close/user/suggestion")
     @ResponseBody
-    public ResponseEntity<Object> getUserSuggestion(@PathVariable Long id) {
-        List<String> movieList = this.userService.getUserSuggestionsList(id);
+    public ResponseEntity<Object> getUserSuggestion(@AuthenticationPrincipal User user) {
+        List<String> movieList = this.userService.getUserSuggestionsList(user.getId());
         return new ResponseEntity<>(movieList, HttpStatus.OK);
     }
 }

@@ -1,18 +1,17 @@
 package com.ufes.inf.dwws.umdb.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ufes.inf.dwws.umdb.domain.Movie;
 import com.ufes.inf.dwws.umdb.service.MovieDTO;
 import com.ufes.inf.dwws.umdb.service.MovieService;
-import org.apache.commons.io.FileUtils;
-import org.json.JSONObject;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -147,15 +146,18 @@ public class MovieController {
 
     @GetMapping("/api/open/movie/data/")
     @ResponseBody
-    public ResponseEntity<Object> getData() {
+    public FileSystemResource getData() throws IOException {
         this.movieService.publishMovieData(new Long(-1));
-        return new ResponseEntity<>(null, HttpStatus.OK);
+//        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new FileSystemResource(new File("./src/main/resources/publish_data.xml"));
     }
 
     @GetMapping("/api/open/movie/data/{id}")
     @ResponseBody
-    public ResponseEntity<Object> getDataById(@PathVariable Long id) {
+    public FileSystemResource getDataById(@PathVariable Long id) throws IOException {
         this.movieService.publishMovieData(id);
-        return new ResponseEntity<>(null, HttpStatus.OK);
+//        response.setContentType("application/xml");
+        return new FileSystemResource(new File("./src/main/resources/publish_data.xml"));
+//        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }
