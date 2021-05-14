@@ -60,6 +60,7 @@ class MovieDetail extends Component {
                         </Grid.Column>
                         <Grid.Column width={11}>
                             <MovieInfo
+                                id={this.props.match.params.id}
                                 title={this.state.name}
                                 rating={this.state.avgRate}
                                 year={this.state.year}
