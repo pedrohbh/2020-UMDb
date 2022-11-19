@@ -118,16 +118,27 @@
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="DefaultForm">
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/components/DFForm" association="//@compose.1/components/@packagedElement.7"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:UIComponent" name="DFForm"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/components/@packagedElement.7/@ownedEnd.0 //@compose.1/components/DefaultForm/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/components/DefaultForm" association="//@compose.1/components/@packagedElement.7"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminContainer"/>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminSideBar"/>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminInternalHeader"/>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="App"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="DefaultForm">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="onSubmit"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminInternalHeader" supplier="//@compose.1/components.1/AdminInternalHeader"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/App" supplier="//@compose.1/components.1/App"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/DFForm" supplier="//@compose.1/components.1/DefaultForm" method="//@compose.1/components.1/DefaultForm/onSubmit"/>
   </compose>
 </frameweb:FramewebProject>
