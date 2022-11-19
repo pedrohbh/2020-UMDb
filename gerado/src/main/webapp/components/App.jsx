@@ -7,7 +7,7 @@ export default function App(props) {
 	
 	render() {  
       return (
-        <div><Router ></Router><Route ></Route><Route ></Route><Footer ></Footer>
+        <div><Router ></Router><Route ></Route><Route ></Route><Footer ></Footer><CreateDefault ></CreateDefault>
 	<header />
 	</div>
       );

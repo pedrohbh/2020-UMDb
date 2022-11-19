@@ -40,79 +40,10 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.12"/>
-      </packagedElement>
-      <packagedElement xsi:type="frameweb:Partial" name="App">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Router">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Route">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Route">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-          <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-            <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-            <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-              <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-              <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                  <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                  <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                    <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                    <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                      <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                      <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                        <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                        <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                          <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                            <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                            <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                              <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                              <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                  <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                  <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                    <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                    <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                      <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                      <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                        <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                        <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                          <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                            <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                            <qualifier xsi:type="frameweb:UIComponentField" name="Route">
-                                              <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-                                            </qualifier>
-                                          </qualifier>
-                                        </qualifier>
-                                      </qualifier>
-                                    </qualifier>
-                                  </qualifier>
-                                </qualifier>
-                              </qualifier>
-                            </qualifier>
-                          </qualifier>
-                        </qualifier>
-                      </qualifier>
-                    </qualifier>
-                  </qualifier>
-                </qualifier>
-              </qualifier>
-            </qualifier>
-          </qualifier>
-        </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Footer">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.11"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="DefaultForm">
-        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/components/DFForm" association="//@compose.1/components/@packagedElement.7"/>
+        <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/components/DFForm" association="//@compose.1/components/@packagedElement.6"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:UIComponent" name="DFForm">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="inputValue">
@@ -122,8 +53,8 @@
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/components/@packagedElement.7/@ownedEnd.0 //@compose.1/components/DefaultForm/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/components/DefaultForm" association="//@compose.1/components/@packagedElement.7"/>
+      <packagedElement xsi:type="frameweb:NavigationAssociation" memberEnd="//@compose.1/components/@packagedElement.6/@ownedEnd.0 //@compose.1/components/DefaultForm/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/components/DefaultForm" association="//@compose.1/components/@packagedElement.6"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="Filter">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Divider">
@@ -168,7 +99,7 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Accordion.Content">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.10"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.9"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="Header">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Menu.Menu">
@@ -178,14 +109,14 @@
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.10/@ownedEnd.0 //@compose.1/components/Filter/@ownedAttribute.14">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/Filter" association="//@compose.1/components/@packagedElement.10"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.9/@ownedEnd.0 //@compose.1/components/Filter/@ownedAttribute.14">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/Filter" association="//@compose.1/components/@packagedElement.9"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.11/@ownedEnd.0 //@compose.1/components/App/@ownedAttribute.4">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/App" association="//@compose.1/components/@packagedElement.11"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.10/@ownedEnd.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" association="//@compose.1/components/@packagedElement.10"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.12/@ownedEnd.0 //@compose.1/components/AdminInternalHeader/@ownedAttribute.1">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminInternalHeader" association="//@compose.1/components/@packagedElement.12"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.11/@ownedEnd.0 //@compose.1/components/AdminInternalHeader/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminInternalHeader" association="//@compose.1/components/@packagedElement.11"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="HomeContainer">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
@@ -194,20 +125,20 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Segment">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Filter" association="//@compose.1/components/@packagedElement.14"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Filter" association="//@compose.1/components/@packagedElement.13"/>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Segment">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/MovieSuggestion" association="//@compose.1/components/@packagedElement.16"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/MovieSuggestion" association="//@compose.1/components/@packagedElement.15"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.14/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.2">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.14"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.13/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.2">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.13"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="MovieSuggestion">
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.20"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.19"/>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Divider">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
@@ -218,8 +149,8 @@
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.16/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.5">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.16"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.15/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.5">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.15"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="MovieCard">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="imageSource">
@@ -245,7 +176,7 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="MovieInfo">
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.19"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.18"/>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Rating">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
@@ -254,25 +185,25 @@
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="director">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
-          <qualifier xsi:type="frameweb:UIComponentField" name="actors">
-            <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
-            <qualifier xsi:type="frameweb:UIComponentField" name="genres">
-              <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
-              <qualifier xsi:type="frameweb:UIComponentField" name="synopsis">
-                <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
-              </qualifier>
-            </qualifier>
-          </qualifier>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="synopsis">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="genres">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="actors">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.19/@ownedEnd.0 //@compose.1/components/MovieInfo/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieInfo" association="//@compose.1/components/@packagedElement.19"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.18/@ownedEnd.0 //@compose.1/components/MovieInfo/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieInfo" association="//@compose.1/components/@packagedElement.18"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.20/@ownedEnd.0 //@compose.1/components/MovieSuggestion/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieSuggestion" association="//@compose.1/components/@packagedElement.20"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.19/@ownedEnd.0 //@compose.1/components/MovieSuggestion/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieSuggestion" association="//@compose.1/components/@packagedElement.19"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="SingleReview">
-        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.22"/>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.21"/>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Rating">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
@@ -280,13 +211,100 @@
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.22/@ownedEnd.0 //@compose.1/components/SingleReview/@ownedAttribute.0">
-        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/SingleReview" association="//@compose.1/components/@packagedElement.22"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.21/@ownedEnd.0 //@compose.1/components/SingleReview/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/SingleReview" association="//@compose.1/components/@packagedElement.21"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="Footer">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Container">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="App">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="router">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.24"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="route">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="createDefault">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="createDefault">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="createDefault">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="editDefault">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="editDefault">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="editDefault">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.24/@ownedEnd.0 //@compose.1/components/App/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/App" association="//@compose.1/components/@packagedElement.24"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
@@ -339,7 +357,7 @@
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminInternalHeader" supplier="//@compose.1/components.1/AdminInternalHeader"/>
-    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/App" supplier="//@compose.1/components.1/App"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" supplier="//@compose.1/components.1/App"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/DFForm" supplier="//@compose.1/components.1/DefaultForm" method="//@compose.1/components.1/DefaultForm/onSubmit"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Filter" supplier="//@compose.1/components.1/Filter"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Header" supplier="//@compose.1/components.1/Header"/>
@@ -349,5 +367,6 @@
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/MovieInfo" supplier="//@compose.1/components.1/MovieInfo" method="//@compose.1/components.1/MovieInfo/openRdfXml"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/SingleReview" supplier="//@compose.1/components.1/SingleReview"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Footer" supplier="//@compose.1/components.1/Footer"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/App" supplier="//@compose.1/components.1/App"/>
   </compose>
 </frameweb:FramewebProject>
