@@ -6,6 +6,20 @@
     </packagedElement>
   </compose>
   <compose xsi:type="frameweb:NavigationModel" name="Navigation Model">
-    <packagedElement xsi:type="frameweb:ViewPackage" name="View Package"/>
+    <packagedElement xsi:type="frameweb:ViewPackage" name="components">
+      <packagedElement xsi:type="frameweb:Partial" name="AdminContainer">
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/AdminSidebar" association="//@compose.1/components/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="AdminSidebar"/>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.2/@ownedEnd.0 //@compose.1/components/AdminContainer/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminContainer" association="//@compose.1/components/@packagedElement.2"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminContainer"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminSideBar"/>
+    </packagedElement>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
   </compose>
 </frameweb:FramewebProject>
