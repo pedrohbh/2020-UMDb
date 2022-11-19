@@ -40,18 +40,13 @@
         <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminContainer" association="//@compose.1/components/@packagedElement.2"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="AdminInternalHeader">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Header">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.12"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="App">
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Router">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Header">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Route">
@@ -117,6 +112,7 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Footer">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.11"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="DefaultForm">
         <ownedAttribute xsi:type="frameweb:NavigationCompositionWhole" type="//@compose.1/components/DFForm" association="//@compose.1/components/@packagedElement.7"/>
@@ -133,9 +129,6 @@
         <ownedEnd xsi:type="frameweb:NavigationCompositionPart" type="//@compose.1/components/DefaultForm" association="//@compose.1/components/@packagedElement.7"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:Partial" name="Filter">
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Header">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Divider">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
@@ -178,6 +171,24 @@
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Accordion.Content">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.10"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="Header">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Menu.Menu">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.10/@ownedEnd.0 //@compose.1/components/Filter/@ownedAttribute.14">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/Filter" association="//@compose.1/components/@packagedElement.10"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.11/@ownedEnd.0 //@compose.1/components/App/@ownedAttribute.4">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/App" association="//@compose.1/components/@packagedElement.11"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.12/@ownedEnd.0 //@compose.1/components/AdminInternalHeader/@ownedAttribute.1">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminInternalHeader" association="//@compose.1/components/@packagedElement.12"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
@@ -192,6 +203,7 @@
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="onSubmit"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="Filter"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="Header"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
@@ -199,5 +211,6 @@
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/App" supplier="//@compose.1/components.1/App"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/DFForm" supplier="//@compose.1/components.1/DefaultForm" method="//@compose.1/components.1/DefaultForm/onSubmit"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Filter" supplier="//@compose.1/components.1/Filter"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Header" supplier="//@compose.1/components.1/Header"/>
   </compose>
 </frameweb:FramewebProject>
