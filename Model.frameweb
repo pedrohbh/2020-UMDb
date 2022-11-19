@@ -9,9 +9,6 @@
     <packagedElement xsi:type="frameweb:ViewPackage" name="components">
       <packagedElement xsi:type="frameweb:Partial" name="AdminContainer">
         <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/AdminSidebar" association="//@compose.1/components/@packagedElement.2"/>
-        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid">
-          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
-        </ownedAttribute>
         <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
@@ -190,6 +187,21 @@
       <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.12/@ownedEnd.0 //@compose.1/components/AdminInternalHeader/@ownedAttribute.1">
         <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminInternalHeader" association="//@compose.1/components/@packagedElement.12"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="HomeContainer">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Segment">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Filter" association="//@compose.1/components/@packagedElement.14"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.14/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.2">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.14"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminContainer"/>
@@ -204,6 +216,9 @@
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="Filter"/>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="Header"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="HomeContainer">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="openRdfXml"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
@@ -212,5 +227,6 @@
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/DFForm" supplier="//@compose.1/components.1/DefaultForm" method="//@compose.1/components.1/DefaultForm/onSubmit"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Filter" supplier="//@compose.1/components.1/Filter"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/Header" supplier="//@compose.1/components.1/Header"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.1/components/HomeContainer" supplier="//@compose.1/components.1/HomeContainer" method="//@compose.1/components.1/HomeContainer/openRdfXml"/>
   </compose>
 </frameweb:FramewebProject>
