@@ -9,17 +9,52 @@
     <packagedElement xsi:type="frameweb:ViewPackage" name="components">
       <packagedElement xsi:type="frameweb:Partial" name="AdminContainer">
         <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/AdminSidebar" association="//@compose.1/components/@packagedElement.2"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Grid.Column">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Segment">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:Partial" name="AdminSidebar"/>
+      <packagedElement xsi:type="frameweb:Partial" name="AdminSidebar">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Menu">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+      </packagedElement>
       <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.2/@ownedEnd.0 //@compose.1/components/AdminContainer/@ownedAttribute.0">
         <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/AdminContainer" association="//@compose.1/components/@packagedElement.2"/>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="AdminInternalHeader">
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Header">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Link">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
       </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminContainer"/>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminSideBar"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminInternalHeader"/>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminInternalHeader" supplier="//@compose.1/components.1/AdminInternalHeader"/>
   </compose>
 </frameweb:FramewebProject>
