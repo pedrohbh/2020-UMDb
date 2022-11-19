@@ -206,7 +206,18 @@
       <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.14/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.2">
         <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.14"/>
       </packagedElement>
-      <packagedElement xsi:type="frameweb:Partial" name="MovieSuggestion"/>
+      <packagedElement xsi:type="frameweb:Partial" name="MovieSuggestion">
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.20"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Divider">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="suggestion">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Icon">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+      </packagedElement>
       <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.16/@ownedEnd.0 //@compose.1/components/HomeContainer/@ownedAttribute.5">
         <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/HomeContainer" association="//@compose.1/components/@packagedElement.16"/>
       </packagedElement>
@@ -257,6 +268,9 @@
       <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.19/@ownedEnd.0 //@compose.1/components/MovieInfo/@ownedAttribute.0">
         <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieInfo" association="//@compose.1/components/@packagedElement.19"/>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.20/@ownedEnd.0 //@compose.1/components/MovieSuggestion/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieSuggestion" association="//@compose.1/components/@packagedElement.20"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminContainer"/>
@@ -284,6 +298,18 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieInfo">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="year">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+          <qualifier xsi:type="frameweb:IOParameter" name="director">
+            <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+            <qualifier xsi:type="frameweb:IOParameter" name="actors">
+              <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+              <qualifier xsi:type="frameweb:IOParameter" name="genres">
+                <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+              </qualifier>
+            </qualifier>
+          </qualifier>
+        </ownedAttribute>
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="openRdfXml"/>
       </packagedElement>
     </packagedElement>
