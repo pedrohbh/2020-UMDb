@@ -233,6 +233,30 @@
           <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xsi:type="frameweb:Partial" name="MovieInfo">
+        <ownedAttribute xsi:type="frameweb:NavigationAggregationTarget" type="//@compose.1/components/Header" association="//@compose.1/components/@packagedElement.19"/>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="Rating">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/External%20Component"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="year">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:UIComponentField" name="director">
+          <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+          <qualifier xsi:type="frameweb:UIComponentField" name="actors">
+            <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+            <qualifier xsi:type="frameweb:UIComponentField" name="genres">
+              <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+              <qualifier xsi:type="frameweb:UIComponentField" name="synopsis">
+                <type xsi:type="frameweb:Tag" href="frameweb/react/NavigationModel_JButler_JSF_PrimeFaces.frameweb#//@configures.0/HTML/p"/>
+              </qualifier>
+            </qualifier>
+          </qualifier>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:NavigationAggregationAssociation" memberEnd="//@compose.1/components/@packagedElement.19/@ownedEnd.0 //@compose.1/components/MovieInfo/@ownedAttribute.0">
+        <ownedEnd xsi:type="frameweb:NavigationAggregationSource" type="//@compose.1/components/MovieInfo" association="//@compose.1/components/@packagedElement.19"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:ControllerPackage" name="components">
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="AdminContainer"/>
@@ -251,7 +275,17 @@
         <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="openRdfXml"/>
       </packagedElement>
       <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieSuggestion"/>
-      <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieCard"/>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieCard">
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="imageSource">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+        <ownedAttribute xsi:type="frameweb:IOParameter" name="year">
+          <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xsi:type="frameweb:FrontControllerClass" name="MovieInfo">
+        <ownedOperation xsi:type="frameweb:FrontControllerMethod" name="openRdfXml"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminSidebar" supplier="//@compose.1/components.1/AdminSideBar"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/AdminContainer" supplier="//@compose.1/components.1/AdminContainer"/>
@@ -263,5 +297,6 @@
     <packagedElement xsi:type="frameweb:FrontControllerDependency" name="" client="//@compose.1/components/HomeContainer" supplier="//@compose.1/components.1/HomeContainer" method="//@compose.1/components.1/HomeContainer/openRdfXml"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/MovieSuggestion" supplier="//@compose.1/components.1/MovieSuggestion"/>
     <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/MovieCard" supplier="//@compose.1/components.1/MovieCard"/>
+    <packagedElement xsi:type="frameweb:FrontControllerDependency" client="//@compose.1/components/MovieInfo" supplier="//@compose.1/components.1/MovieInfo" method="//@compose.1/components.1/MovieInfo/openRdfXml"/>
   </compose>
 </frameweb:FramewebProject>
