@@ -21,9 +21,7 @@ class DefaultForm extends React.Component
         <div>
    
    <form>
-   <input type="text" id="inputValue" value={{ this.state.inputValue }} />
-		<External Component id="Icon" value={{ this.state.Icon }} />
-		
+   <input type="text" id="inputValue"value={{ this.state.inputValue }}/><Icon id="Icon"/>
 	
 	
 	<button onClick="onSubmit">onSubmit</button>
